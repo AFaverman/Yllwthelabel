@@ -1598,6 +1598,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       key: '_onOptionChanged',
       value: function _onOptionChanged(newValue, target, activator) {
+        console.log("test");
         // We change the value associated with the activator, and check if we have a color swatch
         if (activator) {
           this['option' + target.getAttribute('data-option-position')] = newValue;
