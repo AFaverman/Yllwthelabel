@@ -1,0 +1,56 @@
+{%- liquid
+
+assign request_locale = request.locale
+
+assign shop_published_locales = shop.published_locales
+assign use_international_domains = false
+
+if shop.metafields.translation_lab.published_locales
+    assign shop_published_locales = shop.metafields.translation_lab.published_locales
+    assign use_international_domains = true
+endif
+
+-%}
+
+{%- capture localization_form -%}
+{%- form 'localization' -%}
+<input type="hidden" name="language_code" value="{{ localization.language.iso_code }}">
+{%- endform -%}
+{%- endcapture %}
+
+{% capture language_list %}
+[{%- for locale in shop_published_locales %}{
+"name": "{{locale.name | split: "(" | first | strip}}",
+"endonym_name": "{{ locale.endonym_name | split: "(" | first | strip}}",
+"iso_code": "{{ locale.iso_code }}",
+"primary": {{ locale.primary }},
+"domain": {{ locale.domain | json }},
+"root_url": {{ locale.root_url | json }}
+}{% unless forloop.last %},{% endunless -%}{%- endfor %}]
+{% endcapture %}
+
+<script>
+"use strict";
+Array.prototype.find||Object.defineProperty(Array.prototype,"find",{value:function(r){if(null==this)throw TypeError('"this" is null or not defined');var t=Object(this),e=t.length>>>0;if("function"!=typeof r)throw TypeError("predicate must be a function");for(var i=arguments[1],o=0;o<e;){var n=t[o];if(r.call(i,n,o,t))return n;o++}},configurable:!0,writable:!0});
+!function(d){var c="translation-lab-lang";function o(e){localStorage.setItem(c,e)}function u(e){n=e,o=localStorage.getItem(c);var o,n=(n=o?n.find(function(e){return e.iso_code.toLowerCase()===o.toLowerCase()}):null)?n.iso_code:null,e=function(e){var o=navigator.language;if(!o)return null;var n=o.split("-");return(o=n[0]?e.find(function(e){return e.iso_code.toLowerCase().startsWith(n[0])}):null)?o.iso_code:null}(e);return n||e||null}function s(){d.addEventListener("load",function(){setTimeout(function(){document.querySelectorAll('select[name="locale_code"]').forEach(function(e){e.addEventListener("change",function(e){e=e.target;e&&o(e.value)})}),document.querySelectorAll('input[name="locale_code"]').forEach(function(e){var n;e=e,n=function(e){e&&o(e.value)},new MutationObserver(function(e,o){"value"===e[0].attributeName&&n(e[0].target)}).observe(e,{attributes:!0})})},500)})}function e(e,o,n,t,a,r){if(!d.Shopify||!d.Shopify.designMode){var i=new RegExp("(bot|Googlebot/|Googlebot-Mobile|Googlebot-Image|Googlebot-News|Googlebot-Video|AdsBot-Google([^-]|$)|AdsBot-Google-Mobile|Feedfetcher-Google|Mediapartners-Google|APIs-Google|Page|Speed|Insights|Lighthouse|bingbot|Slurp|exabot|ia_archiver|YandexBot|YandexImages|YandexAccessibilityBot|YandexMobileBot|YandexMetrika|YandexTurbo|YandexImageResizer|YandexVideo|YandexAdNet|YandexBlogs|YandexCalendar|YandexDirect|YandexFavicons|YaDirectFetcher|YandexForDomain|YandexMarket|YandexMedia|YandexMobileScreenShotBot|YandexNews|YandexOntoDB|YandexPagechecker|YandexPartner|YandexRCA|YandexSearchShop|YandexSitelinks|YandexSpravBot|YandexTracker|YandexVertis|YandexVerticals|YandexWebmaster|YandexScreenshotBot|Baiduspider|facebookexternalhit|Sogou|DuckDuckBot|BUbiNG|crawler4j|S[eE][mM]rushBot|Google-Adwords-Instant|BingPreview/|Bark[rR]owler|DuckDuckGo-Favicons-Bot|AppEngine-Google|Google Web Preview|acapbot|Baidu-YunGuanCe|Feedly|Feedspot|google-xrawler|Google-Structured-Data-Testing-Tool|Google-PhysicalWeb|Google Favicon|Google-Site-Verification|Gwene|SentiBot|FreshRSS)","i");if(!i.test(navigator.userAgent)){var l,a=(l=u(i=a))&&null!=(i=i.find(function(e){return e.iso_code.toLowerCase()===l.toLowerCase()}))?i:null;(function(e,o,n,t,a){if(!e)return;if(!o)return;if(!n)return;var r=e.iso_code.toLowerCase();o.toLowerCase()===r||(o=d.location.pathname,r=d.location.search||"",a=new RegExp("^"+a,"ig"),(o=o.replace(a,""))&&!o.startsWith("/")&&(o="/"+o),t?e.domain:"/"===e.root_url||e.root_url)})(a,e,n,t,o);if(!1,a&&a.iso_code!==e)return i=a.iso_code,n=r,document.body=document.createElement("body"),document.body.innerHTML=n,document.body.style.display="none",void((n=document.querySelector("form"))&&(n.style.display="none",(t=n.querySelector('input[name="language_code"]'))&&(t.value=i,n.submit())));localStorage.setItem(c,e),s()}}}void 0===d.TranslationLab&&(d.TranslationLab={}),void 0===d.TranslationLab.BrowserLanguageDetection&&(d.TranslationLab.BrowserLanguageDetection={configure:e})}(window);
+
+(function () {
+
+    var useInternationalDomains = {{ use_international_domains | json }};
+
+    var isDesignMode = window.Shopify && window.Shopify.designMode;
+
+    var shopDomain = isDesignMode ? '{{shop.permanent_domain}}' : '{{shop.domain}}';
+
+    var currentLocale = '{{request_locale.iso_code}}';
+
+    var currentRootUrl = '{{request_locale.root_url}}';
+
+    var languageList = JSON.parse({{ language_list | json }});
+
+    var localizationFormTemplate = '{{ localization_form }}';
+
+    TranslationLab.BrowserLanguageDetection.configure(currentLocale, currentRootUrl, shopDomain, useInternationalDomains, languageList, localizationFormTemplate);
+
+})();
+</script>

@@ -1,0 +1,122 @@
+{% comment %}
+Product Sizeswatch Widget Loader
+== Version: 1.0 ==
+{% endcomment %}
+{% unless product.has_only_default_variant %}
+{% assign aframe_data = shop.metafields.aframe_size_swatch.config | remove: '{' | remove: '}' %}
+  {% assign aframe_data = aframe_data | split: ',' %}
+  {% for aframeval in aframe_data %}
+	{% assign keyval = aframeval | split: ':' %}
+		{% assign key = keyval[0] | remove: '"' %}
+		{% assign keyval = keyval[1] | remove: '"' | replace: '||', ',' %}
+		{% case key %}
+        {% when "enable_sizeswatch" %}
+             {% assign enable_sizeswatch = keyval %}
+		{% when "swatch_shape" %}
+             {% assign swatch_shape = keyval %}
+		{% when "swatch_border_color" %}
+             {% assign swatch_border_color = keyval %}
+		{% when "swatch_background_color" %}
+             {% assign swatch_background_color = keyval %}
+		{% when "swatch_text_border_color_onhover" %}
+             {% assign swatch_text_border_color_onhover = keyval %}
+		{% when "swatch_background_color_onhover" %}
+             {% assign swatch_background_color_onhover = keyval %}
+		{% when "outstock_swatch_border_color" %}
+             {% assign outstock_swatch_border_color = keyval %}
+		{% when "outstock_swatch_background_color" %}
+             {% assign outstock_swatch_background_color = keyval %}
+		{% when "outstock_swatch_text_border_color_onhover" %}
+             {% assign outstock_swatch_text_border_color_onhover = keyval %}
+		{% when "outstock_swatch_background_color_onhover" %}
+             {% assign outstock_swatch_background_color_onhover = keyval %}
+		{% when "tooltip_feature" %}
+             {% assign tooltip_feature = keyval %}
+		{% when "in_stock_text" %}
+             {% assign in_stock_text = keyval %}
+		{% when "out_of_stock_text" %}
+             {% assign out_of_stock_text = keyval %}
+		{% when "low_inventory_text" %}
+             {% assign low_inventory_text = keyval %}
+		{% when "low_inventory_count" %}
+             {% assign low_inventory_count = keyval | plus: 0 %}
+		{% when "home_featured" %}
+             {% assign home_featured = keyval %}
+		{% when "collection_featured" %}
+             {% assign collection_featured = keyval %}
+		{% when "swatch_size" %}
+             {% assign swatch_size = keyval %}
+		{% when "swatch_alignment" %}
+             {% assign swatch_alignment = keyval %}
+		
+        {% else %}
+            {% assign variant_option_name = keyval %} 
+        {% endcase %}
+  {% endfor %}
+	
+  {% if enable_sizeswatch == 'on' %}
+  <!--/ if tempalte is collection / home -->
+  {% assign templatename = template | split: '.' | first %}
+  
+  {% assign validtodisplay = false %}
+  {% if templatename == 'collection' and collection_featured == 'on'%}{% assign validtodisplay = true %}{% endif %}
+  {% if templatename == 'index' and home_featured == 'on' %}{% assign validtodisplay = true %}{% endif %}
+  
+{% if validtodisplay == true %}
+  {% for option in product.options_with_values %} <!--/ size , color -->
+	{% assign option_name = option.name | downcase %}
+	{% assign variant_option_name = variant_option_name | downcase %}
+	{% if option_name == variant_option_name %}
+		<!--/ Position of size attribute -->
+		{% comment %}{{ option | json }}{% endcomment %}
+		{% assign position =  'option' | append: option.position %}
+		
+		{% assign finalval = '' %}
+		{% for value in option.values %}
+			{% for variant in product.variants %}
+				{% if variant.option1 == value or variant.option2 == value or variant.option3 == value %}
+					{% if variant.available %}
+						{% assign variant_count = '' %}
+						<!--/ if variant.inventory_management is blank : no inventory management -->
+						{% if variant.inventory_management != blank %}
+							<!--/ variant.inventory_policy is deny then only inventory is tracked for low inventory -->
+							{% if variant.inventory_policy == 'deny' %}
+								{% assign variant_count = variant.inventory_quantity %}
+							{% endif %}
+						{% endif %}
+						{% assign finalval = finalval | append: value | append: '||' | append: 1 | append: '||' | append: variant_count | append: ',' %}
+					{% else %}
+						{% assign finalval = finalval | append: value | append: '||' | append: 0 | append: '||,' %}
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+		<div class="swatch-wrap {{ swatch_alignment }} swatchprimarywrap">
+		{% for value in option.values %}
+          	{% assign thisvariantstockkey = value | append: '||1' %}
+          	{% assign allvariantsval = finalval | split: ',' %}
+          	{% assign variantisinstock = false %}
+          	{% assign thisvariantcount = 0 %}
+          	{% for onevariantval in allvariantsval %}
+          		{% assign onevariantvalonly = onevariantval | split: '||' %}
+          		{% assign variantplusavai = onevariantvalonly[0] | append: '||' | append: onevariantvalonly[1] %}
+          		{% if variantplusavai == thisvariantstockkey %}
+          			{% assign variantisinstock = true %}
+          		{% endif %}
+          		{% if value == onevariantvalonly[0] %}
+                  {% if onevariantvalonly[2] != blank %}
+                      {% assign thisvariantcount = thisvariantcount | plus: onevariantvalonly[2] %}
+                  {% endif %}
+          		{% endif %}
+          	{% endfor %}
+			<div class="individual-option data-inventory-{{ thisvariantcount }} {% if tooltip_feature == 'on' %}tooltip-swatch{% endif %} {% if variantisinstock %}in-stock-option{% else %}out-of-stock-option{% endif %} {% if swatch_shape == 'circle' %}circle-design{% elsif swatch_shape == 'rounded_rectangle' %}rounded-rect-design{% else %}rect-design{% endif %} {% if swatch_size == 'small' %}small-size{% elsif swatch_size == 'large' %}large-size{% else %}medium-size{% endif %}">{{ value | escape }}  {% if tooltip_feature == 'on' %}<span class="tooltip-swatch-text">{% if variantisinstock %}{% if thisvariantcount > 0 and thisvariantcount <= low_inventory_count %}{{ low_inventory_text }}{% else %}{{ in_stock_text }}{% endif %}{% else %}{{ out_of_stock_text }}{% endif %}</span>{% endif %}</div>
+		{% endfor %}
+           
+		</div>
+	{% endif %}
+  {% endfor %}
+  {% endif %}
+  {% endif %}
+{% endunless %}
+<style type="text/css">.individual-option{z-index:3;display:inline-block;text-align:center;border:1px solid {{ swatch_border_color }};line-height:35px; margin:0px 0px 5px 0px;}.individual-option.small-size{height:25px;width:25px;line-height:25px}.individual-option.large-size{height:45px;width:45px;line-height:45px}.individual-option.rect-design{width:auto;padding-left:10px;padding-right:10px}.individual-option.circle-design{border-radius:50%}.individual-option.rounded-rect-design{border-radius:5px;padding:0 5px;width:auto;}.individual-option{color:{{ swatch_border_color }};border-color:{{ swatch_border_color }};background-color:{{swatch_background_color}}}.individual-option:hover{color:{{swatch_text_border_color_onhover}};border-color:{{swatch_text_border_color_onhover}};background-color:{{swatch_background_color_onhover}}}.individual-option.out-of-stock-option{color:{{outstock_swatch_border_color}};border-color:{{outstock_swatch_border_color}};background-color:{{outstock_swatch_background_color}}}.individual-option.out-of-stock-option:hover{color:{{outstock_swatch_text_border_color_onhover}};border-color:{{outstock_swatch_text_border_color_onhover}};background-color:{{outstock_swatch_background_color_onhover}}}.swatch-wrap{padding:0 0 0px 0}.swatch-wrap.center{text-align:center}.swatch-wrap.right{text-align:right}.individual-option.medium-size{height:35px;width:35px;line-height:35px}.individual-option.rect-design.small-size{padding-left:5px;padding-right:5px}.individual-option.large-size{font-size:18px}.individual-option.large-size.rect-design,.individual-option.large-size.rounded-rect-design{min-width:45px}.individual-option.medium-size.rect-design,.individual-option.medium-size.rounded-rect-design{min-width:35px}.individual-option.small-size.rect-design,.individual-option.small-size.rounded-rect-design{min-width:25px}.tooltip-swatch{position:relative;display:inline-block}.tooltip-swatch .tooltip-swatch-text{visibility:hidden;width:110px;background-color:#000;color:#fff;text-align:center;border-radius:6px;padding:2px 0;opacity:.8;position:absolute;z-index:1;bottom:150%;left:50%;margin-left:-32px}.tooltip-swatch:hover .tooltip-swatch-text{visibility:visible}.tooltip-swatch .tooltip-swatch-text::after{content:"";position:absolute;top:100%;left:50%;margin-left:-30px;border-width:5px;border-style:solid;border-color:#000 transparent transparent transparent}.individual-option{cursor:default}.swatchprimarywrap{visibility:visible;}.individual-option.medium-size.rounded-rect-design,.individual-option.medium-size.rect-design{width: auto !important;}
+</style><script type="text/javascript">window.onload=function(){setTimeout(function(){"visible"!=document.querySelector(".swatchprimarywrap").style.visibility&&[].forEach.call(document.querySelectorAll(".swatchprimarywrap"),function(e){e.parentNode.removeChild(e)})},4e3)};</script>

@@ -1,0 +1,4 @@
+<!-- wsgDataStart wsgCollections{%- for wsgCol in wsgTempProd.collections -%}
+{{- wsgCol.id -}}{%- if forloop.last == false -%},{%- endif -%}
+{%- endfor -%}wsgEndCollections
+prodData:{{- wsgTempProd | json -}}endProdData -->

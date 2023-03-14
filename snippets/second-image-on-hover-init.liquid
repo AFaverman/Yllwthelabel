@@ -1,0 +1,10 @@
+<script type="text/javascript">
+	{% if template.name == "product" %}
+		var productSIHHandle = '{{ product.handle }}';
+	{% endif %}
+	var isCartPage = false;
+	{% if template.name == "cart" or template.name == "checkout" %}
+		isCartPage = true;
+	{% endif %}
+</script>
+{% include "second-image-on-hover-config" %}

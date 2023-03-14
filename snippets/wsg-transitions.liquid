@@ -1,0 +1,103 @@
+<style id="wsg-hidden"></style>
+<style id="wsg-transitions"></style>
+<script>
+if (Array.prototype.copyWithin) {
+    // A static array of cart classes to generate the stylesheet for cart pages.
+    const cartClasses = [".wsg-item-price", ".wsg-line-price", ".wsg-cart-subtotal"];
+
+    // Takes a wsgPriceSelectors object and generates strings to append to the two style tags at the top of the file.
+    function createWSGTransition(wsgPriceSelectors) {
+        const utilityClassName = ".wsg-hide-prices";
+        /* hiddenRules is an array of price selectors with the body that are used to set all prices to invisible at the outset for themes that heavily use animations and animation libraries to transition the major store elements in.
+        After DOMContentLoaded is fired and the hide-wsg-prices are appended, we then clear the styles within the #wsg-hidden as wsg-hide-prices will then take over the opacity control.
+        */
+        const hiddenRules = [];
+        // Rules are the normal CSS rules that are added and removed to transition prices in.
+        const rules = [];
+
+        // CSS Rule Strings for concatenation
+        const startHiddenCSS = "{ opacity: 0 }";
+        const utilityCSS =
+            "{ -webkit-transition: opacity 0s linear 0s; -moz-transition: opacity 0s linear 0s; transition: opacity 0s linear 0s;  opacity: 0; visibility: hidden; }";
+        const transitionInCSS =
+            "{ -webkit-transition: opacity .5s linear 0.2s; -moz-transition: opacity .5s linear 0.2s; transition: opacity .5s linear 0.2s; opacity: 1; visibility: visible;}";
+
+        // Create Cart Page Rules
+        const cartSelectors = cartClasses.join(",");
+
+        const hideCartPrices = "body " + cartClasses.join(", body "); + startHiddenCSS;
+        const addUtilityClassCartPrice = cartClasses.join(utilityClassName + ",") + utilityClassName + utilityCSS;
+        const transitionCartPricesIn = cartSelectors + transitionInCSS;
+        // Push the string of CSS selectors into their respective arrays.
+        hiddenRules.push(hideCartPrices)
+        rules.push(addUtilityClassCartPrice, transitionCartPricesIn);
+
+
+        // Create Product Page Rules 
+        const productPageSelectors = wsgPriceSelectors.productPrice.join(',');
+
+        const hideProductPrices = "body " + wsgPriceSelectors.productPrice.join(', body ') + startHiddenCSS;
+        const addUtilityClassProductPrice = wsgPriceSelectors.productPrice.join(utilityClassName + ",") + utilityClassName + utilityCSS;
+        const transitionProductPricesIn = productPageSelectors + transitionInCSS;
+        // Push the string of CSS selectors into their respective arrays.
+        hiddenRules.push(hideProductPrices)
+        rules.push(addUtilityClassProductPrice, transitionProductPricesIn);
+
+        //Create Collection/Search/Featured Rules
+        const collectionSelectors = wsgPriceSelectors.collectionPrices.join(',');
+
+        const hideCollectionPrices = "body " + wsgPriceSelectors.collectionPrices.join(', body ') + startHiddenCSS;
+        const addUtilityClassCollectionPrice = wsgPriceSelectors.collectionPrices.join(utilityClassName + ",") + ".wsg-hide-prices" + utilityCSS;
+        const transitionCollectionPricesIn = collectionSelectors + transitionInCSS;
+        // Push the string of CSS selectors into their respective arrays.
+        hiddenRules.push(hideCollectionPrices)
+        rules.push(addUtilityClassCollectionPrice, transitionCollectionPricesIn);
+
+        // Grab the wsg-hidden style tag and add the initial opacity = 0 rule to it. This is for certain themes that use a lot of animations and cause our DOMContentLoaded event to fire later than normal
+        let hiddenStyleTag = document.querySelector('#wsg-hidden');
+        hiddenStyleTag.innerText = hiddenRules.join("");
+
+        // Append the normal transition CSS to it's style tag.
+        let styleTag = document.querySelector('#wsg-transitions');
+        styleTag.innerText += rules.join("");
+        document.querySelector("head").appendChild(styleTag);
+    }
+    createWSGTransition(wsgPriceSelectors);
+    
+    // Iterate through all of the selectors in the wsgPriceSelectors object based on what page the user is on and add our hide-wsg-prices utility class when the DOM is loaded.
+    document.addEventListener("DOMContentLoaded", function (event) {        
+        // Product Page Price selectors
+        {% if template == "product" %}
+        for (let index = 0; index < wsgPriceSelectors.productPrice.length; index++) {
+            // Grab each class or id in the current array and add the wsg-hide-prices utility class
+            let selectors = document.querySelectorAll(wsgPriceSelectors.productPrice[index])
+            for (let selector = 0; selector < selectors.length; selector++) {
+                selectors[selector].classList.add("wsg-hide-prices");
+            }
+        } 
+        {% endif %}
+        // Collection/Featured/Search Page Price selectors
+        {% if template == "collection" or template == "index" or template == "search" %}
+        for (let index = 0; index < wsgPriceSelectors.collectionPrices.length; index++) {
+            // Grab each class or id in the current array and add the wsg-hide-prices utility class
+            let selectors = document.querySelectorAll(wsgPriceSelectors.collectionPrices[index])
+            for (let selector = 0; selector < selectors.length; selector++) {
+                selectors[selector].classList.add("wsg-hide-prices");
+            }
+        } 
+        {% endif %}
+        // Cart Price selectors  
+        if (window.location.href.indexOf('a/wsg/proxy/ws-cart') != -1) {
+            for (let index = 0; index < cartClasses.length; index++) {
+                // Grab each class or id in the current array and add the wsg-hide-prices utility class
+                let selectors = document.querySelectorAll(cartClasses[index])
+                for (let selector = 0; selector < selectors.length; selector++) {
+                    selectors[selector].classList.add("wsg-hide-prices");
+                }
+            }
+        }
+        let hiddenStyleTag = document.querySelector('#wsg-hidden');
+        hiddenStyleTag.innerText = "";
+    });
+}
+</script>

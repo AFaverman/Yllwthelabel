@@ -1,0 +1,51 @@
+{% comment %}
+===============================
+TO UNINSTALL WHOLESALE GORILLA: Select all text in this file, delete it, then save the empty file. 
+Do not remove the file entirely from the theme, just delete the text and save. 
+===============================
+{% endcomment %}
+{%- if wsgStatusAction == "init" -%}
+	{%- assign wsgActive = true -%}
+  	{%- if customer.tags != blank and wsgActive == true -%}
+        {%- for tag in customer.tags -%}
+            {%- if shop.metafields.wsg_data.excludeCollections contains tag -%}
+                {%- assign wsgActiveCustomer = true -%}
+                {%- continue -%}
+        {%- endif -%}
+      {%- endfor -%}
+  {%- endif -%}
+{%- else if wsgStatusAction == "col-item" or wsgStatusAction == "ajax-search"  -%}
+	{%- if wsgActiveCustomer == true -%} 
+	{%- assign escapedStr = shop.metafields.wsg_data.excludeTags | remove: '"' -%}
+	{%- assign exclusionArr = escapedStr | split: ", "-%}
+		{%- for tag in wsgTempProd.tags -%} 
+			{%- for exclusionTag in exclusionArr -%}
+              {%- if exclusionTag == tag -%} 
+                  {%- assign wsgExclude = true -%} 
+				  {%- break -%}
+              {%- endif -%} 
+			{%- endfor -%}
+			{%- if wsgExclude == true -%} {%- break -%} {%- endif -%}
+		{%- endfor -%}
+		{%- unless wsgExclude == true -%}
+			{%- if wsgStatusAction != "ajax-search" -%}
+				{%- include "wsg-col-json" | strip -%}
+			{%- endif -%}
+		{%- endunless -%}
+	{%- else -%}  
+		{%- if wsgActive == true -%}
+			{%- if wsgTempProd.tags contains 'wholesale-only' -%} 
+				{%- assign wsgExclude = true -%} 
+			{%- endif -%} 
+		{%- endif -%}
+	{%- endif -%} 
+{%- endif -%}
+
+{% comment %}
+In test mode force behavior to emulate wholesale customer.
+{% endcomment %}
+{%- assign wsgTestMode = false -%}
+{%- if wsgTestMode -%}
+  {%- assign wsgExclude = false -%}
+	{%- assign wsgActiveCustomer = true -%}
+{%- endif -%}
