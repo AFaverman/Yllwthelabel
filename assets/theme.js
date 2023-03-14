@@ -1565,6 +1565,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               newButton.innerHTML = '<span>' + window.languages.productFormAddToCart + '</span>';
             }
           } else {
+            newButton.stlye.float = "none";
             newButton.setAttribute('disabled', 'disabled');
             newButton.classList.add('Button--secondary');
             newButton.removeAttribute('data-action');
