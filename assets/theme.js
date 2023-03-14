@@ -1551,7 +1551,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           newButton.setAttribute('disabled', 'disabled');
           newButton.removeAttribute('data-action');
           newButton.classList.add('Button--secondary');
-          newButton.stlye.float = "none";
+          newButton.style.float = "none";
           newButton.innerHTML = window.languages.productFormUnavailable;
         } else {
           if (newVariant['available']) {
@@ -1565,7 +1565,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               newButton.innerHTML = '<span>' + window.languages.productFormAddToCart + '</span>';
             }
           } else {
-            newButton.stlye.float = "none";
+            newButton.style.float = "none";
             newButton.setAttribute('disabled', 'disabled');
             newButton.classList.add('Button--secondary');
             newButton.removeAttribute('data-action');
