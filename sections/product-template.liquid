@@ -139,9 +139,6 @@
                       {%- case media.media_type -%}
                         {%- when 'model' -%}
                           <span class="Product__SlideshowNavBadge">{% render 'icon', icon: 'media-model-badge' %}</span>
-
-                        {%- when 'video' or 'external_video' -%}
-                          <span class="Product__SlideshowNavBadge">{% render 'icon', icon: 'media-video-badge' %}</span>
                       {%- endcase -%}
                     {%- endcapture -%}
 
