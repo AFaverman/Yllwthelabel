@@ -3373,6 +3373,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 }
 
 .plyr.plyr--full-ui.plyr--video .plyr__controls {
+  display:none;
   background-color: var(--light-background);
   border-color: rgba(var(--text-color-rgb), 0.05);
 }
