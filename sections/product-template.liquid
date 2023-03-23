@@ -87,7 +87,7 @@
             <div id="Media{{ media.id }}" tabindex="-1" class="Product__SlideItem Product__SlideItem--video Carousel__Cell {% if initial_media_id == media.id %}is-selected{% endif %}" data-media-type="external_video" data-media-id="{{ media.id }}" data-media-position="{{ media.position }}" data-video-host="{{ media.host | escape }}" data-video-id="{{ media.external_id | escape }}">
               <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
                 <div class="VideoWrapper">
-                  {{- media | external_video_tag: image_size: '1024x', muted: '1', loop: '1', autoplay:'1', playsInline:'1'-}}
+                  {{- media | external_video_tag: image_size: '1024x', controls:false, muted: '1', loop: '1', autoplay:'1', playsInline:'1'-}}
                 </div>
               </div>
             </div>
