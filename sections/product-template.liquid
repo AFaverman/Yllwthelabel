@@ -84,7 +84,7 @@
             </div>
 
           {%- when 'external_video' -%}
-            <div id="Media{{ media.id }}" tabindex="-1" class="Product__SlideItem Product__SlideItem--video Carousel__Cell {% if initial_media_id == media.id %}is-selected{% endif %}" data-media-type="external_video" data-media-id="{{ media.id }}" data-media-position="{{ media.position }}" data-video-host="{{ media.host | escape }}" data-video-id="{{ media.external_id | escape }}">
+            <div id="Media{{ media.id }}" tabindex="-1" class="test Product__SlideItem Product__SlideItem--video Carousel__Cell {% if initial_media_id == media.id %}is-selected{% endif %}" data-media-type="external_video" data-media-id="{{ media.id }}" data-media-position="{{ media.position }}" data-video-host="{{ media.host | escape }}" data-video-id="{{ media.external_id | escape }}">
               <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
                 <div class="VideoWrapper">
                   {{- media | external_video_tag: image_size: '1024x', muted: '1', loop: '1', autoplay:'1', playsInline:'1'-}}
@@ -93,7 +93,7 @@
             </div>
 
           {%- when 'video' -%}
-            <div id="Media{{ media.id }}" tabindex="-1" class="Product__SlideItem Product__SlideItem--video Carousel__Cell {% if initial_media_id == media.id %}is-selected{% endif %}" data-media-type="video" data-media-id="{{ media.id }}" data-media-position="{{ media.position }}">
+            <div id="Media{{ media.id }}" tabindex="-1" class="test2 Product__SlideItem Product__SlideItem--video Carousel__Cell {% if initial_media_id == media.id %}is-selected{% endif %}" data-media-type="video" data-media-id="{{ media.id }}" data-media-position="{{ media.position }}">
               <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
                 <div class="VideoWrapper VideoWrapper--native" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%">
                   {{- media | video_tag: image_size: '1024x', controls: false, muted: '1', loop: '1', autoplay:'1', playsInline:'1' -}}
