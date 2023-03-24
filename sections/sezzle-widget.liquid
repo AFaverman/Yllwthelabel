@@ -24,17 +24,6 @@
 }
 </style>
 
-{% if request.design_mode %}
-<script>
-function disableScroll(event){
-	setTimeout(function() {
-		window.scroll(0,0);
-	},400);
-}
-	this.addEventListener('shopify:section:select', disableScroll);
-	this.addEventListener('shopify:section:load', disableScroll);
-</script>
-{% endif %}
 {% schema %}
 {
 	"name": "Sezzle Widget",
