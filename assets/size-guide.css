@@ -73,8 +73,8 @@
 }
  .product-size-guide .size-guide-content-right .size-guide-tabs, .product-size-guide .size-guide-content-right .size-guide-unit-tabs {
    margin: 0 0 20px;
-   font-size: 0;
-   line-height: 0;
+   font-size: 11px;
+   line-height: 11px;
    list-style: none;
    border: 1px solid #e0e1e2;
 }
