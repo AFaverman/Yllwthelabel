@@ -325,14 +325,12 @@ SECOMAPP.pl.labelCollections = function(force) {
         h++;
         if (h >= 50) {
             jQuery.getScript('/search.js?q=' + fullQuery + '&view=scm.products.handle.js&_sc=1&design_theme_id=131340435607&app=pl');
-
             fullQuery = "";
             h = 0;
         }
     }
     if (h > 0) {
         jQuery.getScript('/search.js?q=' + fullQuery + '&view=scm.products.handle.js&_sc=1&design_theme_id=131340435607&app=pl');
-
     }
 };
 
