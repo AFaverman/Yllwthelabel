@@ -1,10 +1,10 @@
 {% if section.settings.show-sezzle-widget or request.design_mode %}
 <script type="text/javascript"> document.sezzleConfig = {
 				"configGroups": [{
-					"targetXPath": ".ProductMeta__PriceList/SPAN-0",
+					"targetXPath": "#ProductPrice",
 					"urlMatch": "product"
 				},{
-					"targetXPath": ".Cart__Total/SPAN-0",
+					"targetXPath": ".cart__subtotal",
 					"urlMatch": "cart"
 				}]
 				} </script>
