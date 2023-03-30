@@ -178,3 +178,17 @@ outline: none;
 border-bottom: 1px solid #000;
 transition: 0.3s;
 }
+.comp-close svg {
+  height: 20px;
+  width: 20px;
+  margin: 10px;
+  transition: .3s;
+  color: #000;
+}
+.comp-close {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 15px;
+  right: 10px;
+}
