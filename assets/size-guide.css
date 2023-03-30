@@ -150,4 +150,12 @@
      padding:40px 40px 40px;
   }
 }
- 
+ .t-link {
+  color: #323232;
+}
+.g-flex {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
