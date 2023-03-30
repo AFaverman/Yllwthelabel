@@ -6,7 +6,7 @@
    bottom: 0;
    left: 0;
    right: 0;
-   padding: var(--s-s) 0;
+   padding: 120px 0;
    overflow-y: auto;
    overflow-x: hidden;
    -webkit-overflow-scrolling: touch;
@@ -20,7 +20,7 @@
    display: none;
 }
  .product-size-guide .size-chart-table {
-   margin: 0 0 var(--s-20);
+   margin: 0 0 20px;
 }
  .product-size-guide .size-chart-table table {
    width: 100%;
@@ -30,9 +30,9 @@
  .product-size-guide .size-chart-table table th, .product-size-guide .size-chart-table table td {
    font-weight: 400;
    text-align: left;
-   padding: var(--s-10) var(--s-10) var(--s-10) 0;
+   padding: 10px 10px 10px 0;
    border: 0;
-   border-bottom: 1px solid var(--cr-moon);
+   border-bottom: 1px solid #e0e1e2;
 }
  .product-size-guide .size-guide-overlay {
    position: absolute;
@@ -46,37 +46,37 @@
    width: 90%;
    max-width: 1020px;
    margin: auto;
-   padding: var(--s-40);
-   background-color: var(--cr-starlight);
+   padding:40px;
+   background-color: #fff;
    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15);
 }
  .product-size-guide .size-guide-header {
    max-width: 420px;
-   margin: 0 auto var(--s-40);
+   margin: 0 auto40px;
    text-align: center;
 }
  .product-size-guide .size-guide-header .t-h-5 {
-   margin: 0 0 var(--s-30);
+   margin: 0 0 30px;
 }
  .product-size-guide .size-guide-content-left {
    width: 50%;
 }
  .product-size-guide .size-guide-content-left .content-block:not(:last-child) {
-   margin: 0 0 var(--s-40);
+   margin: 0 040px;
 }
  .product-size-guide .size-guide-content-left .content-block > *:not(:last-child) {
-   margin: 0 0 var(--s-10);
+   margin: 0 0 10px;
 }
  .product-size-guide .size-guide-content-right {
-   width: calc(50% - var(--s-80));
-   margin: 0 0 0 var(--s-80);
+   width: calc(50% - 80px);
+   margin: 0 0 0 80px;
 }
  .product-size-guide .size-guide-content-right .size-guide-tabs, .product-size-guide .size-guide-content-right .size-guide-unit-tabs {
-   margin: 0 0 var(--s-20);
+   margin: 0 0 20px;
    font-size: 0;
    line-height: 0;
    list-style: none;
-   border: 1px solid var(--cr-moon);
+   border: 1px solid #e0e1e2;
 }
  .product-size-guide .size-guide-content-right .size-guide-tabs li, .product-size-guide .size-guide-content-right .size-guide-unit-tabs li {
    display: inline-block;
@@ -88,10 +88,10 @@
    text-align: center;
    height: 50px;
    line-height: 50px;
-   padding: 0 var(--s-20);
+   padding: 0 20px;
 }
  .product-size-guide .size-guide-content-right .size-guide-tabs li.active button, .product-size-guide .size-guide-content-right .size-guide-unit-tabs li.active button {
-   background-color: var(--cr-cloud);
+   background-color: #f4f5f6;
 }
  .product-size-guide .size-guide-content-right .size-guide-unit-tabs {
    max-width: 120px;
@@ -105,21 +105,18 @@
    width: auto;
    max-width: 200px;
    max-height: 300px;
-   margin: 0 0 var(--s-20);
+   margin: 0 0 20px;
 }
- .product-size-guide .size-guide-content-right .fit-how-to h4 {
-   font: var(--t-b-2);
-   color: var(--cr-eclipse);
-}
+
  .product-size-guide .size-guide-content-right .fit-how-to p:not(:last-child) {
-   margin: 0 0 var(--s-10);
+   margin: 0 0 10px;
 }
  .product-size-guide .size-guide-content-simple {
    max-width: 520px;
    margin: auto;
 }
  .product-size-guide .size-guide-content-simple .size-chart-table {
-   margin: 0 0 var(--s-40);
+   margin: 0 040px;
 }
  .product-size-guide .size-guide-content-simple .size-chart-table th:not(:first-child), .product-size-guide .size-guide-content-simple .size-chart-table td:not(:first-child) {
    text-align: center;
@@ -138,19 +135,19 @@
  @media screen and (max-width: 900px) {
    .product-size-guide {
      display: block;
-     padding: var(--s-s) 0;
+     padding: 120px 0;
   }
    .product-size-guide .size-guide-content-left {
      width: 100%;
   }
    .product-size-guide .size-guide-content-right {
      width: 100%;
-     margin: var(--s-40) 0 0;
+     margin:40px 0 0;
   }
 }
  @media screen and (max-width: 600px) {
    .product-size-guide .size-guide-content {
-     padding: var(--s-40) var(--s-c) var(--s-c);
+     padding:40px 40px 40px;
   }
 }
  
