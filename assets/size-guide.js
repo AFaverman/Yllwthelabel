@@ -2,7 +2,7 @@ const guideOpen = $('.size-guide-open');
 const guideClose = $('.size-guide-close, .size-guide-overlay');
 const fitSelector = $('#size-guide-fit-selector');
 const tabSelector = $('[data-size-chart-tabs-trigger]');
-
+const html = $('html');
 guideOpen.click(function () {
   html.addClass('size_guide_active');
 });
