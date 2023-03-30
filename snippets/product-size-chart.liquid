@@ -1,0 +1,488 @@
+{% assign splitter = '###' %}
+{% assign current_u_size_category = product.metafields.custom.universal_sizeguide_category.value %}
+{% assign category_list = 'Tops — Fitted' | append: splitter 
+  | append: 'Tops — Easy' | append: splitter 
+  | append: 'Tops — Oversized' | append: splitter 
+  | append: 'Bottoms — High rise' | append: splitter 
+  | append: 'Bottoms — Mid rise' | append: splitter 
+  | append: 'Bottoms — Low rise' | append: splitter 
+  | append: 'Rompers + Jumpsuits — Fitted' | append: splitter 
+  | append: 'Rompers + Jumpsuits — Easy' | append: splitter 
+  | append: 'Rompers + Jumpsuits — Oversized' | append: splitter 
+  | append: 'Dresses — Fitted' | append: splitter 
+  | append: 'Dresses — Easy' | append: splitter 
+  | append: 'Dresses — Oversized' | append: splitter
+  | append: 'Robes + Cardigans — Oversized' | append: splitter 
+  | split: splitter %}
+<div class="product-size-guide g-flex g-vertical">
+<div class="size-guide-overlay"></div>
+<div class="size-guide-content">
+  <button 
+    type="button"
+    class="size-guide-close comp-close" 
+    aria-label="Close size guide">
+    <svg class="svg-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.85 14.85"><g><path d="M6.72 7.42L0 14.14l.71.71 6.71-6.72 6.72 6.72.71-.71-6.72-6.72L14.85.71 14.14 0 7.42 6.72.71 0 0 .71z" fill="currentColor" fill-rule="evenodd"/></g></svg>
+  </button>
+
+  <div class="size-guide-header">
+    <h2 class="t-h-5">{{ product.vendor | capitalize }} Size Guide</h2>
+    <p>Unsure of your size? No need to lose sleep over it—we are here to help! To ensure proper fit, please refer to the fit guide below and if you have any questions, please feel free to email us at <a href="mailto:contact@yllwthelabel.com">contact@yllwthelabel.com</a>. We are happy to guide you!</p>
+  </div>
+
+  <div class="size-content g-flex">
+      {% if product.metafields.custom.universal_sizeguide_category != blank %}
+        <span class="size-guide-chart" data-value="{{ product.metafields.custom_fields["universal_sizeguide_category"] | downcase | remove:" " | replace: "—", "-"}}"></span>
+      {% endif %}
+
+      <div class="size-guide-content-left">
+        <div class="content-block">
+          <label 
+            for="size-guide-fit-selector"
+            class="screen-reader-only">
+            Select your fit</label>
+
+          <div class="field">
+            <select id="size-guide-fit-selector">
+              {% for category in category_list %}
+                <option 
+                  value="{{ category }}"
+                  {% if current_u_size_category contains category %} selected{% endif %}>
+                {{ category }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          {% for category in category_list %}
+            <p 
+              class="fit-description cr-subdued {% if current_u_size_category contains category %} active{% elsif current_u_size_category == nil and forloop.index == 1 %}active{% endif %}"
+              data-fit="{{ category }}">
+            {% case category %}
+              {% when 'Tops — Fitted' %}
+                Cut with comfort in mind. Reasonable ease over body relying on the mechanical stretch of the fabric. Armhole sits in line or slightly below the apex.
+
+              {% when 'Tops — Easy' %}
+                Cut with comfort in mind. Reasonable ease over the body relying on the mechanical stretch of the fabric. Armhole sits in line or slightly below the apex.
+
+              {% when 'Tops — Oversized' %}
+                Cut with generous ease over body. Shoulder and armhole is dropped below the apex to achieve a relaxed fit throughout the body and sleeve.
+
+              {% when 'Bottoms — High rise' %}
+                Sits at the natural waist or the narrowest part of the torso.
+
+              {% when 'Bottoms — Mid rise' %}
+                Sits approximately 1 ½” - 2” below the navel.
+
+              {% when 'Bottoms — Low rise' %}
+                Sits approximately 3” - 4” below the natural waist.
+
+              {% when 'Rompers + Jumpsuits — Fitted' %}
+                Stretch to fit relying on the functional stretch of the fabric. Higher armhole and narrower shoulder achieves a slim body-conscious fit through the body and sleeve.
+
+              {% when 'Rompers + Jumpsuits — Easy' %}
+                Cut with comfort in mind. Reasonable ease over the body relying on the mechanical stretch of the fabric. Armhole sits in line or slightly below the apex.
+
+              {% when 'Rompers + Jumpsuits — Oversized' %}
+                Cut with generous ease over body. Shoulder and armhole is dropped below the apex to achieve a relaxed fit throughout the body and sleeve.
+
+              {% when 'Dresses — Fitted' %}
+                Stretch to fit relying on the functional stretch of the fabric. Higher armhole and narrower shoulder achieves a slim body-conscious fit through the body and sleeve.
+
+              {% when 'Dresses — Easy' %}
+                Cut with comfort in mind. Reasonable ease over the body relying on the mechanical stretch of the fabric. Armhole sits in line or slightly below the apex.
+
+              {% when 'Dresses — Oversized' %}
+                Cut with generous ease over body. Shoulder and armhole is dropped below the apex to achieve a relaxed fit throughout the body and sleeve.
+
+              {% when 'Robes + Cardigans — Oversized' %}
+                Cut with generous ease over body. Shoulder and armhole is dropped below the apex to achieve a relaxed fit throughout the body and sleeve.
+            {% endcase %}
+          {% endfor %}
+        </div>
+
+        <div class="content-block">
+          <h3 class="t-b-1">Measurement</h3>
+          <p class="cr-subdued">Measurements refer to body size unless otherwise noted. Fits may vary by style and personal preference. If you’re on the borderline between two sizes, order the smaller size for a tighter fit or the larger size for a looser fit. If your measurements for bust and waist correspond to two different suggested sizes, order the size indicated by your bust measurement.</p>
+        </div>
+
+        <div class="content-block">
+          <h3 class="t-b-1">Returns / Exchanges</h3>
+          <p class="cr-subdued">Want to try multiple sizes or need a dfferent size? We offer free returns and exchanges within 30 days of your order.</p>
+          <a class="btn-underline" href="https://returns.lunya.co/" target="_blank">Learn More</a>
+        </div>
+      </div>
+
+      <div class="size-guide-content-right">
+        <ul class="size-guide-tabs user-select-disable g-flex">
+          <li class="active">
+            <button 
+              class="t-link" 
+              data-size-chart-tabs-trigger="Size Chart">
+            Size Chart</button>
+          </li>
+          <li>
+            <button 
+              class="t-link" 
+              data-size-chart-tabs-trigger="How To">
+            How to Measure</button>
+          </li>
+        </ul>
+        <div class="active" data-size-chart-tabs="Size Chart">
+          <div id="sizechart" class="tabcontent">
+            <div class="tab-wapper tab-wapper-table">
+              <ul class="size-guide-unit-tabs user-select-disable g-flex">
+                <li class="active">
+                  <button 
+                    class="t-caption" 
+                    data-size-chart-tabs-trigger="Unit IN">
+                  IN</button>
+                </li>
+                <li>
+                  <button 
+                    class="t-caption" 
+                    data-size-chart-tabs-trigger="Unit CM">
+                  CM</button>
+                </li>
+              </ul>
+
+              <div class="active" data-size-chart-tabs="Unit IN">
+                <div class="size-chart-table">
+                  <table class="t-caption">
+                    <thead>
+                      <tr>
+                        <th colspan="3">Sizes (US)</th>
+                        <th>Bust</th>
+                        <th>Waist</th>
+                        <th>Hip</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>0-2</td>
+                        <td>XS</td>
+                        <td>XS/S</td>
+                        <td>32</td>
+                        <td>25</td>
+                        <td>35</td>
+                      </tr>
+                      <tr>
+                        <td>0-2</td>
+                        <td>XS</td>
+                        <td>XS/S</td>
+                        <td>33</td>
+                        <td>26</td>
+                        <td>36</td>
+                      </tr>
+                      <tr>
+                        <td>4-6</td>
+                        <td>S</td>
+                        <td>XS/S</td>
+                        <td>34</td>
+                        <td>27</td>
+                        <td>37</td>
+                      </tr>
+                      <tr>
+                        <td>4-6</td>
+                        <td>S</td>
+                        <td>XS/S</td>
+                        <td>35</td>
+                        <td>28</td>
+                        <td>38</td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td>M</td>
+                        <td>M</td>
+                        <td>36</td>
+                        <td>29</td>
+                        <td>39</td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td>M</td>
+                        <td>M</td>
+                        <td>37</td>
+                        <td>30</td>
+                        <td>40</td>
+                      </tr>
+                      <tr>
+                        <td>10-12</td>
+                        <td>L</td>
+                        <td>L/XL</td>
+                        <td>38</td>
+                        <td>31</td>
+                        <td>41</td>
+                      </tr>
+                      <tr>
+                        <td>10-12</td>
+                        <td>L</td>
+                        <td>L/XL</td>
+                        <td>39</td>
+                        <td>32</td>
+                        <td>42</td>
+                      </tr>
+                      <tr>
+                        <td>14</td>
+                        <td>XL</td>
+                        <td>L/XL</td>
+                        <td>41-42</td>
+                        <td>34-35</td>
+                        <td>43-44</td>
+                      </tr>
+                      <tr>
+                        <td>16</td>
+                        <td></td>
+                        <td>1X</td>
+                        <td>43-44</td>
+                        <td>36-37</td>
+                        <td>46-47</td>
+                      </tr>
+                      <tr>
+                        <td>18-20</td>
+                        <td></td>
+                        <td>2X</td>
+                        <td>45-46</td>
+                        <td>38-39</td>
+                        <td>48-49</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div data-size-chart-tabs="Unit CM">
+                <div class="size-chart-table">
+                  <table class="t-caption">
+                    <thead>
+                      <tr>
+                        <th colspan="3">Sizes (US)</th>
+                        <th>Bust</th>
+                        <th>Waist</th>
+                        <th>Hip</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>0-2</td>
+                        <td>XS</td>
+                        <td>XS/S</td>
+                        <td>81.28</td>
+                        <td>63.5</td>
+                        <td>88.9</td>
+                      </tr>
+                      <tr>
+                        <td>0-2</td>
+                        <td>XS</td>
+                        <td>XS/S</td>
+                        <td>83.82</td>
+                        <td>66.04</td>
+                        <td>91.44</td>
+                      </tr>
+                      <tr>
+                        <td>4-6</td>
+                        <td>S</td>
+                        <td>XS/S</td>
+                        <td>86.36</td>
+                        <td>68.58</td>
+                        <td>93.98</td>
+                      </tr>
+                      <tr>
+                        <td>4-6</td>
+                        <td>S</td>
+                        <td>XS/S</td>
+                        <td>88.9</td>
+                        <td>71.12</td>
+                        <td>96.52</td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td>M</td>
+                        <td>M</td>
+                        <td>91.44</td>
+                        <td>73.66</td>
+                        <td>99.06</td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td>M</td>
+                        <td>M</td>
+                        <td>93.98</td>
+                        <td>50.8</td>
+                        <td>101.6</td>
+                      </tr>
+                      <tr>
+                        <td>10-12</td>
+                        <td>L</td>
+                        <td>L/XL</td>
+                        <td>96.52</td>
+                        <td>78.74</td>
+                        <td>104.14</td>
+                      </tr>
+                      <tr>
+                        <td>10-12</td>
+                        <td>L</td>
+                        <td>L/XL</td>
+                        <td>99.06</td>
+                        <td>81.28</td>
+                        <td>106.68</td>
+                      </tr>
+                      <tr>
+                        <td>14</td>
+                        <td>XL</td>
+                        <td>L/XL</td>
+                        <td>104.14-106.68</td>
+                        <td>86.36-88.9</td>
+                        <td>109.22-111.76</td>
+                      </tr>
+                      <tr>
+                        <td>16</td>
+                        <td></td>
+                        <td>1X</td>
+                        <td>109.22-111.76</td>
+                        <td>91.44-93.98</td>
+                        <td>116.84-119.38</td>
+                      </tr>
+                      <tr>
+                        <td>18-20</td>
+                        <td></td>
+                        <td>2X</td>
+                        <td>114.3-116.84</td>
+                        <td>96.52-99.06</td>
+                        <td>121.92-124.46</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <p class="t-caption">*Note: Refer to the product you are on to determine what size category is applicable. eg: Sizing can be S or XS / S</p>
+            </div>
+          </div>
+        </div>
+
+        <div data-size-chart-tabs="How To">
+          {% for category in category_list %}
+            <div 
+              class="fit-how-to cr-subdued 
+              {% if current_u_size_category contains category %} active{% elsif current_u_size_category == nil and forloop.index == 1 %}active{% endif %}"
+              data-fit="{{ category }}">
+              {% case category %}
+                {% when 'Tops — Fitted' %}
+                  <img src="{{ 'product-size-tops-fitted.png' | asset_url }}" alt="size chart: {{category}}">
+                  <h4>Bust</h4>
+                  <p>Measure around the fullest part of your chest, keeping tape horizontal.</p>
+                  <h4>Waist</h4>
+                  <p>Measure around your natural waistline and keep the tape comfortably loose and horizontal.</p>
+                  <h4>Hip</h4>
+                  <p>Measure around the fullest part of your hips, keeping tape horizontal.</p>
+
+                {% when 'Tops — Easy' %}
+                  <img src="{{ 'product-size-tops-easy.png' | asset_url }}" alt="size chart: {{category}}">
+                  <h4>Bust</h4>
+                  <p>Measure around the fullest part of your chest, keeping tape horizontal.</p>
+                  <h4>Waist</h4>
+                  <p>Measure around your natural waistline and keep the tape comfortably loose and horizontal</p>
+                  <h4>Hip</h4>
+                  <p>Measure around the fullest part of your hips, keeping tape horizontal.</p>
+
+                {% when 'Tops — Oversized' %}
+                  <img src="{{ 'product-size-tops-oversized.png' | asset_url }}" alt="size chart: {{category}}">
+                  <h4>Bust</h4>
+                  <p>Measure around the fullest part of your chest, keeping tape horizontal</p>
+                  <h4>Waist</h4>
+                  <p>Measure around your natural waistline and keep the tape comfortably loose and horizontal</p>
+                  <h4>Hip</h4>
+                  <p>Measure around the fullest part of your hips, keeping tape horizontal.</p>
+
+                {% when 'Bottoms — High rise' %}
+                  <img src="{{ 'product-size-bottoms-high-rise.png' | asset_url }}" alt="size chart: {{category}}">
+                  <h4>Waist</h4>
+                  <p>Measure around your natural waistline and keep the tape comfortably loose and horizontal</p>
+                  <h4>Hip</h4>
+                  <p>Measure around the fullest part of your hips, keeping tape horizontal.</p>
+
+                {% when 'Bottoms — Mid rise' %}
+                  <img src="{{ 'product-size-bottoms-mid-rise.png' | asset_url }}" alt="size chart: {{category}}">
+                  <h4>Waist</h4>
+                  <p>Measure around your natural waistline and keep the tape comfortably loose and horizontal</p>
+                  <h4>Hip</h4>
+                  <p>Measure around the fullest part of your hips, keeping tape horizontal.</p>
+
+                {% when 'Bottoms — Low rise' %}
+                  <img src="{{ 'product-size-bottoms-low-rise.png' | asset_url }}" alt="size chart: {{category}}">
+                  <h4>Waist</h4>
+                  <p>Measure around your natural waistline and keep the tape comfortably loose and horizontal</p>
+                  <h4>Hip</h4>
+                  <p>Measure around the fullest part of your hips, keeping tape horizontal.</p>
+
+                {% when 'Rompers + Jumpsuits — Fitted' %}
+                  <img src="{{ 'product-size-rompers-fitted.png' | asset_url }}" alt="size chart: {{category}}">
+                  <h4>Bust</h4>
+                  <p>Measure around the fullest part of your chest, keeping tape horizontal</p>
+                  <h4>Waist</h4>
+                  <p>Measure around your natural waistline and keep the tape comfortably loose and horizontal</p>
+                  <h4>Hip</h4>
+                  <p>Measure around the fullest part of your hips, keeping tape horizontal.</p>
+
+                {% when 'Rompers + Jumpsuits — Easy' %}
+                  <img src="{{ 'product-size-rompers-easy.png' | asset_url }}" alt="size chart: {{category}}">
+                  <h4>Bust</h4>
+                  <p>Measure around the fullest part of your chest, keeping tape horizontal</p>
+                  <h4>Waist</h4>
+                  <p>Measure around your natural waistline and keep the tape comfortably loose and horizontal</p>
+                  <h4>Hip</h4>
+                  <p>Measure around the fullest part of your hips, keeping tape horizontal.</p>
+
+                {% when 'Rompers + Jumpsuits — Oversized' %}
+                  <img src="{{ 'product-size-dresses-oversized.png' | asset_url }}" alt="size chart: {{category}}">
+                  <h4>Bust</h4>
+                  <p>Measure around the fullest part of your chest, keeping tape horizontal</p>
+                  <h4>Waist</h4>
+                  <p>Measure around your natural waistline and keep the tape comfortably loose and horizontal</p>
+                  <h4>Hip</h4>
+                  <p>Measure around the fullest part of your hips, keeping tape horizontal.</p>
+
+                {% when 'Dresses — Fitted' %}
+                  <img src="{{ 'product-size-dresses-fitted.png' | asset_url }}" alt="size chart: {{category}}">
+                  <h4>Bust</h4>
+                  <p>Measure around the fullest part of your chest, keeping tape horizontal</p>
+                  <h4>Waist</h4>
+                  <p>Measure around your natural waistline and keep the tape comfortably loose and horizontal</p>
+                  <h4>Hip</h4>
+                  <p>Measure around the fullest part of your hips, keeping tape horizontal.</p>
+
+                {% when 'Dresses — Easy' %}
+                  <img src="{{ 'product-size-dresses-easy.png' | asset_url }}" alt="size chart: {{category}}">
+                  <h4>Bust</h4>
+                  <p>Measure around the fullest part of your chest, keeping tape horizontal</p>
+                  <h4>Waist</h4>
+                  <p>Measure around your natural waistline and keep the tape comfortably loose and horizontal</p>
+                  <h4>Hip</h4>
+                  <p>Measure around the fullest part of your hips, keeping tape horizontal.</p>
+
+                {% when 'Dresses — Oversized' %}
+                  <img src="{{ 'product-size-dresses-oversized.png' | asset_url }}" alt="size chart: {{category}}">
+                  <h4>Bust</h4>
+                  <p>Measure around the fullest part of your chest, keeping tape horizontal</p>
+                  <h4>Waist</h4>
+                  <p>Measure around your natural waistline and keep the tape comfortably loose and horizontal</p>
+                  <h4>Hip</h4>
+                  <p>Measure around the fullest part of your hips, keeping tape horizontal.</p>
+
+                {% when 'Robes + Cardigans — Oversized' %}
+                  <img src="{{ 'product-size-robes-oversized.png' | asset_url }}" alt="size chart: {{category}}">
+                  <h4>Bust</h4>
+                  <p>Measure around the fullest part of your chest, keeping tape horizontal</p>
+                  <h4>Waist</h4>
+                  <p>Measure around your natural waistline and keep the tape comfortably loose and horizontal</p>
+                  <h4>Hip</h4>
+                  <p>Measure around the fullest part of your hips, keeping tape horizontal.</p>
+              {% endcase %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+{{ 'size-guide.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'size-guide.js' | asset_url }}" defer="defer"></script>
