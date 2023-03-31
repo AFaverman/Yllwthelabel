@@ -20,7 +20,7 @@
   {%- comment -%}This is the common part to both template{%- endcomment -%}
 
   {%- if collection.products_count > 0 -%}
-    {%- paginate collection.products by 16 -%}
+    {%- paginate collection.products by section.settings.grid_items_per_page -%}
       <div class="ProductListWrapper">
         <div class="ProductList ProductList--grid {% if paginate.pages > 1 %}ProductList--removeMargin{% endif %} Grid" data-mobile-count="{{ mobile_items_per_row }}" data-desktop-count="{{ desktop_items_per_row }}">
           {%- for product in collection.products -%}
@@ -576,6 +576,15 @@
     {
       "type": "header",
       "content": "Grid"
+    },
+    {
+      "type": "range",
+      "id": "grid_items_per_page",
+      "label": "Products per page",
+      "min": 4,
+      "max": 48,
+      "step": 4,
+      "default": 16
     },
     {
       "type": "select",
