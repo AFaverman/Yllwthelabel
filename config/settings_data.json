@@ -697,7 +697,6 @@
       },
       "ad627f24-06e0-43ab-922d-854024d41413": {
         "type": "slideshow",
-        "disabled": true,
         "blocks": {
           "ad627f24-06e0-43ab-922d-854024d41413-1666974102a5928618-0": {
             "type": "image",
@@ -716,6 +715,7 @@
           },
           "5b4d5244-fb21-4f4f-bc1d-dcc0a82a1bec": {
             "type": "image",
+            "disabled": true,
             "settings": {
               "apply_overlay": true,
               "content_position": "bottomLeft",
