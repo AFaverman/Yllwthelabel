@@ -1,18 +1,13 @@
 {% assign splitter = '###' %}
 {% assign current_u_size_category = product.metafields.custom.universal_sizeguide_category.value %}
-{% assign category_list = 'Tops — Fitted' | append: splitter 
-  | append: 'Tops — Easy' | append: splitter 
-  | append: 'Tops — Oversized' | append: splitter 
-  | append: 'Bottoms — High rise' | append: splitter 
-  | append: 'Bottoms — Mid rise' | append: splitter 
-  | append: 'Bottoms — Low rise' | append: splitter 
-  | append: 'Rompers + Jumpsuits — Fitted' | append: splitter 
-  | append: 'Rompers + Jumpsuits — Easy' | append: splitter 
-  | append: 'Rompers + Jumpsuits — Oversized' | append: splitter 
-  | append: 'Dresses — Fitted' | append: splitter 
-  | append: 'Dresses — Easy' | append: splitter 
-  | append: 'Dresses — Oversized' | append: splitter
-  | append: 'Robes + Cardigans — Oversized' | append: splitter 
+{% assign category_list = 'Occasionwear + Sets — Tops' | append: splitter 
+  | append: 'Occasionwear + Sets — Bottoms' | append: splitter 
+  | append: 'Occasionwear + Sets — Dresses + Jumpsuits' | append: splitter 
+  | append: 'Athleisure' | append: splitter 
+  | append: 'Swim' | append: splitter 
+  | append: 'Sweaters + Sweatshirts' | append: splitter 
+  | append: 'Tops' | append: splitter
+  | append: 'Bottoms' | append: splitter 
   | split: splitter %}
 <div class="product-size-guide g-flex g-vertical">
 <div class="size-guide-overlay"></div>
@@ -25,8 +20,8 @@
   </button>
 
   <div class="size-guide-header">
-    <h2 class="t-h-5">{{ product.vendor | capitalize }} Size Guide</h2>
-    <p>Unsure of your size? No need to lose sleep over it—we are here to help! To ensure proper fit, please refer to the fit guide below and if you have any questions, please feel free to email us at <a href="mailto:contact@yllwthelabel.com">contact@yllwthelabel.com</a>. We are happy to guide you!</p>
+    <h2 class="t-h-5">Size Guide</h2>
+    <p>The sizing you see on our models and product imagery will always be included in the product description. Sizing can vary from garment design, fabric, and structure, so use this chart as a general guide to find the best size for you. <a href="mailto:contact@yllwthelabel.com">Our customer love team</a> is here to answer any additional sizing questions that you may have while making a purchase!</p>
   </div>
 
   <div class="size-content g-flex">
@@ -34,7 +29,7 @@
         <span class="size-guide-chart" data-value="{{ product.metafields.custom_fields["universal_sizeguide_category"] | downcase | remove:" " | replace: "—", "-"}}"></span>
       {% endif %}
 
-      <div class="size-guide-content-left">
+      <div>
         <div class="content-block">
           <label 
             for="size-guide-fit-selector"
@@ -53,64 +48,448 @@
           </div>
 
           {% for category in category_list %}
-            <p 
+            <div
               class="fit-description cr-subdued {% if current_u_size_category contains category %} active{% elsif current_u_size_category == nil and forloop.index == 1 %}active{% endif %}"
               data-fit="{{ category }}">
             {% case category %}
-              {% when 'Tops — Fitted' %}
-                Cut with comfort in mind. Reasonable ease over body relying on the mechanical stretch of the fabric. Armhole sits in line or slightly below the apex.
-
-              {% when 'Tops — Easy' %}
-                Cut with comfort in mind. Reasonable ease over the body relying on the mechanical stretch of the fabric. Armhole sits in line or slightly below the apex.
-
-              {% when 'Tops — Oversized' %}
-                Cut with generous ease over body. Shoulder and armhole is dropped below the apex to achieve a relaxed fit throughout the body and sleeve.
-
-              {% when 'Bottoms — High rise' %}
-                Sits at the natural waist or the narrowest part of the torso.
-
-              {% when 'Bottoms — Mid rise' %}
-                Sits approximately 1 ½” - 2” below the navel.
-
-              {% when 'Bottoms — Low rise' %}
-                Sits approximately 3” - 4” below the natural waist.
-
-              {% when 'Rompers + Jumpsuits — Fitted' %}
-                Stretch to fit relying on the functional stretch of the fabric. Higher armhole and narrower shoulder achieves a slim body-conscious fit through the body and sleeve.
-
-              {% when 'Rompers + Jumpsuits — Easy' %}
-                Cut with comfort in mind. Reasonable ease over the body relying on the mechanical stretch of the fabric. Armhole sits in line or slightly below the apex.
-
-              {% when 'Rompers + Jumpsuits — Oversized' %}
-                Cut with generous ease over body. Shoulder and armhole is dropped below the apex to achieve a relaxed fit throughout the body and sleeve.
-
-              {% when 'Dresses — Fitted' %}
-                Stretch to fit relying on the functional stretch of the fabric. Higher armhole and narrower shoulder achieves a slim body-conscious fit through the body and sleeve.
-
-              {% when 'Dresses — Easy' %}
-                Cut with comfort in mind. Reasonable ease over the body relying on the mechanical stretch of the fabric. Armhole sits in line or slightly below the apex.
-
-              {% when 'Dresses — Oversized' %}
-                Cut with generous ease over body. Shoulder and armhole is dropped below the apex to achieve a relaxed fit throughout the body and sleeve.
-
-              {% when 'Robes + Cardigans — Oversized' %}
-                Cut with generous ease over body. Shoulder and armhole is dropped below the apex to achieve a relaxed fit throughout the body and sleeve.
+              {% when 'Occasionwear + Sets — Tops' %}
+                <div class="size-chart-table">
+                  <table class="t-caption">
+                    <thead>
+                      <tr>
+                        <th colspan="3">Sizes</th>
+                        <th>US/CAN</th>
+                        <th>BUST</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>XS</td>
+                        <td>0-2</td>
+                        <td>31"-32"</td>
+                      </tr>
+                      <tr>
+                        <td>S</td>
+                        <td>2-4</td>
+                        <td>33"-34"</td>
+                      </tr>
+                      <tr>
+                        <td>M</td>
+                        <td>6-8</td>
+                        <td>35"-36"</td>
+                      </tr>
+                      <tr>
+                        <td>L</td>
+                        <td>10-12</td>
+                        <td>36"-37"</td>
+                      </tr>
+                      <tr>
+                        <td>XL</td>
+                        <td>14-16</td>
+                        <td>37"-38"</td>
+                      </tr>
+                      <tr>
+                        <td>XXL</td>
+                        <td>16-18</td>
+                        <td>38"-39"</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              {% when 'Occasionwear + Sets — Bottoms' %}
+                <p><strong>Fit: true to size</strong></p>
+                <div class="size-chart-table">
+                  <table class="t-caption">
+                    <thead>
+                      <tr>
+                        <th colspan="3">Sizes</th>
+                        <th>US/CAN</th>
+                        <th>WAIST</th>
+                        <th>PANT INSEAM</th>
+                        <th>HIPS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>XS</td>
+                        <td>0-2</td>
+                        <td>24"</td>
+                        <td>29"-30"</td>
+                        <td>34"-35"</td>
+                      </tr>
+                      <tr>
+                        <td>S</td>
+                        <td>2-4</td>
+                        <td>25"-26"</td>
+                        <td>30"-31"</td>
+                        <td>36"-37"</td>
+                      </tr>
+                      <tr>
+                        <td>M</td>
+                        <td>6-8</td>
+                        <td>26"-27"</td>
+                        <td>31"-31.25"</td>
+                        <td>38"-39"</td>
+                      </tr>
+                      <tr>
+                        <td>L</td>
+                        <td>10-12</td>
+                        <td>28"-30"</td>
+                        <td>31.25"-31.5"</td>
+                        <td>39"-40"</td>
+                      </tr>
+                      <tr>
+                        <td>XL</td>
+                        <td>14-16</td>
+                        <td>30"-32"</td>
+                        <td>31.5"-32"</td>
+                        <td>41"-42"</td>
+                      </tr>
+                      <tr>
+                        <td>XXL</td>
+                        <td>16-18</td>
+                        <td>33"-34"</td>
+                        <td>32"</td>
+                        <td>42"-43"</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              {% when 'Occasionwear + Sets — Dresses + Jumpsuits' %}
+                <div class="size-chart-table">
+                  <table class="t-caption">
+                    <thead>
+                      <tr>
+                        <th colspan="3">Sizes</th>
+                        <th>US/CAN</th>
+                        <th>BUST</th>
+                        <th>WAIST</th>
+                        <th>PANT INSEAM</th>
+                        <th>HIPS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>XS</td>
+                        <td>0-2</td>
+                        <td>31"-32"</td>
+                        <td>24"</td>
+                        <td>29"-30"</td>
+                        <td>34"-35"</td>
+                      </tr>
+                      <tr>
+                        <td>S</td>
+                        <td>2-4</td>
+                        <td>33"-34"</td>
+                        <td>25"-26"</td>
+                        <td>30"-31"</td>
+                        <td>36"-37"</td>
+                      </tr>
+                      <tr>
+                        <td>M</td>
+                        <td>6-8</td>
+                        <td>35"-36"</td>
+                        <td>26"-27"</td>
+                        <td>31"-31.25"</td>
+                        <td>38"-39"</td>
+                      </tr>
+                      <tr>
+                        <td>L</td>
+                        <td>10-12</td>
+                        <td>36"-37"</td>
+                        <td>28"-30"</td>
+                        <td>31.25"-31.5"</td>
+                        <td>39"-40"</td>
+                      </tr>
+                      <tr>
+                        <td>XL</td>
+                        <td>14-16</td>
+                        <td>37"-38"</td>
+                        <td>30"-32"</td>
+                        <td>31.5"-32"</td>
+                        <td>41"-42"</td>
+                      </tr>
+                      <tr>
+                        <td>XXL</td>
+                        <td>16-18</td>
+                        <td>38"-39"</td>
+                        <td>33"-34"</td>
+                        <td>32"</td>
+                        <td>42"-43"</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              {% when 'Athleisure' %}
+                <p><strong>Fit: if between sizes, we recommend sizing up</strong></p>
+                <div class="size-chart-table">
+                  <table class="t-caption">
+                    <thead>
+                      <tr>
+                        <th colspan="3">Sizes</th>
+                        <th>US/CAN</th>
+                        <th>BUST</th>
+                        <th>WAIST</th>
+                        <th>PANT INSEAM</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>XS</td>
+                        <td>0-2</td>
+                        <td>30"-31"</td>
+                        <td>24"</td>
+                        <td>28"</td>
+                      </tr>
+                      <tr>
+                        <td>S</td>
+                        <td>2-4</td>
+                        <td>31"-32"</td>
+                        <td>25"-26"</td>
+                        <td>29"-30"</td>
+                      </tr>
+                      <tr>
+                        <td>M</td>
+                        <td>6-8</td>
+                        <td>34"-35"</td>
+                        <td>26"-27"</td>
+                        <td>30"-31"</td>
+                      </tr>
+                      <tr>
+                        <td>L</td>
+                        <td>10-12</td>
+                        <td>35"-36"</td>
+                        <td>28"-29"</td>
+                        <td>31"-31.5"</td>
+                      </tr>
+                      <tr>
+                        <td>XL</td>
+                        <td>14-16</td>
+                        <td>37"-38"</td>
+                        <td>30"-32"</td>
+                        <td>31.5"-32"</td>
+                      </tr>
+                      <tr>
+                        <td>XXL</td>
+                        <td>16-18</td>
+                        <td>39"-40"</td>
+                        <td>33"-35"</td>
+                        <td>32"</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              {% when 'Swim' %}
+                <p><strong>Fit: if between sizes, we recommend sizing up</strong></p>
+                <div class="size-chart-table">
+                  <table class="t-caption">
+                    <thead>
+                      <tr>
+                        <th colspan="3">Sizes</th>
+                        <th>US/CAN</th>
+                        <th>BUST</th>
+                        <th>WAIST</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>XS</td>
+                        <td>0-2</td>
+                        <td>31"-32"</td>
+                        <td>24"</td>
+                      </tr>
+                      <tr>
+                        <td>S</td>
+                        <td>2-4</td>
+                        <td>33"-34"</td>
+                        <td>25"-26"</td>
+                      </tr>
+                      <tr>
+                        <td>M</td>
+                        <td>6-8</td>
+                        <td>35"-36"</td>
+                        <td>27"-28"</td>
+                      </tr>
+                      <tr>
+                        <td>L</td>
+                        <td>10-12</td>
+                        <td>37"-39"</td>
+                        <td>29"-30"</td>
+                      </tr>
+                      <tr>
+                        <td>XL</td>
+                        <td>14-16</td>
+                        <td>40"-42"</td>
+                        <td>31"-32"</td>
+                      </tr>
+                      <tr>
+                        <td>XXL</td>
+                        <td>16-18</td>
+                        <td>42"-43"</td>
+                        <td>33"-34"</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              {% when 'Sweaters + Sweatshirts' %}
+                <p><strong>Fit: sweatshirts run true to size for an oversized fit.</strong></p>
+                <div class="size-chart-table">
+                  <table class="t-caption">
+                    <thead>
+                      <tr>
+                        <th colspan="3">Sizes</th>
+                        <th>US/CAN</th>
+                        <th>BUST</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>XS</td>
+                        <td>0-2</td>
+                        <td>30"-31"</td>
+                      </tr>
+                      <tr>
+                        <td>S</td>
+                        <td>2-4</td>
+                        <td>31"-32"</td>
+                      </tr>
+                      <tr>
+                        <td>M</td>
+                        <td>6-8</td>
+                        <td>34"-35"</td>
+                      </tr>
+                      <tr>
+                        <td>L</td>
+                        <td>10-12</td>
+                        <td>35"-36"</td>
+                      </tr>
+                      <tr>
+                        <td>XL</td>
+                        <td>14-16</td>
+                        <td>37"-38"</td>
+                      </tr>
+                      <tr>
+                        <td>XXL</td>
+                        <td>16-18</td>
+                        <td>39"-40"</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              {% when 'Tops' %}
+                <div class="size-chart-table">
+                  <table class="t-caption">
+                    <thead>
+                      <tr>
+                        <th colspan="3">Sizes</th>
+                        <th>US/CAN</th>
+                        <th>BUST</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>XS</td>
+                        <td>0-2</td>
+                        <td>31"-32"</td>
+                      </tr>
+                      <tr>
+                        <td>S</td>
+                        <td>2-4</td>
+                        <td>33"-34"</td>
+                      </tr>
+                      <tr>
+                        <td>M</td>
+                        <td>6-8</td>
+                        <td>35"-36"</td>
+                      </tr>
+                      <tr>
+                        <td>L</td>
+                        <td>10-12</td>
+                        <td>36"-37"</td>
+                      </tr>
+                      <tr>
+                        <td>XL</td>
+                        <td>14-16</td>
+                        <td>37"-38"</td>
+                      </tr>
+                      <tr>
+                        <td>XXL</td>
+                        <td>16-18</td>
+                        <td>38"-39"</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              {% when 'Bottoms' %}
+                <div class="size-chart-table">
+                  <table class="t-caption">
+                    <thead>
+                      <tr>
+                        <th colspan="3">Sizes</th>
+                        <th>US/CAN</th>
+                        <th>WAIST</th>
+                        <th>PANT INSEAM</th>
+                        <th>HIPS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>XS</td>
+                        <td>0-2</td>
+                        <td>24"</td>
+                        <td>28"</td>
+                        <td>34"-35"</td>
+                      </tr>
+                      <tr>
+                        <td>S</td>
+                        <td>2-4</td>
+                        <td>25"-26"</td>
+                        <td>29"-30"</td>
+                        <td>36"-37"</td>
+                      </tr>
+                      <tr>
+                        <td>M</td>
+                        <td>6-8</td>
+                        <td>26"-27"</td>
+                        <td>30"-31"</td>
+                        <td>38"-39"</td>
+                      </tr>
+                      <tr>
+                        <td>L</td>
+                        <td>10-12</td>
+                        <td>28"-30"</td>
+                        <td>31"-31.5"</td>
+                        <td>39"-40"</td>
+                      </tr>
+                      <tr>
+                        <td>XL</td>
+                        <td>14-16</td>
+                        <td>30"-32"</td>
+                        <td>31.5"-32"</td>
+                        <td>41"-42"</td>
+                      </tr>
+                      <tr>
+                        <td>XXL</td>
+                        <td>16-18</td>
+                        <td>33"-34"</td>
+                        <td>32"</td>
+                        <td>42"-43"</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
             {% endcase %}
+            </div>
           {% endfor %}
         </div>
 
         <div class="content-block">
-          <h3 class="t-b-1">Measurement</h3>
-          <p class="cr-subdued">Measurements refer to body size unless otherwise noted. Fits may vary by style and personal preference. If you’re on the borderline between two sizes, order the smaller size for a tighter fit or the larger size for a looser fit. If your measurements for bust and waist correspond to two different suggested sizes, order the size indicated by your bust measurement.</p>
-        </div>
-
-        <div class="content-block">
           <h3 class="t-b-1">Returns / Exchanges</h3>
-          <p class="cr-subdued">Want to try multiple sizes or need a dfferent size? We offer free returns and exchanges within 30 days of your order.</p>
-          <a class="btn-underline" href="https://returns.lunya.co/" target="_blank">Learn More</a>
+          <p class="cr-subdued">Not sure about your size? We offer free exchanges (on domestic orders) within 30 days of your purchase so you can shop with ease of mind.</p>
+          <a class="btn-underline" href="https://yllwthelabel.com/pages/contact-us" target="_blank">Learn More</a>
         </div>
       </div>
-
+      {%comment%}
       <div class="size-guide-content-right">
         <ul class="size-guide-tabs user-select-disable g-flex">
           <li class="active">
@@ -136,6 +515,7 @@
                     data-size-chart-tabs-trigger="Unit IN">
                   IN</button>
                 </li>
+                {%comment%}
                 <li>
                   <button 
                     class="t-caption" 
@@ -248,7 +628,7 @@
                   </table>
                 </div>
               </div>
-
+              {%comment%}
               <div data-size-chart-tabs="Unit CM">
                 <div class="size-chart-table">
                   <table class="t-caption">
@@ -353,7 +733,6 @@
                   </table>
                 </div>
               </div>
-
               <p class="t-caption">*Note: Refer to the product you are on to determine what size category is applicable. eg: Sizing can be S or XS / S</p>
             </div>
           </div>
@@ -481,6 +860,7 @@
           {% endfor %}
         </div>
       </div>
+      {%endcomment%}
   </div>
 </div>
 </div>
