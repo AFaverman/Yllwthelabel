@@ -5,10 +5,10 @@
   "requestHost": {{ request.host | json }}
 }
 {%- endcapture -%}
-{{section_settings}}
+{%capture video_iframe%}{%if section.settings.video_url.type == 'vimeo'%}https://player.vimeo.com/video/{% elsif section.settings.video_url.type == 'youtube' %}https://www.youtube.com/watch?v={%endif%}{{section.settings.video_url.id}}{%endcapture%}
 <section class="Section" id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="background-video" data-section-settings='{{ section_settings }}'>
   <div class="ImageHero {% if section.settings.section_size != 'normal' %}ImageHero--{{ section.settings.section_size }}{% endif %}">
-    <iframe src="https://player.vimeo.com/video/811346602?h=a912d8814a&amp;muted=1&amp;autoplay=1&amp;loop=1&amp;background=1&amp;app_id=122963" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="Vixer 136" data-ready="true" width="426" height="240" frameborder="0"></iframe>
+    <iframe src="{{video_iframe}}" allowfullscreen="" title="Vixer 136" data-ready="true" width="426" height="240" frameborder="0"></iframe>
   </div>
 </section>
 
