@@ -1,14 +1,6 @@
-{%- capture section_settings -%}
-{
-  "videoType": {{ section.settings.video_url.type | json }},
-  "videoId": {{ section.settings.video_url.id | json }},
-  "requestHost": {{ request.host | json }}
-}
-{%- endcapture -%}
-
 <section class="Section" id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="background-video" data-section-settings='{{ section_settings }}'>
   <div class="ImageHero {% if section.settings.section_size != 'normal' %}ImageHero--{{ section.settings.section_size }}{% endif %}">
-    <div class="ImageHero__VideoHolder"></div>
+    <iframe src="{{section.settings.video_url}}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" title="Vixer 136" data-ready="true" width="426" height="240" frameborder="0"></iframe>
   </div>
 </section>
 
