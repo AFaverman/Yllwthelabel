@@ -57,9 +57,13 @@
 }
  .product-size-guide .size-guide-header {
    margin: 0 auto 30px;
+   text-align: center;
+   font-size:15px;
 }
  .product-size-guide .size-guide-header .t-h-5 {
    margin: 0 0 30px;
+   font-size:18px;
+   font-weight:bold;
 }
  .product-size-guide .size-guide-content-left {
    width: 50%;
