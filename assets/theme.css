@@ -10881,7 +10881,9 @@ button.shopify-payment-button__button {
     height: 4.3rem;
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 641px){
+  .desktop_only{display:revert;}
+  .mobile_only{display:none;}
   .Product__InfoWrapper .ProductForm__AddToCart {
     width: 50%;
     float: left;
@@ -10903,7 +10905,9 @@ button.shopify-payment-button__button {
 }
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 640px) {
+  .desktop_only{display:none;}
+  .mobile_only{display:revert;}
 .Product {
     margin-bottom: 50px;
 }
