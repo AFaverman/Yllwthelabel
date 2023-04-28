@@ -3138,7 +3138,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   }
 
   .AspectRatio > img,
-  .no-js .AspectRatio > noscript img {
+  .no-js .AspectRatio > noscript img, .AspectRatio > video, .no-js .AspectRatio > noscript video {
     position: absolute;
     top: 0;
     left: 0;
