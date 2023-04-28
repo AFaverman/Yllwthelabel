@@ -38,7 +38,7 @@ for size, we use it to display a size chart (if applicable)
             {%- assign size_chart_page = pages['size-chart'] -%}
 
             <span class="ProductForm__Label">
-              {{ option.name }}:{%if option.name == 'Size'%}{%if product.metafields.custom.size_considerations != blank %} <strong>product.metafields.custom.size_considerations</strong>{%endif%}{%endif%}
+              {{ option.name }}:{%if option.name == 'Size'%}{%if product.metafields.custom.size_considerations != blank %} <strong>{{product.metafields.custom.size_considerations}}</strong>{%endif%}{%endif%}
 
               {% if color_label contains downcase_option and section.settings.show_color_swatch %}
                 <span class="ProductForm__SelectedValue">{{ option.selected_value }}</span>
