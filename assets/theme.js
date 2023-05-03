@@ -1553,6 +1553,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           newButton.classList.add('Button--secondary');
           newButton.style.float = "none";
           newButton.innerHTML = window.languages.productFormUnavailable;
+          newButton.style.float = "none";
         } else {
           if (newVariant['available']) {
             newButton.removeAttribute('disabled');
