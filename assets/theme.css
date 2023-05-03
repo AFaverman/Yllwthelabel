@@ -10914,4 +10914,7 @@ button.shopify-payment-button__button {
   .Product__InfoWrapper .shopify-payment-button {
     padding-left:0px;
 }
+.ProductMeta .sezzle-shopify-info-button{
+  display:none!important;
+}
 }
