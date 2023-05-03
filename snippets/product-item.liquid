@@ -42,13 +42,31 @@
 
         {%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,400,600,700,800,900,1000,1200', image: product.featured_media -%}{%- endcapture -%}
         {%- assign image_url = product.featured_media | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-
+        {%case product.featured_media.media_type%}
+        {%when 'image'%}
         <img class="ProductItem__Image Image--lazyLoad Image--fadeIn" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ product.featured_media.alt | escape }}" data-media-id="{{ product.featured_media.id }}">
+        {%when 'video'%}
+        <video playsinline="playsinline" class="ProductItem__Image Image--lazyLoad Image--fadeIn" autoplay="autoplay" mute="true" loop="loop" muted="muted" preload="metadata" aria-label="Arcadia Sweatpants" poster="">
+          {%for source in product.featured_media.sources %}
+          <source src="{{source.url}}" type="video/{{source.format}}">
+          {%endfor%}
+            <img alt="{{ product.featured_media.alt | escape }}" src="{{  product.featured_media.preview_image }}">
+          </video>
+        {%endcase%}
         <span class="Image__Loader"></span>
-
         <noscript>
+          {%case product.featured_media.media_type%}
+          {%when 'image'%}
           <img class="ProductItem__Image ProductItem__Image--alternate" src="{{ product.media[1] | img_url: '600x' }}" alt="{{ product.media[1].alt | escape }}">
           <img class="ProductItem__Image" src="{{ product.featured_media| img_url: '600x' }}" alt="{{ product.featured_media.alt | escape }}">
+          {%when 'video'%}
+          <video playsinline="playsinline" class="ProductItem__Image Image--lazyLoad Image--fadeIn" autoplay="autoplay" mute="true" loop="loop" muted="muted" preload="metadata" aria-label="Arcadia Sweatpants" poster="">
+            {%for source in product.featured_media.sources %}
+            <source src="{{source.url}}" type="video/{{source.format}}">
+            {%endfor%}
+              <img alt="{{ product.featured_media.alt | escape }}" src="{{  product.featured_media.preview_image }}">
+            </video>
+          {%endcase%}
         </noscript>
       </div>
     </a>

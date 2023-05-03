@@ -1551,6 +1551,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           newButton.setAttribute('disabled', 'disabled');
           newButton.removeAttribute('data-action');
           newButton.classList.add('Button--secondary');
+          newButton.style.float = "none";
           newButton.innerHTML = window.languages.productFormUnavailable;
           newButton.style.float = "none";
         } else {
@@ -1598,6 +1599,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       key: '_onOptionChanged',
       value: function _onOptionChanged(newValue, target, activator) {
+        console.log("test");
         // We change the value associated with the activator, and check if we have a color swatch
         if (activator) {
           this['option' + target.getAttribute('data-option-position')] = newValue;
