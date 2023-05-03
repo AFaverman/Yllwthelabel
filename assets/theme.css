@@ -3138,7 +3138,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   }
 
   .AspectRatio > img,
-  .no-js .AspectRatio > noscript img {
+  .no-js .AspectRatio > noscript img, .AspectRatio > video, .no-js .AspectRatio > noscript video {
     position: absolute;
     top: 0;
     left: 0;
@@ -3373,6 +3373,7 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
 }
 
 .plyr.plyr--full-ui.plyr--video .plyr__controls {
+  display:none;
   background-color: var(--light-background);
   border-color: rgba(var(--text-color-rgb), 0.05);
 }
@@ -10880,7 +10881,9 @@ button.shopify-payment-button__button {
     height: 4.3rem;
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 641px){
+  .desktop_only{display:revert;}
+  .mobile_only{display:none;}
   .Product__InfoWrapper .ProductForm__AddToCart {
     width: 50%;
     float: left;
@@ -10902,11 +10905,16 @@ button.shopify-payment-button__button {
 }
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 640px) {
+  .desktop_only{display:none;}
+  .mobile_only{display:revert;}
 .Product {
     margin-bottom: 50px;
 }
   .Product__InfoWrapper .shopify-payment-button {
     padding-left:0px;
+}
+.ProductMeta .sezzle-shopify-info-button{
+  display:none!important;
 }
 }

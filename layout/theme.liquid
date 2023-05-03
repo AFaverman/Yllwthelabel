@@ -167,6 +167,7 @@
   {%- endif -%}
 
   <body class="prestige--v4 {{ classes }} {% if template.directory %}template-{{ template.directory | handle }}{% endif %} template-{{ template.name | handle }}">
+    {% if template contains "product"%} {% render 'product-size-chart' %} {% endif %}
     <a class="PageSkipLink u-visually-hidden" href="#main">{{ 'header.navigation.skip_to_content' | t }}</a>
     <span class="LoadingBar"></span>
     <div class="PageOverlay"></div>
