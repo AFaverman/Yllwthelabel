@@ -1,13 +1,14 @@
 {% assign splitter = '###' %}
 {% assign current_u_size_category = product.metafields.custom.universal_sizeguide_category.value %}
-{% assign category_list = 'Occasionwear + Sets — Tops' | append: splitter 
-  | append: 'Occasionwear + Sets — Bottoms' | append: splitter 
-  | append: 'Occasionwear + Sets — Dresses + Jumpsuits' | append: splitter 
+{% assign category_list = 'Occasionwear — Tops' | append: splitter 
+  | append: 'Occasionwear — Bottoms' | append: splitter 
+  | append: 'Occasionwear — Dresses + Jumpsuits' | append: splitter 
   | append: 'Athleisure' | append: splitter 
   | append: 'Swim' | append: splitter 
   | append: 'Sweaters + Sweatshirts' | append: splitter 
   | append: 'Tops' | append: splitter
-  | append: 'Bottoms' | append: splitter 
+  | append: 'Bottoms' | append: splitter
+  | append: 'Sets' | append: splitter 
   | split: splitter %}
 <div class="product-size-guide g-flex g-vertical">
 <div class="size-guide-overlay"></div>
@@ -52,7 +53,7 @@
               class="fit-description cr-subdued {% if current_u_size_category contains category %} active{% elsif current_u_size_category == nil and forloop.index == 1 %}active{% endif %}"
               data-fit="{{ category }}">
             {% case category %}
-              {% when 'Occasionwear + Sets — Tops' %}
+              {% when 'Occasionwear — Tops' %}
                 <p><strong>Fit: true to size</strong></p>
                 <div class="size-chart-table">
                   <table class="t-caption">
@@ -97,7 +98,7 @@
                     </tbody>
                   </table>
                 </div>
-              {% when 'Occasionwear + Sets — Bottoms' %}
+              {% when 'Occasionwear — Bottoms' %}
                 <p><strong>Fit: true to size</strong></p>
                 <div class="size-chart-table">
                   <table class="t-caption">
@@ -156,7 +157,7 @@
                     </tbody>
                   </table>
                 </div>
-              {% when 'Occasionwear + Sets — Dresses + Jumpsuits' %}
+              {% when 'Occasionwear — Dresses + Jumpsuits' %}
                 <div class="size-chart-table">
                   <table class="t-caption">
                     <thead>
@@ -476,6 +477,64 @@
                         <td>16-18</td>
                         <td>33"-34"</td>
                         <td>32"</td>
+                        <td>42"-43"</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                {% when 'Sets' %}
+                <div class="size-chart-table">
+                  <table class="t-caption">
+                    <thead>
+                      <tr>
+                        <th>Sizes</th>
+                        <th>US/CAN</th>
+                        <th>BUST</th>
+                        <th>WAIST</th>
+                        <th>HIPS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>XS</td>
+                        <td>0-2</td>
+                        <td>31"-32"</td>
+                        <td>24"</td>
+                        <td>34"-35"</td>
+                      </tr>
+                      <tr>
+                        <td>S</td>
+                        <td>2-4</td>
+                        <td>33"-34"</td>
+                        <td>25"-26"</td>
+                        <td>36"-37"</td>
+                      </tr>
+                      <tr>
+                        <td>M</td>
+                        <td>6-8</td>
+                        <td>35"-36"</td>
+                        <td>26"-27"</td>
+                        <td>38"-39"</td>
+                      </tr>
+                      <tr>
+                        <td>L</td>
+                        <td>10-12</td>
+                        <td>36"-37"</td>
+                        <td>28"-30"</td>
+                        <td>39"-40"</td>
+                      </tr>
+                      <tr>
+                        <td>XL</td>
+                        <td>14-16</td>
+                        <td>37"-38"</td>
+                        <td>30"-32"</td>
+                        <td>41"-42"</td>
+                      </tr>
+                      <tr>
+                        <td>XXL</td>
+                        <td>16-18</td>
+                        <td>38"-39"</td>
+                        <td>33"-34"</td>
                         <td>42"-43"</td>
                       </tr>
                     </tbody>
