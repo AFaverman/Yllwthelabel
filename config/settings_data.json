@@ -702,8 +702,8 @@
           "ad627f24-06e0-43ab-922d-854024d41413-1666974102a5928618-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Untitled_design_19.png",
-              "mobile_image": "shopify:\/\/shop_images\/0CBD4D9C-4B91-434A-8010-4DD2AFCF761D.jpg",
+              "image": "shopify:\/\/shop_images\/IMG_1053_2.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/yllw-march-2023-III-50_websize_2.jpg",
               "apply_overlay": false,
               "content_position": "bottomLeft",
               "subheading": "",
@@ -756,14 +756,14 @@
       },
       "9d88f979-3c0a-4633-8112-7790fafe4f5a": {
         "type": "background-video",
-        "disabled": true,
         "settings": {
           "section_size": "large",
-          "video_url": "https:\/\/vimeo.com\/811346602"
+          "video_url": "https:\/\/vimeo.com\/831911750?share=copy"
         }
       },
       "d3e6c70a-59d9-4d3c-ba2d-8ba93578e798": {
         "type": "background-video",
+        "disabled": true,
         "settings": {
           "section_size": "large",
           "video_url": "https:\/\/vimeo.com\/823419033?share=copy"
@@ -778,9 +778,9 @@
       }
     },
     "content_for_index": [
+      "9d88f979-3c0a-4633-8112-7790fafe4f5a",
       "d3e6c70a-59d9-4d3c-ba2d-8ba93578e798",
       "ad627f24-06e0-43ab-922d-854024d41413",
-      "9d88f979-3c0a-4633-8112-7790fafe4f5a",
       "featured-collections",
       "collection-list",
       "timeline",
