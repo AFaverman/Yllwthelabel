@@ -70,7 +70,7 @@
       }
       document.addEventListener("DOMContentLoaded", function () {
         doAjax();
-      });
+      }, { once: true });
 
       function setTexts() {
         document.getElementById('wsg-title').innerHTML = `{{ page.title }}`;
@@ -94,7 +94,7 @@
       }
       document.addEventListener("DOMContentLoaded", function () {
         doAjax();
-      });
+      }, { once: true });
       
       function setTexts() {
         document.getElementById('wsg-title').innerHTML = `{{ page.title }}`;
@@ -144,7 +144,7 @@
       document.addEventListener('DOMContentLoaded', async function () {
         await appendContent('GET', wsgReqUrl, 'wsg-quick-order-form');
         setTexts();
-      })
+      }, { once: true })
 
       function setTexts() {
         document.getElementById('wsg-title').innerHTML = `{{ page.title }}`;
@@ -183,7 +183,7 @@
       document.addEventListener('DOMContentLoaded', async function () {
         await appendContent('GET', `/a/wsg/proxy/cart?pages=${wsgCartTotalPages}&page=${wsgCartPage}`, 'wsg-cart');
         setTexts();
-      })
+      }, { once: true })
       function setTexts() {
         document.getElementById('wsg-cart-title').innerHTML = `{{ page.title }}`;
 
@@ -218,7 +218,7 @@
       document.addEventListener('DOMContentLoaded', async function () {
         await appendContent('GET', `/a/wsg/proxy/cart-test?pages=${wsgCartTotalPages}&page=${wsgCartPage}`, 'wsg-cart');
         setTexts();
-      })
+      }, { once: true })
       function setTexts() {
         document.getElementById('wsg-cart-title').innerHTML = `{{ page.title }}`;
 
@@ -243,6 +243,6 @@
 
         // await code here
         await appendContent('GET', wsgProxyUrl, 'wsg-proxy-content');
-      });
+      }, { once: true });
     </script>
 {% endcase %}
