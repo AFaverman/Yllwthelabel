@@ -36,7 +36,7 @@ var loadScript = function(url, callback){
 
             var scripts = document.head.getElementsByTagName('script');
             for (var i = 0; i < scripts.length; ++i) {
-                if(scripts[i].innerText.indexOf('asyncLoad') >= 0 && scripts[i].innerText.indexOf("secomapp.com\\/product_label") >= 0) {
+                if(scripts[i].innerText.indexOf('asyncLoad') >= 0 && scripts[i].innerText.indexOf("d3azqz9xba9gwd.cloudfront.net") >= 0) {
                     console.log('already has scripttag, load PL');
                     return true;
                 }
@@ -123,7 +123,7 @@ SECOMAPP.pl.labels = [
             'include_variants'      : '42785974648983,42356143292567,42356143358103,42711266328727,42356143456407,42711258071191,42356147880087,42356147912855,42624450789527,42356147978391,42632736964759,42356201685143,42356201717911,42711250567319,42711250600087,42776560664727,42356191985815,42356192018583,42624444104855,42624444137623',
                                      'is_new'        : 'any',
                              'is_on_sale'    : 'any',
-                                                            'by_price'      : 'base_price',
+                                                                            'by_price'      : 'base_price',
                                         }
     },
 ];
@@ -293,7 +293,7 @@ SECOMAPP.pl.labelCollections = function(force) {
             SECOMAPP.pl.search[json.query] = true;
             for (page = 2; page <= Math.floor((json.results_count+49) / 50); page++) {
                 var query = json.query.split('&quot;').join('"');
-                jQuery.getScript('/search.js?page=' + page + '&q=' + query + '&view=scm.products.handle.js&_sc=1&design_theme_id=131340435607&app=pl');
+                jQuery.getScript('/search.js?page=' + page + '&q=' + query + '&view=scm.products.handle.js&_sc=1&design_theme_id=132372398231&app=pl');
             }
         }
     };
@@ -324,13 +324,13 @@ SECOMAPP.pl.labelCollections = function(force) {
         fullQuery += "handle:\"" + handle + "\"";
         h++;
         if (h >= 50) {
-            jQuery.getScript('/search.js?q=' + fullQuery + '&view=scm.products.handle.js&_sc=1&design_theme_id=131340435607&app=pl');
+            jQuery.getScript('/search.js?q=' + fullQuery + '&view=scm.products.handle.js&_sc=1&design_theme_id=132372398231&app=pl');
             fullQuery = "";
             h = 0;
         }
     }
     if (h > 0) {
-        jQuery.getScript('/search.js?q=' + fullQuery + '&view=scm.products.handle.js&_sc=1&design_theme_id=131340435607&app=pl');
+        jQuery.getScript('/search.js?q=' + fullQuery + '&view=scm.products.handle.js&_sc=1&design_theme_id=132372398231&app=pl');
     }
 };
 
@@ -426,6 +426,20 @@ SECOMAPP.pl.showLabel = function(variantId) {
             }
         }
 
+        // Exclude Collections
+        if (condition.exclude_collections) {
+            var exclude_collections = condition.exclude_collections.split(',').map(x=>+x)
+            if (match) {
+                for (var i = 0; i < product.collections.length; i++) {
+                    var cid = product.collections[i];
+                    if(exclude_collections.indexOf(cid) >= 0){
+                        match = false;
+                        break;
+                    }
+                }
+            }
+        }
+
         // Tags
         if (condition.tags) {
             var tags = condition.tags.split(',')
@@ -436,6 +450,21 @@ SECOMAPP.pl.showLabel = function(variantId) {
                     for (var i = 0; i < product.tags.length; i++) {
                         if (tags.indexOf(product.tags[i]) >= 0) {
                             match = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Exclude Tags
+        if (condition.exclude_tags) {
+            var exclude_tags = condition.exclude_tags.split(',')
+            if (match) {
+                if (product.hasOwnProperty('tags')) {
+                    for (var i = 0; i < product.tags.length; i++) {
+                        if (exclude_tags.indexOf(product.tags[i]) >= 0) {
+                            match = false;
                             break;
                         }
                     }
@@ -518,6 +547,8 @@ SECOMAPP.pl.showLabel = function(variantId) {
             if (jQuery.inArray(variant.id + "", includeVariants) >= 0) {
                 match = true;
             }
+        } else if (condition.variant_apply == 'select_all') {
+            match = true;
         }
 
         if (condition.starts_at || condition.ends_at) {
@@ -565,6 +596,32 @@ SECOMAPP.pl.showLabel = function(variantId) {
                     }
                     text = text.replace('{SAVE_PERCENT}', save_percent);
                 }
+                if (text.indexOf("{MAX_SALE}") >= 0) {
+                    var max_percent = 0;
+                    for (var i = 0; i < product.variants.length; i++) {
+                        if (product.variants[i].hasOwnProperty('compare_at_price') && product.variants[i].price < product.variants[i].compare_at_price) {
+                            save_percent = (product.variants[i].compare_at_price - product.variants[i].price)*100/product.variants[i].compare_at_price;
+                            save_percent = Math.round(save_percent);
+                            if (save_percent > max_percent) {
+                                max_percent = save_percent;
+                            }
+                        }
+                    }
+                    text = text.replace('{MAX_SALE}', max_percent);
+                }
+                if (text.indexOf("{MIN_SALE}") >= 0) {
+                    var min_percent = 100;
+                    for (var i = 0; i < product.variants.length; i++) {
+                        if (product.variants[i].hasOwnProperty('compare_at_price') && product.variants[i].price < product.variants[i].compare_at_price) {
+                            save_percent = (product.variants[i].compare_at_price - product.variants[i].price)*100/product.variants[i].compare_at_price;
+                            save_percent = Math.round(save_percent);
+                            if (save_percent < min_percent) {
+                                min_percent = save_percent;
+                            }
+                        }
+                    }
+                    text = text.replace('{MIN_SALE}', min_percent);
+                }
                 if (text.indexOf("{SAVE_AMOUNT}") >= 0) {
                     var save_amount = 0;
                     if (variant.hasOwnProperty('compare_at_price') && variant.price < variant.compare_at_price) {
@@ -580,6 +637,18 @@ SECOMAPP.pl.showLabel = function(variantId) {
                 }
                 if (text.indexOf("{PRICE}") >= 0) {
                     text = text.replace('{PRICE}', (variant.price/100).toFixed(2));
+                }
+                if (text.indexOf("{MIN_PRICE}") >= 0) {
+                    text = text.replace('{MIN_PRICE}', (product.price/100).toFixed(2));
+                }
+                if (text.indexOf("{MAX_PRICE}") >= 0) {
+                    var max_price = 0;
+                    for (var i = 0; i < product.variants.length; i++) {
+                        if (product.variants[i].price > max_price) {
+                            max_price = product.variants[i].price;
+                        }
+                    }
+                    text = text.replace('{MAX_PRICE}', (max_price/100).toFixed(2));
                 }
                 if (text.indexOf("{NEW_FOR}") >= 0) {
                     var date_difference = (new Date() - Date.parse(product.published_at))/86400000;
@@ -622,7 +691,7 @@ SECOMAPP.pl.showCollectionLabels = function(product, element) {
     var labels = SECOMAPP.pl.labels;
     for (var j=0; j<labels.length; j++) {
         var label = labels[j];
-        if(label.page.indexOf('collection') === -1){
+        if(label.page.indexOf(SECOMAPP.page) === -1){
             continue;
         }
 
@@ -696,6 +765,20 @@ SECOMAPP.pl.showCollectionLabels = function(product, element) {
             }
         }
 
+        // Exclude Collections
+        if (condition.exclude_collections) {
+            var exclude_collections = condition.exclude_collections.split(',').map(x=>+x)
+            if (match) {
+                for (var i = 0; i < product.collections.length; i++) {
+                    var cid = product.collections[i];
+                    if(exclude_collections.indexOf(cid) >= 0){
+                        match = false;
+                        break;
+                    }
+                }
+            }
+        }
+
         // Tags
         if (condition.tags) {
             var tags = condition.tags.split(',')
@@ -705,6 +788,21 @@ SECOMAPP.pl.showCollectionLabels = function(product, element) {
                     for (var i = 0; i < product.tags.length; i++) {
                         if (tags.indexOf(product.tags[i]) >= 0) {
                             match = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Exclude Tags
+        if (condition.exclude_tags) {
+            var exclude_tags = condition.exclude_tags.split(',')
+            if (match) {
+                if (product.hasOwnProperty('tags')) {
+                    for (var i = 0; i < product.tags.length; i++) {
+                        if (exclude_tags.indexOf(product.tags[i]) >= 0) {
+                            match = false;
                             break;
                         }
                     }
@@ -820,6 +918,8 @@ SECOMAPP.pl.showCollectionLabels = function(product, element) {
                     break;
                 }
             }
+        } else if (condition.variant_apply == 'select_all') {
+            match = true;
         }
 
         if (condition.starts_at || condition.ends_at) {
@@ -875,6 +975,32 @@ SECOMAPP.pl.showCollectionLabels = function(product, element) {
                     }
                     text = text.replace('{SAVE_PERCENT}', save_percent);
                 }
+                if (text.indexOf("{MAX_SALE}") >= 0) {
+                    var max_percent = 0;
+                    for (var i = 0; i < product.variants.length; i++) {
+                        if (product.variants[i].hasOwnProperty('compare_at_price') && product.variants[i].price < product.variants[i].compare_at_price) {
+                            save_percent = (product.variants[i].compare_at_price - product.variants[i].price)*100/product.variants[i].compare_at_price;
+                            save_percent = Math.round(save_percent);
+                            if (save_percent > max_percent) {
+                                max_percent = save_percent;
+                            }
+                        }
+                    }
+                    text = text.replace('{MAX_SALE}', max_percent);
+                }
+                if (text.indexOf("{MIN_SALE}") >= 0) {
+                    var min_percent = 100;
+                    for (var i = 0; i < product.variants.length; i++) {
+                        if (product.variants[i].hasOwnProperty('compare_at_price') && product.variants[i].price < product.variants[i].compare_at_price) {
+                            save_percent = (product.variants[i].compare_at_price - product.variants[i].price)*100/product.variants[i].compare_at_price;
+                            save_percent = Math.round(save_percent);
+                            if (save_percent < max_percent) {
+                                min_percent = save_percent;
+                            }
+                        }
+                    }
+                    text = text.replace('{MIN_SALE}', min_percent);
+                }
                 if (text.indexOf("{SAVE_AMOUNT}") >= 0) {
                     var save_amount = 0;
                     if (firstVariant) {
@@ -901,6 +1027,18 @@ SECOMAPP.pl.showCollectionLabels = function(product, element) {
                     } else {
                         text = text.replace('{PRICE}', (product.price/100).toFixed(2));
                     }
+                }
+                if (text.indexOf("{MIN_PRICE}") >= 0) {
+                    text = text.replace('{MIN_PRICE}', (product.price/100).toFixed(2));
+                }
+                if (text.indexOf("{MAX_PRICE}") >= 0) {
+                    var max_price = 0;
+                    for (var i = 0; i < product.variants.length; i++) {
+                        if (product.variants[i].price > max_price) {
+                            max_price = product.variants[i].price;
+                        }
+                    }
+                    text = text.replace('{MAX_PRICE}', (max_price/100).toFixed(2));
                 }
                 if (text.indexOf("{NEW_FOR}") >= 0) {
                     var date_difference = (new Date() - Date.parse(product.published_at))/86400000;
@@ -1181,7 +1319,7 @@ if (SECOMAPP.page == 'product' ) {
       SECOMAPP.pl.showLabel(variantId);
     });
 }
-if (SECOMAPP.page == 'collection' || SECOMAPP.page == 'product') {
+if (SECOMAPP.page == 'collection' || SECOMAPP.page == 'home' || SECOMAPP.page == 'search' || SECOMAPP.page == 'product') {
 
     SECOMAPP.pl.labelCollections();
 
@@ -1205,6 +1343,17 @@ if (SECOMAPP.page == 'collection' || SECOMAPP.page == 'product') {
             SECOMAPP.pl.labelCollections();
         });
     }
+    if (SECOMAPP.page == 'home'){
+        jQuery(document).ajaxSuccess(function() {
+            SECOMAPP.pl.labelCollections();
+        });
+    }
+    if (SECOMAPP.page == 'search'){
+        jQuery(document).ajaxSuccess(function() {
+            SECOMAPP.pl.labelCollections();
+        });
+    }
+
 }
     SECOMAPP.pl.loadedApp = true;
 };

@@ -53,5 +53,16 @@
     
     <div data-rebuy-id="55245"></div>
     <script async src="https://cdn.rebuyengine.com/onsite/js/rebuy.js?shop=yellow-the-label.myshopify.com"></script>
+<!-- navidium script starts -->
+<script>
+    let nvdShop = 'yellow-the-label.myshopify.com';
+    let nvdShopCurrency = '{{ shop.money_format | strip_html }}';
+ </script>
+ <script src='https://navidium-static-assets.s3.amazonaws.com/navidium-widgets/plus/navidium-checkout.js' defer></script>
+<!-- navidium script ends -->
+<style>
+  .rebuy-product-block:has([href*="navidium"]) { display: none !important; }
+</style>
+    
   </body>
 </html>

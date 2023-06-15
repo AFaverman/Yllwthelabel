@@ -32,10 +32,12 @@
 
         <div class="Grid Grid--xl">
           {%- for result in search.results limit: results_count -%}
+            {% unless result.handle contains 'navidium' %}
             {%- comment -%}The inline onclick is a bit hacky, but it's easier on mobile to have the full line clickable{%- endcomment -%}
             <div class="Grid__Cell 1/{{ results_count }}--tablet-and-up" onclick="window.location.href = '{{ result.url }}'">
               {%- render 'product-item', product: result, show_labels: false, show_product_info: true, show_vendor: false -%}
             </div>
+          {% endunless %}
           {%- endfor -%}
         </div>
       {%- else -%}

@@ -37,9 +37,11 @@
       {%- if search.types contains 'product' -%}
         <div class="ProductList ProductList--grid Grid" data-mobile-count="2" data-desktop-count="4">
           {%- for result in search.results -%}
+            {% unless result.handle contains 'navidium' %}
             <div class="Grid__Cell 1/2 1/3--tablet 1/4--lap-and-up">
               {%- render 'product-item', product: result, show_labels: true, show_product_info: true, show_vendor: false -%}
             </div>
+          {% endunless %}
           {%- endfor -%}
         </div>
       {%- else -%}

@@ -52,9 +52,11 @@
               {%- endfor -%}
             {%- else -%}
               {%- for product in recommendations.products -%}
+                {% unless product.handle contains 'navidium' %}
                 <div class="Carousel__Cell">
                   {% render 'product-item', product: product, show_product_info: section.settings.show_product_info, show_vendor: section.settings.show_vendor, show_color_swatch: section.settings.show_color_swatch, show_labels: true %}
                 </div>
+                  {% endunless %}
               {%- else -%}
                 {%- comment -%}Hide the section if there is no recommendations to show{%- endcomment -%}
                 <style>
