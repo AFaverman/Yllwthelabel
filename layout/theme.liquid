@@ -253,6 +253,7 @@
       window.addEventListener('load', function() {
       var _learnq = window._learnq || [];
       function addedToCart() {
+        console.log("addedtocart");
         fetch(`${window.location.origin}/cart.js`)
         .then(res => res.clone().json().then(data => {
           var cart = {
@@ -289,6 +290,8 @@
       var atcButtons = document.querySelectorAll("form[action*='/cart/add'] button[type='submit']");
       for (var i = 0; i < atcButtons.length; i++) {
           atcButtons[i].addEventListener("click", function() {
+            console.log("added to cart");
+            console.log(item);
             if (klAjax) {
               _learnq.push(['track', 'Added to Cart', item]);
               klAjax = false;
