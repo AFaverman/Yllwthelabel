@@ -270,8 +270,6 @@
               _learnq.push(['track', 'Added to Cart', cart]);
               klAjax = false;
             }
-          console.log(_learnq);
-          console.log(cart);
         }))
       };
       (function (ns, fetch) {
@@ -290,8 +288,6 @@
       var atcButtons = document.querySelectorAll("form[action*='/cart/add'] button[type='submit']");
       for (var i = 0; i < atcButtons.length; i++) {
           atcButtons[i].addEventListener("click", function() {
-            console.log("added to cart");
-            console.log(item);
             if (klAjax) {
               _learnq.push(['track', 'Added to Cart', item]);
               klAjax = false;
