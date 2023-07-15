@@ -703,7 +703,7 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/DSC_2197_4.jpg",
-              "mobile_image": "shopify:\/\/shop_images\/IMG_05849A156913-1.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/DSC_1035.jpg",
               "apply_overlay": false,
               "content_position": "bottomLeft",
               "subheading": "",
@@ -764,7 +764,6 @@
       },
       "d3e6c70a-59d9-4d3c-ba2d-8ba93578e798": {
         "type": "background-video",
-        "disabled": true,
         "settings": {
           "section_size": "large",
           "video_url": "https:\/\/vimeo.com\/823419033?share=copy"
