@@ -764,6 +764,7 @@
       },
       "d3e6c70a-59d9-4d3c-ba2d-8ba93578e798": {
         "type": "background-video",
+        "disabled": true,
         "settings": {
           "section_size": "large",
           "video_url": "https:\/\/vimeo.com\/823419033?share=copy"
