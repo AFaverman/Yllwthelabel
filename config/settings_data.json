@@ -142,7 +142,6 @@
       },
       "slideshow": {
         "type": "slideshow",
-        "disabled": true,
         "blocks": {
           "slide-0": {
             "type": "image",
@@ -223,6 +222,7 @@
           "cdfc29b4-6160-43a1-b3ca-0ff1d245752b",
           "0900691b-e60f-42d1-998c-a294568125f8"
         ],
+        "disabled": true,
         "settings": {
           "show_fullscreen": false,
           "show_arrow": true,
@@ -321,7 +321,6 @@
       },
       "timeline": {
         "type": "timeline",
-        "disabled": true,
         "blocks": {
           "item-1": {
             "type": "item",
@@ -398,6 +397,7 @@
           "1602328182064",
           "1602328183627"
         ],
+        "disabled": true,
         "settings": {
           "text_color": "#ffffff"
         }
@@ -495,7 +495,6 @@
       },
       "1602334551931": {
         "type": "slideshow",
-        "disabled": true,
         "blocks": {
           "1602334551931-0": {
             "type": "image",
@@ -515,6 +514,7 @@
         "block_order": [
           "1602334551931-0"
         ],
+        "disabled": true,
         "settings": {
           "show_fullscreen": false,
           "show_arrow": false,
@@ -639,7 +639,6 @@
       },
       "1640545305e48592b4": {
         "type": "slideshow",
-        "disabled": true,
         "blocks": {
           "1640545305e48592b4-0": {
             "type": "image",
@@ -672,6 +671,7 @@
           "1640545305e48592b4-0",
           "1640545305e48592b4-1"
         ],
+        "disabled": true,
         "settings": {
           "show_fullscreen": false,
           "show_arrow": false,
@@ -702,8 +702,8 @@
           "ad627f24-06e0-43ab-922d-854024d41413-1666974102a5928618-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/DSC_2197_4.jpg",
-              "mobile_image": "shopify:\/\/shop_images\/IMG_05849A156913-1.jpg",
+              "image": "shopify:\/\/shop_images\/Screenshot_2023-08-12_at_2.17.12_PM.png",
+              "mobile_image": "shopify:\/\/shop_images\/Screenshot_2023-08-12_at_2.17.58_PM.png",
               "apply_overlay": false,
               "content_position": "bottomLeft",
               "subheading": "",
