@@ -1,0 +1,47 @@
+ <!-- Navidium script start -->
+    <style>
+      .navidium-shipping-protection {
+    display: none !important;
+}
+    </style>
+    <script>
+      const nvdShop = 'yellow-the-label.myshopify.com';
+      const nvdShopCurrency = '{{ shop.money_format | strip_html }}';
+      const nvdControls = {
+        cartCounter: '.Header__CartCount', //cart item count
+        subtotal: 'p.Cart__Total span', // cart subtotal amount
+        lineAttribute: 'data-index', // cart item line
+        cartItemNodes: '.rebuy-cart__flyout-item,.CartItem', // Cart items loop
+        quantityMinus: 'qty_minus', // Quantity decrase button
+        quantityPlus: 'qty_plus', // Quantity incrase button
+        removeItem: 'cart_remove_class', // Cart item remove btn class
+        qtybtnAttribute: 'data-href', // Cart item btn line update
+        qtyrmvAttribute: 'href', // Cart item remove line update
+        clickTriggers: '[href="/cart"],[href="/cart"] *,.ProductForm__AddToCart,.ProductForm__AddToCart *,.rebuy-cart__flyout-item-quantity-widget-button,.rebuy-cart__flyout-item-quantity-widget-button *,.rebuy-cart__flyout-item-remove,.rebuy-cart__flyout-item-remove *,.rebuy-product-actions .rebuy-button', // Onclick widget update
+        changeTrigger: 'hhh', // Onchange widget update
+  	    cursorControl: '.rebuy-cart__flyout-actions,.Cart__Checkout,.nvd-mini', // Disabled/Enabled cursor pointer event
+        onLoadTrigger: false, // window.onload nvd_init function call
+        cartReload: false, // Cart reload for /cart page
+        showConsoleMessage:false, // Console message show/hide
+        trackWidget:false, // Track widget on realtime
+        forceClick: true, // forceclick for onclickTrigger event
+        nvdInject:{
+          status:false, // Inject nvd-mini div
+          parent:'parent_class', // parent class for nvd-mini div
+          container:'checkout_button_div' // nvd-mini will added before this div/button
+        }
+      }      
+    </script>
+   <script  src="https://navidium-static-assets.s3.amazonaws.com/navidium-widgets/js/nvd-widget-c-v-n-1.js" defer></script>
+    {% if template.name contains 'cart' %}
+    <script>
+      window.onload = ()=>{
+        setTimeout(()=>{
+          if(document.querySelector('.nvd-mini').innerHTML === ''){
+            nvd_init();
+          }
+        },1500)
+      }
+    </script>
+    {% endif %}
+  <!-- End of Navidium script -->
