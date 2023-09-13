@@ -32,7 +32,7 @@
         }
       }      
     </script>
-   {{'navidium-widget.js' | asset_url | script_tag }}
+   <script  src=<script src="{{ 'navidium-widget.js' | asset_url }}" defer></script>
     {% if template.name contains 'cart' %}
     <script>
       window.onload = ()=>{
