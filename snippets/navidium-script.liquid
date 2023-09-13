@@ -1243,7 +1243,9 @@ const buildOldWidget = (shopConfig, priceFromApi, nvdVariant, checked) => {
   const diselectedStyle = protectionCheckbox
     ? "'display: none'"
     : "'display: block'"
-
+  let widget-price =  ${formatMoney(
+    protectionPrice * 100 * parseFloat(Shopify.currency.rate),
+    nvdShopCurrency
   let learnMoreMarkup =
     isValidUrl(learnMore) && !learnMore?.includes('navidiumapp.com')
       ? ` 
