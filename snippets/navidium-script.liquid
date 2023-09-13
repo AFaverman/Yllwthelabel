@@ -1243,6 +1243,10 @@ const buildOldWidget = (shopConfig, priceFromApi, nvdVariant, checked) => {
   const diselectedStyle = protectionCheckbox
     ? "'display: none'"
     : "'display: block'"
+  let widget-price = ${formatMoney(
+    protectionPrice * 100 * parseFloat(Shopify.currency.rate),
+    nvdShopCurrency
+  )}
   let learnMoreMarkup =
     isValidUrl(learnMore) && !learnMore?.includes('navidiumapp.com')
       ? ` 
@@ -1278,7 +1282,7 @@ const buildOldWidget = (shopConfig, priceFromApi, nvdVariant, checked) => {
             class="forms-check-inputCstm-ld"
             type="checkbox"
             id="shippingProtectionCheckBox"
-            onclick="getShippingProtection('${protectionVariant}','${protectionPrice}', this)" ${protectionCheckbox} data-protected-variant="${protectionVariant}" aria-label="${nvd_name},${nvd_subtitle}"
+            onclick="getShippingProtection('${protectionVariant}','${protectionPrice}', this)" ${protectionCheckbox} data-protected-variant="${protectionVariant}" aria-label="${nvd_name},${nvd_subtitle},${widget-price}"
              />
           <div class="img">
             <img
