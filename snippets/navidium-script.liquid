@@ -32,7 +32,7 @@
         }
       }      
     </script>
-   <script  src="https://navidium-static-assets.s3.amazonaws.com/navidium-widgets/js/nvd-widget-c-v-n-1.js" defer></script>
+   {{ 'navidium-widget.js' | asset_url | script_tag }}
     {% if template.name contains 'cart' %}
     <script>
       window.onload = ()=>{
