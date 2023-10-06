@@ -147,7 +147,7 @@
       {%- case section.settings.filter_mode -%}
         {%- when 'tag' -%}
           {%- for tag in collection.all_tags -%}
-            {%- unless tag contains '__' -%}
+            {%- unless tag contains 'no-' -%}
               {%- assign has_visible_tags = true -%}
               {%- break -%}
             {%- endunless -%}
@@ -259,7 +259,7 @@
                   <div class="Collapsible__Content">
                     <ul class="Linklist">
                       {%- for tag in collection.all_tags -%}
-                        {%- if tag contains '__' -%}
+                        {%- if tag contains 'no-' -%}
                           {%- continue -%}
                         {%- endif -%}
 
@@ -279,7 +279,7 @@
               {%- for tag in collection.all_tags -%}
                 {%- assign tag_parts = tag | split: '_' -%}
 
-                {%- if tag_parts.size < 2 or tag contains '__' -%}
+                {%- if tag_parts.size < 2 or tag contains 'no-' -%}
                   {%- continue -%}
                 {%- endif -%}
 
@@ -309,7 +309,7 @@
                         {%- for tag in collection.all_tags -%}
                           {%- assign tag_parts = tag | split: '_' -%}
 
-                          {%- if tag_parts.size < 2 or tag_parts.first != group or tag contains '__' -%}
+                          {%- if tag_parts.size < 2 or tag_parts.first != group or tag contains 'no-' -%}
                             {%- continue -%}
                           {%- endif -%}
 
