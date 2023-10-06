@@ -147,7 +147,7 @@
       {%- case section.settings.filter_mode -%}
         {%- when 'tag' -%}
           {%- for tag in collection.all_tags -%}
-            {%- unless tag contains '__' -%}
+            {%- unless tag contains 'no-' -%}
               {%- assign has_visible_tags = true -%}
               {%- break -%}
             {%- endunless -%}
