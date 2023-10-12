@@ -124,8 +124,8 @@
           "footer-2": {
             "type": "newsletter",
             "settings": {
-              "title": "Sign Up For Our Newsletter",
-              "content": "<p>Sign up for special deals &amp; discounts!<\/p>"
+              "title": "STAY CONNECTED",
+              "content": "<p>Drop your email for new releases + sales:<\/p>"
             }
           }
         },
