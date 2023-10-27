@@ -418,7 +418,7 @@
           "filter_mode": "tag",
           "show_filter_color_swatch": true,
           "filter_menu": "",
-          "grid_items_per_page": 16,
+          "grid_items_per_page": 24,
           "grid_mobile_items_per_row": "2",
           "grid_desktop_items_per_row": 4
         }
