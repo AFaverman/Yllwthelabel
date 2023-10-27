@@ -125,7 +125,7 @@
             "type": "newsletter",
             "settings": {
               "title": "STAY CONNECTED",
-              "content": "<p>Drop your email for new releases + sales:<\/p>"
+              "content": "<p>Drop your email for new releases:<\/p>"
             }
           }
         },
