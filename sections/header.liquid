@@ -440,7 +440,14 @@ HEADER CONTENT
       <a href="{{ routes.cart_url }}" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable {% unless section.settings.show_icons or use_sidebar_menu %}hidden-desk{% endunless %}" {% if settings.cart_type == 'drawer' %}data-action="open-drawer" data-drawer-id="sidebar-cart" aria-expanded="false" aria-label="{{ 'header.navigation.open_cart' | t }}"{% endif %}>
         <span class="hidden-tablet-and-up">{%- render 'icon' with 'cart' -%}</span>
         <span class="hidden-phone">{%- render 'icon' with 'cart-desktop' -%}</span>
-        <span class="Header__CartDot {% if cart.item_count > 0 %}is-visible{% endif %}"></span>
+        <!-- <span class="Header__CartDot {% if cart.item_count > 0 %}is-visible{% endif %}"></span> -->
+        <div class="cart_count_bar">
+          {%- if cart != empty -%}
+            {%- if cart.item_count < 100 -%}
+              <span class="cart_count" aria-hidden="true">{{ cart.item_count }}</span>
+            {%- endif -%}
+          {%- endif -%}
+        </div>
       </a> 
  <div class="transcy-switcher-manual transcy-desktop HorizontalList__Item hidden"></div>
     </div>
