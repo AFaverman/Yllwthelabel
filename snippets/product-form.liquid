@@ -14,11 +14,6 @@ for size, we use it to display a size chart (if applicable)
 
 {%- form 'product', product, class: 'ProductForm' -%}
 
-<!-- HC - Shop Pay Installments Banner - 28 Jun '21 -->
-<div class="hc-shop-pay-installments" style="margin: 0 0 15px;">
-  {{ form | payment_terms }}
-</div>
-
   <div class="ProductForm__Variants">
     {%- unless product.has_only_default_variant -%}
       {%- for option in product.options_with_values -%}
@@ -279,6 +274,12 @@ for size, we use it to display a size chart (if applicable)
   {%- if section.settings.show_payment_button and product.template_suffix != 'pre-order' -%}
     {{ form | payment_button }}
   {%- endif -%}
+
+  <!-- HC - Shop Pay Installments Banner - 28 Jun '21 -->
+  <div class="hc-shop-pay-installments" style="margin: 0 0 15px;">
+    {{ form | payment_terms }}
+  </div>
+  
 {%- endform -%}
 
 {%- if size_chart_page != empty -%}
