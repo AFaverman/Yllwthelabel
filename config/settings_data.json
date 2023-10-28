@@ -413,7 +413,7 @@
           "collection_image_size": "normal",
           "show_sort_by": true,
           "show_layout_switch": false,
-          "toolbar_position": "bottom",
+          "toolbar_position": "top",
           "filter_position": "sidebar",
           "filter_mode": "tag",
           "show_filter_color_swatch": true,
