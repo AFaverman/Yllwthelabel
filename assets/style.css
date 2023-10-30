@@ -38,3 +38,23 @@
 }
 /* End paypal label in product page */
 
+/* Start Product page description page postion change */
+@media (max-width: 640px) {
+.Product__Info .Container{
+  display:flex;
+  flex-direction:column;
+}
+.Product__Info .ProductMeta{
+  order:1;
+}
+.Product__Info .ProductForm{
+    order:2;
+  }
+.Product__Info .mobile_only{
+  order:3;
+}
+.Product__Info div[data-rebuy-id="55242"]{
+  order:4;
+}
+}
+/* ENd Product page description page postion change */
