@@ -97,7 +97,7 @@
           "link": "",
           "curency_sector": true,
           "use_sticky_header": true,
-          "logo": "shopify:\/\/shop_images\/Yellow_LogoBlack_910437b3-cf6f-41c3-ad8d-ed115260c485_80x_1.png",
+          "logo": "shopify:\/\/shop_images\/logo_yllw.png",
           "logo_max_width": 70,
           "mobile_logo_max_width": 70,
           "show_currency_selector": true,
@@ -711,7 +711,7 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/DSC_2316.jpg",
-              "mobile_image": "shopify:\/\/shop_images\/DSC_22792.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/Girl_2.jpg",
               "apply_overlay": true,
               "content_position": "bottomLeft",
               "subheading": "",
