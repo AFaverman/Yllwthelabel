@@ -97,8 +97,8 @@
           "show_locale_selector": true,
           "navigation_menu": "main-menu",
           "navigation_style": "center",
-          "show_icons": false,
-          "enable_transparent_header": false,
+          "show_icons": true,
+          "enable_transparent_header": true,
           "enable_transparent_header_collection": false,
           "show_transparent_header_border": false,
           "transparent_text_color": "#ffffff"
