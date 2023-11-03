@@ -98,7 +98,7 @@
           "curency_sector": true,
           "use_sticky_header": true,
           "logo": "shopify:\/\/shop_images\/logo_yllw.png",
-          "logo_max_width": 90,
+          "logo_max_width": 70,
           "mobile_logo_max_width": 70,
           "show_currency_selector": true,
           "show_locale_selector": true,
