@@ -3,17 +3,18 @@
 }
 
 /* Start Header Cart Count Label */
-/* .Header .Header__FlexItem .Header__Icon .cart_count_bar {
+.Header .Header__FlexItem .Header__Icon .cart_count_bar {
   position: absolute;
   top: -15px;
   right: -10px;
   background: #FFF9DE;
   border-radius: 20px;
   padding: 6px;
-} */
+} 
+
 .Header .Header__FlexItem .Header__Icon .cart_count {
       font-size: 10px;
-    color: #000;
+/*    color: #000;
     position: absolute;
     bottom: 13px;
     left: 17px;
@@ -22,7 +23,7 @@
     height: 17px;
     width: 17px;
     text-align: center;
-    padding-top:3px;
+    padding-top:3px;*/
 }
 /* End Header Cart Count Label */
 
