@@ -148,6 +148,13 @@
 {% render 'wsg-custom' %}
   {% render 'translation-lab-language-management' %}
   {% include 'scm-product-label-head' %}
+  <style>
+    @media screen and (min-width: 641px){
+      .Header__LogoImage {
+          height: 90px;
+      }
+    }
+  </style>  
 </head>
 
   {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
