@@ -1,12 +1,12 @@
 {%- comment -%}
-  In Prestige, the header is quite complex due to the very high number of possible combinations. If you have to edit it, please
-  make sure to duplicate the theme first so you can revert your changes in case any issue is introduced.
+In Prestige, the header is quite complex due to the very high number of possible combinations. If you have to edit it, please
+make sure to duplicate the theme first so you can revert your changes in case any issue is introduced.
 {%- endcomment -%}
 
 {%- comment -%}
-  --------------------------------------------------------------------------------------------------------------------
-  USEFUL VARIABLES
-  --------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
+USEFUL VARIABLES
+--------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
 {%- assign use_transparent_header = false -%}
@@ -15,12 +15,7 @@
   {%- assign use_transparent_header = true -%}
 {%- endif -%}
 
-{%- if template.name == 'collection'
-  and section.settings.enable_transparent_header_collection
-  and collection.image
-  and collection.all_products_count > 0
-  and collection.template_suffix != 'no-image'
--%}
+{%- if template.name == 'collection' and section.settings.enable_transparent_header_collection and collection.image and collection.all_products_count > 0 and collection.template_suffix != 'no-image' -%}
   {%- assign use_transparent_header = true -%}
 {%- endif -%}
 
@@ -31,9 +26,9 @@
 {%- endif -%}
 
 {%- comment -%}
-  --------------------------------------------------------------------------------------------------------------------
-  CURRENCY AND LANGUAGE SELECTORS
-  --------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
+CURRENCY AND LANGUAGE SELECTORS
+--------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
 {%- if section.settings.show_currency_selector and shop.enabled_currencies.size > 1 -%}
@@ -111,12 +106,12 @@
 {%- endif -%}
 
 {%- comment -%}
-  --------------------------------------------------------------------------------------------------------------------
-  SEARCH FORM (implemented as a modal)
+--------------------------------------------------------------------------------------------------------------------
+SEARCH FORM (implemented as a modal)
 
-  Implementation note: make sure that the Search div is always just before the Header element, as the CSS uses
-                       this assumption
-  --------------------------------------------------------------------------------------------------------------------
+Implementation note: make sure that the Search div is always just before the Header element, as the CSS uses
+                     this assumption
+--------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
 <div id="Search" class="Search" aria-hidden="true">
@@ -128,22 +123,11 @@
           <span class="hidden-phone">{%- render 'icon' with 'search-desktop' -%}</span>
         </div>
 
-        <input
-          type="search"
-          class="Search__Input Heading"
-          name="q"
-          autocomplete="off"
-          autocorrect="off"
-          autocapitalize="off"
-          placeholder="{{ 'search.general.input_placeholder' | t }}"
-          autofocus
-        >
+        <input type="search" class="Search__Input Heading" name="q" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="{{ 'search.general.input_placeholder' | t }}" autofocus>
         <input type="hidden" name="type" value="product">
       </form>
 
-      <button class="Search__Close Link Link--primary" data-action="close-search">
-        {% render 'icon' with 'close' %}
-      </button>
+      <button class="Search__Close Link Link--primary" data-action="close-search">{% render 'icon' with 'close' %}</button>
     </div>
 
     <div class="Search__Results" aria-hidden="true">
@@ -158,9 +142,9 @@
 </div>
 
 {%- comment -%}
-  --------------------------------------------------------------------------------------------------------------------
-  HEADER CONTENT
-  --------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
+HEADER CONTENT
+--------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
 {%- capture section_settings -%}
@@ -171,88 +155,23 @@
 }
 {%- endcapture -%}
 
-<header
-  id="section-{{ section.id }}"
-  class="Header Header--{{ section.settings.navigation_style }} {% if section.settings.navigation_style != 'inline' and section.settings.navigation_style != 'logoLeft' %}Header--initialized{% endif %} {% if use_transparent_header %}Header--transparent{% endif %} {% if section.settings.show_icons or section.settings.navigation_style == 'sidebar' %}Header--withIcons{% endif %}"
-  data-section-id="{{ section.id }}"
-  data-section-type="header"
-  data-section-settings='{{ section_settings }}'
-  role="banner"
->
-  <!-- annocement bar -->
-  {%- if section.settings.enable_bar -%}
-    <section
-      id="section-{{ section.id }}"
-      class="header-annocementbar"
-      data-section-id="{{ section.id }}"
-      data-section-type="announcement-bar"
-    >
-      <div class="currency">
-        {% comment %} Store multiple currency manage form: Start {% endcomment %}
-        {%- if localization_form != blank
-          and section.settings.navigation_style == 'inline'
-          or section.settings.navigation_style == 'logoLeft'
-        -%}
-          <li class="HorizontalList__Item">
-            {{ localization_form }}
-          </li>
-        {%- endif -%}
-
-        {% comment %} Store multiple currency manage form: Start {% endcomment %}
-
-        <div class="AnnouncementBar">
-          <div class="AnnouncementBar__Wrapper">
-            <p class="AnnouncementBar__Content Heading">
-              {%- if section.settings.link -%}
-                <a href="{{ section.settings.link }}">{{ section.settings.content | escape }}</a>
-              {%- else -%}
-                {{ section.settings.content | escape }}
-              {%- endif -%}
-            </p>
-          </div>
-        </div>
-        <nav class="Header__SecondaryNav hidden-phone">
-          <ul class="HorizontalList HorizontalList--spacingLoose hidden-pocket hidden-lap">
-            {%- if shop.customer_accounts_enabled -%}
-              <li class="HorizontalList__Item">
-                <a href="{{ routes.account_url }}" class="Heading Link Link--primary Text--subdued u-h8">
-                  <svg
-                    class="icon-user"
-                    width="800px"
-                    height="800px"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  {{- 'header.navigation.account' | t -}}
-                </a>
-              </li>
-            {%- endif -%}
-          </ul>
-        </nav>
-      </div>
-    </section>
-  {% endif %}
-  <!-- End -->
+<header id="section-{{ section.id }}"
+        class="Header Header--{{ section.settings.navigation_style }} {% if section.settings.navigation_style != 'inline' and section.settings.navigation_style != 'logoLeft' %}Header--initialized{% endif %} {% if use_transparent_header %}Header--transparent{% endif %} {% if section.settings.show_icons or section.settings.navigation_style == 'sidebar' %}Header--withIcons{% endif %}"
+        data-section-id="{{ section.id }}"
+        data-section-type="header"
+        data-section-settings='{{ section_settings }}'
+        role="banner">
   <div class="Header__Wrapper">
     <div class="Header__FlexItem Header__FlexItem--fill">
-      <button
-        class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable {% unless use_sidebar_menu %}hidden-desk{% endunless %}"
-        aria-expanded="false"
-        data-action="open-drawer"
-        data-drawer-id="sidebar-menu"
-        aria-label="{{ 'header.navigation.open_sidebar' | t }}"
-      >
+      <button class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable {% unless use_sidebar_menu %}hidden-desk{% endunless %}" aria-expanded="false" data-action="open-drawer" data-drawer-id="sidebar-menu" aria-label="{{ 'header.navigation.open_sidebar' | t }}">
         <span class="hidden-tablet-and-up">{%- render 'icon' with 'nav' -%}</span>
         <span class="hidden-phone">{%- render 'icon' with 'nav-desktop' -%}</span>
       </button>
 
       {%- comment -%}
-        --------------------------------------------------------------------------------------------------------------------
-        DESKTOP NAVIGATION (if not using the sidebar mode)
-        --------------------------------------------------------------------------------------------------------------------
+      --------------------------------------------------------------------------------------------------------------------
+      DESKTOP NAVIGATION (if not using the sidebar mode)
+      --------------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
 
       {%- unless use_sidebar_menu -%}
@@ -419,12 +338,7 @@
                 {%- endif -%}
               {%- endcapture -%}
 
-              <li
-                class="HorizontalList__Item {% if link.links == blank and link.active %}is-active{% endif %}"
-                {% if menu_item_dropdown != blank %}
-                  aria-haspopup="true"
-                {% endif %}
-              >
+              <li class="HorizontalList__Item {% if link.links == blank and link.active %}is-active{% endif %}" {% if menu_item_dropdown != blank %}aria-haspopup="true"{% endif %}>
                 <a href="{{ link.url }}" class="Heading u-h6">
                   {{- link.title | escape -}}
 
@@ -479,61 +393,36 @@
       {%- unless section.settings.show_icons or use_sidebar_menu -%}
         <nav class="Header__SecondaryNav hidden-phone">
           <ul class="HorizontalList HorizontalList--spacingLoose hidden-pocket hidden-lap">
-            {%- if localization_form != blank
-              and section.settings.navigation_style == 'inline'
-              or section.settings.navigation_style == 'logoLeft'
-            -%}
-              {% comment %}
-                <li class="HorizontalList__Item">
-                  {{ localization_form }}
-                </li>
-              {% endcomment %}
+            {%- if localization_form != blank and section.settings.navigation_style == 'inline' or section.settings.navigation_style == 'logoLeft' -%}
+              <li class="HorizontalList__Item">
+                {{ localization_form }}
+              </li>
             {%- endif -%}
 
-            {% comment %}
-              {%- if shop.customer_accounts_enabled -%}
-                <li class="HorizontalList__Item">
-                  <a href="{{ routes.account_url }}" class="Heading Link Link--primary Text--subdued u-h8">
-                    {{- 'header.navigation.account' | t -}}
-                  </a>
-                </li>
-              {%- endif -%}
-            {% endcomment %}
+            {%- if shop.customer_accounts_enabled -%}
+              <li class="HorizontalList__Item">
+                <a href="{{ routes.account_url }}" class="Heading Link Link--primary Text--subdued u-h8">
+                  {{- 'header.navigation.account' | t -}}
+                </a>
+              </li>
+            {%- endif -%}
+
             <li class="HorizontalList__Item">
-              <a
-                href="{{ routes.search_url }}"
-                class="Heading Link Link--primary Text--subdued u-h8"
-                data-action="toggle-search"
-              >
-                {{- 'header.navigation.search' | t -}}
-              </a>
+              <a href="{{ routes.search_url }}" class="Heading Link Link--primary Text--subdued u-h8" data-action="toggle-search">{{ 'header.navigation.search' | t }}</a>
             </li>
 
             <li class="HorizontalList__Item">
-              <a
-                href="{{ routes.cart_url }}"
-                class="Heading u-h6"
-                {% unless template == 'cart' or settings.cart_type == 'page' %}
-                  data-action="open-drawer" data-drawer-id="sidebar-cart"
-                  aria-label="{{ 'header.navigation.open_cart' | t }}"
-                {% endunless %}
-              >
-                {{- 'header.navigation.cart' | t }}(<span class="Header__CartCount">
-                  {{- cart.item_count -}}</span
-                >)</a
-              >
+              <a href="{{ routes.cart_url }}" class="Heading u-h6" {% unless template == 'cart' or settings.cart_type == 'page' %}data-action="open-drawer" data-drawer-id="sidebar-cart" aria-label="{{ 'header.navigation.open_cart' | t }}"{% endunless %}>{{ 'header.navigation.cart' | t }} (<span class="Header__CartCount">{{ cart.item_count }}</span>)</a>
             </li>
           </ul>
         </nav>
       {%- elsif localization_form != blank -%}
         <nav class="Header__SecondaryNav">
-          {% comment %}
-            <ul class="HorizontalList HorizontalList--spacingLoose hidden-pocket hidden-lap">
-              <li class="HorizontalList__Item">
-                {{ localization_form }}
-              </li>
-            </ul>
-          {% endcomment %}
+          <ul class="HorizontalList HorizontalList--spacingLoose hidden-pocket hidden-lap">
+            <li class="HorizontalList__Item">
+              {{ localization_form }}
+            </li>
+          </ul>
         </nav>
       {%- endunless -%}
 
@@ -543,39 +432,21 @@
         </a>
       {%- endif -%}
 
-      <a
-        href="{{ routes.search_url }}"
-        class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable {% unless section.settings.show_icons or use_sidebar_menu %}hidden-desk{% endunless %}"
-        data-action="toggle-search"
-        aria-label="{{ 'header.navigation.search' | t }}"
-      >
+      <a href="{{ routes.search_url }}" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable {% unless section.settings.show_icons or use_sidebar_menu %}hidden-desk{% endunless %}" data-action="toggle-search" aria-label="{{ 'header.navigation.search' | t }}">
         <span class="hidden-tablet-and-up">{%- render 'icon' with 'search' -%}</span>
         <span class="hidden-phone">{%- render 'icon' with 'search-desktop' -%}</span>
       </a>
 
-      <a
-        href="{{ routes.cart_url }}"
-        class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable {% unless section.settings.show_icons or use_sidebar_menu %}hidden-desk{% endunless %}"
-        {% if settings.cart_type == 'drawer' %}
-          data-action="open-drawer" data-drawer-id="sidebar-cart" aria-expanded="false"
-          aria-label="{{ 'header.navigation.open_cart' | t }}"
-        {% endif %}
-      >
+      <a href="{{ routes.cart_url }}" class="Header__Icon Icon-Wrapper Icon-Wrapper--clickable {% unless section.settings.show_icons or use_sidebar_menu %}hidden-desk{% endunless %}" {% if settings.cart_type == 'drawer' %}data-action="open-drawer" data-drawer-id="sidebar-cart" aria-expanded="false" aria-label="{{ 'header.navigation.open_cart' | t }}"{% endif %}>
         <span class="hidden-tablet-and-up">{%- render 'icon' with 'cart' -%}</span>
         <span class="hidden-phone">{%- render 'icon' with 'cart-desktop' -%}</span>
-        <!-- <span class="Header__CartDot {% if cart.item_count > 0 %}is-visible{% endif %}"></span> -->
-        <div class="cart_count_bar">
-          {%- if cart != empty -%}
-            {%- if cart.item_count < 100 -%}
-              <span class="cart_count" aria-hidden="true">{{ cart.item_count }}</span>
-            {%- endif -%}
-          {%- endif -%}
-        </div>
-      </a>
-
-      <div class="transcy-switcher-manual transcy-desktop HorizontalList__Item hidden"></div>
+        <span class="Header__CartDot {% if cart.item_count > 0 %}is-visible{% endif %}"></span>
+      </a> 
+ <div class="transcy-switcher-manual transcy-desktop HorizontalList__Item hidden"></div>
     </div>
   </div>
+
+
 </header>
 
 <style>
@@ -640,47 +511,6 @@
   "name": "Header",
   "class": "shopify-section--header",
   "settings": [
-       {
-      "type": "checkbox",
-      "id": "enable_bar",
-      "label": "Enable bar",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "home_page_only",
-      "label": "Home page only",
-      "default": false
-    },
-    {
-      "type": "color",
-      "id": "background",
-      "label": "Background",
-      "default": "#000000"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text",
-      "default": "#ffffff"
-    },
-    {
-      "type": "text",
-      "id": "content",
-      "label": "Text",
-      "default": "Announce something here"
-    },
-    {
-      "type": "url",
-      "id": "link",
-      "label": "Link"
-    },
-     {
-      "type": "checkbox",
-      "id": "curency_sector",
-      "label": "Show currency selector",
-      "default": true
-    },
     {
       "type": "checkbox",
       "id": "use_sticky_header",
@@ -816,7 +646,7 @@
       "info": "200 x 60px .png recommended"
     }
   ],
-    "blocks": [
+  "blocks": [
     {
       "type": "mega_menu",
       "name": "Mega menu",
