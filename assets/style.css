@@ -13,6 +13,7 @@
 }
 .Header .Header__FlexItem .Header__Icon .cart_count {
   font-size: 10px;
+  color:#5c5c5c;
 }
 /* End Header Cart Count Label */
 
