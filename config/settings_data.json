@@ -91,8 +91,8 @@
         "settings": {
           "use_sticky_header": true,
           "logo": "shopify:\/\/shop_images\/Mask_group_logo.png",
-          "logo_max_width": 140,
-          "mobile_logo_max_width": 140,
+          "logo_max_width": 90,
+          "mobile_logo_max_width": 70,
           "show_currency_selector": true,
           "show_locale_selector": true,
           "navigation_menu": "main-menu",
