@@ -3,18 +3,17 @@
 }
 
 /* Start Header Cart Count Label */
-.Header .Header__FlexItem .Header__Icon .cart_count_bar {
+/* .Header .Header__FlexItem .Header__Icon .cart_count_bar {
   position: absolute;
   top: -15px;
   right: -10px;
   background: #FFF9DE;
   border-radius: 20px;
   padding: 6px;
-} 
-
+} */
 .Header .Header__FlexItem .Header__Icon .cart_count {
-      font-size: 10px;
-/*    color: #000;
+    font-size: 10px;
+    color: #000;
     position: absolute;
     bottom: 13px;
     left: 17px;
@@ -23,7 +22,7 @@
     height: 17px;
     width: 17px;
     text-align: center;
-    padding-top:3px;*/
+    padding-top:3px;
 }
 /* End Header Cart Count Label */
 
@@ -49,6 +48,37 @@
 }
 /* End paypal label in product page */
 
+/* Start Filter position Collection page */
+@media (max-width: 1007px) { 
+  .CollectionMain .CollectionToolbar {
+    position: absolute;
+    top: 19.50%;
+    bottom: auto;
+  }
+  .main_collection.PageHeader {
+    margin-top: 100px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .CollectionMain .CollectionToolbar {
+    top: 16.3%;
+  }
+  .main_collection.PageHeader {
+    margin-top: 80px!important;
+  }
+}
+
+@media (max-width: 369px) {
+  .CollectionMain .CollectionToolbar {
+    top: 18.1%;
+  }
+  .main_collection.PageHeader {
+    margin-top: 70px!important;
+  }
+}
+/* End Filter position Collection page */
+
 /* Start Product page description page postion change */
 @media (max-width: 640px) {
 .Product__Info .Container{
@@ -69,7 +99,6 @@
 }
 }
 /* ENd Product page description page postion change */
-
 
 
 /*  header*/
@@ -106,7 +135,9 @@
 .Header{
   margin-top:-1px;
 }
-
+.Header__Wrapper{
+  
+}
 /* end header section*/
 /* annocement bar */
 .currency{
@@ -213,9 +244,8 @@
 .Header__LogoImage {
   
     /* max-width: 100%; */
-    height: auto;
-    width:auto;
-  object-fit:cover;
+    height: 80px;
+  width:80px;
  
   
 }
@@ -287,3 +317,131 @@ Header Header--logoLeft Header--initialized .Header__Wrapper .HorizontalList .Ho
 }
 
 /* end */
+
+/*  filter css*/
+.size-filter{
+	padding: 10px 0;
+}
+.size-filter-section .size-filter button{
+	font-size: 15px;
+}
+.size-filter-section .size-filter button svg{
+	    height: 25px;
+    width: 25px;
+    position: relative;
+    top: 6px;
+    left: 140px;
+}
+.size-filter-section .size-filter-option ul li{
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+.size-filter-section .size-filter-option ul li:before{
+	content: "";
+	height: 15px;
+	width: 15px;
+	border: 1px solid #5c5c5c;
+	border-radius: 50%;
+}
+.size-filter-option{
+	padding: 10px 0;
+}
+.size-filter-section{
+	border-bottom: 1px solid #5c5c5c;
+}
+.color-filter{
+	padding: 10px 0;
+}
+.color-filter-section .color-filter button{
+	font-size: 15px;
+}
+.color-filter-section .color-filter button svg{
+	    height: 25px;
+    width: 25px;
+    position: relative;
+    top: 6px;
+    left: 133px;
+}
+.color-filter-section .ColorSwatch--large{
+	height: 20px;
+	width: 20px;
+}
+.color-filter-section{
+	border-bottom: 1px solid #5c5c5c;
+}
+.color-filter-option{
+	padding: 10px 0;
+}
+.color-filter:before + .size-filter-open{
+	display: none;
+}
+.more-filter{
+	padding: 10px 0;
+}
+.more-filter-section .more-filter button{
+	font-size: 15px;
+}
+.more-filter-section .more-filter button svg{
+	 height: 25px;
+    width: 25px;
+    position: relative;
+    top: 6px;
+    left: 133px;
+}
+.more-filter-option{
+	padding: 10px 0;
+}
+.more-filter-section{
+	border-bottom: 1px solid #5c5c5c;
+}
+.more-filter-section .more-filter-option ul li{
+	list-style: none;
+}
+.clear-filer-button{
+    border: 1px solid #5c5c5c;
+    margin-top: 30px;
+    padding: 10px 0;
+}
+.clear-filer-button button{
+	padding: 0 68px;
+}
+
+@media(max-width:768px){
+.size-filter-section .size-filter button svg{
+	left: 240px;
+}
+.color-filter-section .color-filter button svg{
+	left: 231px;
+}
+.more-filter-section .more-filter button svg{
+	left: 231px;
+}
+.size-filter-section .size-filter button svg{
+	left: 240px;
+}
+}
+.size-filter + .size-filter-option{
+	display: none!important;
+}
+.open + .size-filter-option{
+	display: block!important;
+}
+.open span svg{
+	    rotate: 180deg;
+}
+
+.color-filter + .color-filter-option{
+	display: none!important;
+}
+.open + .color-filter-option{
+	display: block!important;
+}
+
+.more-filter + .more-filter-option{
+	display: none!important;
+}
+.open + .more-filter-option{
+	display: block!important;
+}
+/* End */
