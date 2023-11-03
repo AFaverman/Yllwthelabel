@@ -12,8 +12,17 @@
   padding: 6px;
 }
 .Header .Header__FlexItem .Header__Icon .cart_count {
-  font-size: 10px;
-  color:#5c5c5c;
+      font-size: 10px;
+    color: #000;
+    position: absolute;
+    bottom: 13px;
+    left: 17px;
+    background: #FFF9DE;
+    border-radius: 50%;
+    height: 17px;
+    width: 17px;
+    text-align: center;
+    padding-top:3px;
 }
 /* End Header Cart Count Label */
 
