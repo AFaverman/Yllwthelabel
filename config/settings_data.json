@@ -712,7 +712,7 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/DSC_2316.jpg",
               "mobile_image": "shopify:\/\/shop_images\/Girl_2.jpg",
-              "apply_overlay": false,
+              "apply_overlay": true,
               "content_position": "bottomLeft",
               "subheading": "",
               "title": "",
