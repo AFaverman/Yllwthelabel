@@ -48,7 +48,6 @@
     {{ content_for_header }}
 
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
-    <link rel="stylesheet" href="{{ 'style.css' | asset_url }}">
 
     <script>
       // This allows to expose several variables to the global scope, to be used in scripts
@@ -148,22 +147,6 @@
 {% render 'wsg-custom' %}
   {% render 'translation-lab-language-management' %}
   {% include 'scm-product-label-head' %}
-  <style>
-    @media screen and (min-width: 641px){
-      .Header__LogoImage {
-          height: 90px;
-      }
-    }
-      @media screen and (max-width: 640px){
-      .Header__LogoImage {
-          height: 80px;
-          width: 100%;
-      }
-      .Header__Wrapper{
-        padding:5px 18px;
-      }
-    }
-  </style>  
 </head>
 
   {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
