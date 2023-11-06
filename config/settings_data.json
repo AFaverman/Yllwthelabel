@@ -99,7 +99,7 @@
           "use_sticky_header": true,
           "logo": "shopify:\/\/shop_images\/Yellow_LogoBlack_910437b3-cf6f-41c3-ad8d-ed115260c485.png",
           "logo_max_width": 80,
-          "mobile_logo_max_width": 70,
+          "mobile_logo_max_width": 60,
           "show_currency_selector": true,
           "show_locale_selector": true,
           "navigation_menu": "main-menu",
