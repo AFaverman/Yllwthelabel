@@ -1,38 +1,74 @@
 {{ "scm-product-label.css" | asset_url | stylesheet_tag }}
+{{ "sma-deco-label.css" | asset_url | stylesheet_tag }}
+
+<script>
+    if ((typeof SECOMAPP) == 'undefined') {
+        var SECOMAPP = {};
+    }
+
+    if ((typeof SECOMAPP.pl) == 'undefined') {
+        SECOMAPP.pl = {};
+    }
+
+    {% if settings.scm_pl_piregex %}
+    SECOMAPP.pl.piRegex='{{ settings.scm_pl_piregex }}';
+    {% endif %}
+
+    {% if settings.scm_pl_lppath %}
+    SECOMAPP.pl.lpPath='{{ settings.scm_pl_lppath }}';
+    {% endif %}
+
+    {% if settings.scm_pl_pi2sregex %}
+    SECOMAPP.pl.pi2sRegex='{{ settings.scm_pl_pi2sregex }}';
+    {% endif %}
+    {% if settings.scm_pl_pi2sparent %}
+    SECOMAPP.pl.pi2sParent='{{ settings.scm_pl_pi2sparent }}';
+    {% endif %}
+
+    {% if settings.scm_pl_lpspath %}
+    SECOMAPP.pl.lpsPath='{{ settings.scm_pl_lpspath }}';
+    {% endif %}
+
+    {% if settings.scm_pl_pisregex %}
+    SECOMAPP.pl.pisRegex='{{ settings.scm_pl_pisregex }}';
+    {% endif %}
+</script>
+
+<script>
+    if ((typeof SECOMAPP) == 'undefined') {
+        var SECOMAPP = {};
+    }
+
+    if ((typeof SECOMAPP.pl) == 'undefined') {
+        SECOMAPP.pl = {};
+    }
+
+    {% if settings.scm_pl_piregex %}
+    SECOMAPP.pl.piRegex='{{ settings.scm_pl_piregex }}';
+    {% endif %}
+
+    {% if settings.scm_pl_lppath %}
+    SECOMAPP.pl.lpPath='{{ settings.scm_pl_lppath }}';
+    {% endif %}
+
+    {% if settings.scm_pl_pi2sregex %}
+    SECOMAPP.pl.pi2sRegex='{{ settings.scm_pl_pi2sregex }}';
+    {% endif %}
+    {% if settings.scm_pl_pi2sparent %}
+    SECOMAPP.pl.pi2sParent='{{ settings.scm_pl_pi2sparent }}';
+    {% endif %}
+
+    {% if settings.scm_pl_lpspath %}
+    SECOMAPP.pl.lpsPath='{{ settings.scm_pl_lpspath }}';
+    {% endif %}
+
+    {% if settings.scm_pl_pisregex %}
+    SECOMAPP.pl.pisRegex='{{ settings.scm_pl_pisregex }}';
+    {% endif %}
+</script>
 
 {% if template contains 'product' %}
     <script>
-        if ((typeof SECOMAPP) == 'undefined') {
-            var SECOMAPP = {};
-        }
-
-        if ((typeof SECOMAPP.pl) == 'undefined') {
-            SECOMAPP.pl = {};
-        }
-
-        {% if settings.scm_pl_piregex %}
-            SECOMAPP.pl.piRegex='{{ settings.scm_pl_piregex }}';
-        {% endif %}
-
-        {% if settings.scm_pl_lppath %}
-            SECOMAPP.pl.lpPath='{{ settings.scm_pl_lppath }}';
-        {% endif %}
-
-        {% if settings.scm_pl_pi2sregex %}
-            SECOMAPP.pl.pi2sRegex='{{ settings.scm_pl_pi2sregex }}';
-        {% endif %}
-        {% if settings.scm_pl_pi2sparent %}
-            SECOMAPP.pl.pi2sParent='{{ settings.scm_pl_pi2sparent }}';
-        {% endif %}
-
-        {% if settings.scm_pl_lpspath %}
-            SECOMAPP.pl.lpsPath='{{ settings.scm_pl_lpspath }}';
-        {% endif %}
-
-        {% if settings.scm_pl_pisregex %}
-            SECOMAPP.pl.pisRegex='{{ settings.scm_pl_pisregex }}';
-        {% endif %}
-
         SECOMAPP.page = 'product';
         SECOMAPP.pl.product = {
             id: {{ product.id }},
@@ -55,39 +91,17 @@
     </script>
 {% else %}
     <script>
-        if ((typeof SECOMAPP) == 'undefined') {
-            var SECOMAPP = {};
-        }
-        if ((typeof SECOMAPP.pl) == 'undefined') {
-            SECOMAPP.pl = {};
-        }
-        {% if settings.scm_pl_pi2sregex %}
-            SECOMAPP.pl.pi2sRegex='{{ settings.scm_pl_pi2sregex }}';
-        {% endif %}
-        {% if settings.scm_pl_pi2sparent %}
-            SECOMAPP.pl.pi2sParent='{{ settings.scm_pl_pi2sparent }}';
-        {% endif %}
-
-        {% if settings.scm_pl_pi2sparent %}
-            SECOMAPP.pl.pi2sParent='{{ settings.scm_pl_pi2sparent }}';
-        {% endif %}
-
-        {% if settings.scm_pl_lpspath %}
-            SECOMAPP.pl.lpsPath='{{ settings.scm_pl_lpspath }}';
-        {% endif %}
-
-        {% if settings.scm_pl_pisregex %}
-            SECOMAPP.pl.pisRegex='{{ settings.scm_pl_pisregex }}';
-        {% endif %}
         {% if template contains 'index'%}
             SECOMAPP.page='home'
         {% elsif template contains 'search'%}
             SECOMAPP.page='search'
+        {% elsif template contains 'cart'%}
+            SECOMAPP.page='cart'
         {% else %}
             SECOMAPP.page='collection'
         {% endif %}
     </script>
 {% endif %}
-{% if template contains 'index' or template contains 'product' or template contains 'collection' or template contains 'search'%}
+{% if template contains 'index' or template contains 'product' or template contains 'collection' or template contains 'search' or template contains 'cart'%}
     <script src="{{ 'scm-product-label.js' | asset_url }}" async></script>
 {% endif %}
