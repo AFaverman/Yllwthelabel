@@ -45,6 +45,9 @@
   .Product__Info .ProductForm .hc-shop-pay-installments {
     padding-top: 20px;
   }
+  .Header__Wrapper {
+    padding: 10px 18px 8px;
+  }
 }
 /* End paypal label in product page */
 
