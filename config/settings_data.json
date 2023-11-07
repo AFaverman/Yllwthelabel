@@ -460,7 +460,7 @@
           "show_taxes_included": false,
           "description_below_add_to_cart": false,
           "selector_mode": "block",
-          "show_color_swatch": false,
+          "show_color_swatch": true,
           "show_color_carousel": false,
           "show_quantity_selector": true,
           "show_inventory_quantity": false,
