@@ -461,7 +461,7 @@ Header Header--logoLeft Header--initialized .Header__Wrapper .HorizontalList .Ho
 } 
 .ProductMeta__Description hr{
   height: 1px;
-    background-color: #e7e7e7;
-    border: none;
+  background-color: #e7e7e7;
+  border: none;
 }
 /* END */
