@@ -141,6 +141,9 @@
 .Header__Wrapper{
   
 }
+.currency .Header__SecondaryNav .HorizontalList__Item a{
+  color:#f2f2f2;
+}
 /* end header section*/
 /* annocement bar */
 .currency{
