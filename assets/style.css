@@ -453,3 +453,12 @@ Header Header--logoLeft Header--initialized .Header__Wrapper .HorizontalList .Ho
 	display: block!important;
 }
 /* End */
+
+/* product page */
+
+.ProductForm__Variants .ProductForm__Option .SizeSwatch{
+  height:30px;
+  width:30px;
+  border-radius:50%;
+}
+/* END */
