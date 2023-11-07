@@ -457,7 +457,11 @@ Header Header--logoLeft Header--initialized .Header__Wrapper .HorizontalList .Ho
 /* product page */
 
 .ProductForm__Variants .ProductForm__Option .ColorSwatch{
- 
   border-radius:50%;
 } 
+.ProductMeta__Description hr{
+  height: 1px;
+    background-color: #e7e7e7;
+    border: none;
+}
 /* END */
