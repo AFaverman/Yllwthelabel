@@ -467,7 +467,7 @@ Header Header--logoLeft Header--initialized .Header__Wrapper .HorizontalList .Ho
 .ProductMeta__Description ul{
   padding-bottom:10px;
 }
-.ProductMeta__Description ul p{
+.ProductMeta__Description p{
   padding-top:10px;
 }
 /* END */
