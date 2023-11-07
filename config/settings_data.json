@@ -712,7 +712,7 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/DSC_4268.heic",
               "mobile_image": "shopify:\/\/shop_images\/PNG_image.jpg",
-              "apply_overlay": true,
+              "apply_overlay": false,
               "content_position": "bottomLeft",
               "subheading": "",
               "title": "",
