@@ -456,9 +456,8 @@ Header Header--logoLeft Header--initialized .Header__Wrapper .HorizontalList .Ho
 
 /* product page */
 
-/* .ProductForm__Variants .ProductForm__Option .SizeSwatch{
-  height:30px;
-  width:30px;
+.ProductForm__Variants .ProductForm__Option .ColorSwatch{
+ 
   border-radius:50%;
-} */
+} 
 /* END */
