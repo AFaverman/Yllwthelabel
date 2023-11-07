@@ -416,7 +416,7 @@
           "show_collection_info": true,
           "show_collection_image": false,
           "apply_overlay": true,
-          "show_color_swatch": false,
+          "show_color_swatch": true,
           "show_vendor": false,
           "collection_image_size": "normal",
           "show_sort_by": true,
