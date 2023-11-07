@@ -464,4 +464,10 @@ Header Header--logoLeft Header--initialized .Header__Wrapper .HorizontalList .Ho
   background-color: #e7e7e7;
   border: none;
 }
+.ProductMeta__Description ul{
+  padding-bottom:10px;
+}
+.ProductMeta__Description ul p{
+  padding-top:10px;
+}
 /* END */
