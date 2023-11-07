@@ -68,7 +68,7 @@ for size, we use it to display a size chart (if applicable)
               {%- for value in option.values -%}
                 <li class="HorizontalList__Item">
                   <input id="option-{{ section.id }}-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" class="SizeSwatch__Radio" type="radio" name="option-{{ forloop.parentloop.index0 }}" value="{{ value | escape }}" {% if value == option.selected_value %}checked="checked"{% endif %} data-option-position="{{ option.position }}">
-                  <label for="option-{{ section.id }}-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" class="SizeSwatch"  style="background-color:{{ value }}"></label>
+                  <label for="option-{{ section.id }}-{{ forloop.parentloop.index0 }}-{{ forloop.index0 }}" class="SizeSwatch"  style="background-color:{{ value }}">{{ value }}</label>
                 </li>
               {%- endfor -%}
             </ul>
