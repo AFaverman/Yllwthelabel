@@ -470,4 +470,7 @@ Header Header--logoLeft Header--initialized .Header__Wrapper .HorizontalList .Ho
 .ProductMeta__Description p{
   padding-top:10px;
 }
+.Product__InfoWrapper .ProductForm__QuantitySelector{
+  display:block;
+}
 /* END */
