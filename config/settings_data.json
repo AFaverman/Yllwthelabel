@@ -813,6 +813,12 @@
           "embed_text_color": "#000000",
           "embed_SPOF_label": ""
         }
+      },
+      "11989736685688860011": {
+        "type": "shopify:\/\/apps\/easy-variant-images\/blocks\/embed_via\/bfecabd5-49af-4d37-8214-f0f4649f4cb3",
+        "disabled": false,
+        "settings": {
+        }
       }
     }
   },
