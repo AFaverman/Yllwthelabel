@@ -814,9 +814,15 @@
           "embed_SPOF_label": ""
         }
       },
+      "1910501027098541543": {
+        "type": "shopify:\/\/apps\/starapps-variant-image\/blocks\/starapps-via-embed\/2a01d106-3d10-48e8-ba53-5cb971217ac4",
+        "disabled": false,
+        "settings": {
+        }
+      },
       "11989736685688860011": {
         "type": "shopify:\/\/apps\/easy-variant-images\/blocks\/embed_via\/bfecabd5-49af-4d37-8214-f0f4649f4cb3",
-        "disabled": false,
+        "disabled": true,
         "settings": {
         }
       }
