@@ -1984,7 +1984,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       value: function _initPhotoSwipe() {
         var images = [];
 
-        this.slideshow.flickityInstance.cells.forEach(function (item) {
+        this.slideshow.flickityInstance=Flickity.data('.Product__Slideshow');this.slideshow.flickityInstance.cells.forEach(function (item) {
           if (item.element.classList.contains('Product__SlideItem--image')) {
             images.push(item.element.querySelector('img'));
           }
