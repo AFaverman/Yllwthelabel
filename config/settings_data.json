@@ -767,7 +767,7 @@
         "disabled": true,
         "settings": {
           "section_size": "large",
-          "video_url": "https:\/\/vimeo.com\/831946742?share=copy"
+          "video_url": "https:\/\/vimeo.com\/883552854?share=copy"
         }
       },
       "d3e6c70a-59d9-4d3c-ba2d-8ba93578e798": {
@@ -812,12 +812,6 @@
           "embed_bg_color": "#000000",
           "embed_text_color": "#000000",
           "embed_SPOF_label": ""
-        }
-      },
-      "1910501027098541543": {
-        "type": "shopify:\/\/apps\/starapps-variant-image\/blocks\/starapps-via-embed\/2a01d106-3d10-48e8-ba53-5cb971217ac4",
-        "disabled": true,
-        "settings": {
         }
       },
       "11989736685688860011": {
