@@ -496,7 +496,7 @@
           "show_only_for_visitors": true,
           "show_only_once": true,
           "title": "Popup",
-          "content": "<p>You can use this popup to display some useful information to your customers.<\/p>",
+          "content": "<p>You can use this popup to display some useful information to your customers. <\/p>",
           "show_newsletter": true,
           "apparition_delay": 5
         }
