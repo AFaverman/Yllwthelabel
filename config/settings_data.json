@@ -831,6 +831,12 @@
           "button_text": "chat_with_us",
           "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
         }
+      },
+      "15216558432548357557": {
+        "type": "shopify:\/\/apps\/deco-product-labels-badges\/blocks\/deco-pl\/fd2caeda-48fd-4076-b5f9-8dfada7253f1",
+        "disabled": false,
+        "settings": {
+        }
       }
     }
   },
