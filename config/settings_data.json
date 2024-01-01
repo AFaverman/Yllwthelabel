@@ -710,8 +710,8 @@
           "ad627f24-06e0-43ab-922d-854024d41413-1666974102a5928618-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/DSC_6796_3.jpg",
-              "mobile_image": "shopify:\/\/shop_images\/DSC_68102.jpg",
+              "image": "shopify:\/\/shop_images\/DSC_0638-3.jpg",
+              "mobile_image": "shopify:\/\/shop_images\/DSC_0635-6.jpg",
               "apply_overlay": false,
               "content_position": "bottomLeft",
               "subheading": "",
@@ -826,9 +826,9 @@
         "settings": {
           "button_color": "#000000",
           "button_icon": "chat_bubble",
+          "button_text": "chat_with_us",
           "button_horizontal_position": "bottom_right",
           "button_vertical_position": "lowest",
-          "button_text": "chat_with_us",
           "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
         }
       },
