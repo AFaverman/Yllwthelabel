@@ -30,11 +30,11 @@
                  style="{% unless section.settings.show_fullscreen %}--aspect-ratio: {{ mobile_image.aspect_ratio }};{% endunless %} background-image: url({{ mobile_image | img_url: '1x1', format: 'jpg' }})">
                 <img class="Slideshow__Image Image--lazyLoad"
                      src="{{ mobile_image | img_url: '1x1' }}"
-                     data-src="{{ mobile_image | img_url: 'x800' }}"
+                     data-src="{{ mobile_image | img_url: 'x1400' }}"
                      alt="{{ mobile_image.alt | escape }}">
 
                 <noscript>
-                  <img class="Slideshow__Image" src="{{ mobile_image | img_url: 'x800' }}" alt="{{ mobile_image.alt | escape }}">
+                  <img class="Slideshow__Image" src="{{ mobile_image | img_url: 'x1400' }}" alt="{{ mobile_image.alt | escape }}">
                 </noscript>
             </div>
           {%- endif -%}
@@ -46,7 +46,6 @@
 
               <img class="Slideshow__Image Image--lazyLoad hide-no-js"
                    data-src="{{ image_url }}"
-                   data-optimumx="1.2"
                    data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
                    data-sizes="auto"
                    alt="{{ block.settings.image.alt | escape }}">
