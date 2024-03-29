@@ -722,19 +722,6 @@
               "button_2_link": "shopify:\/\/collections\/frontpage"
             }
           },
-          "image_FRMCdj": {
-            "type": "image",
-            "settings": {
-              "apply_overlay": true,
-              "content_position": "bottomLeft",
-              "subheading": "Slide title",
-              "title": "Tell your story",
-              "button_1_text": "",
-              "button_1_link": "",
-              "button_2_text": "",
-              "button_2_link": ""
-            }
-          },
           "5b4d5244-fb21-4f4f-bc1d-dcc0a82a1bec": {
             "type": "image",
             "disabled": true,
@@ -752,7 +739,6 @@
         },
         "block_order": [
           "ad627f24-06e0-43ab-922d-854024d41413-1666974102a5928618-0",
-          "image_FRMCdj",
           "5b4d5244-fb21-4f4f-bc1d-dcc0a82a1bec"
         ],
         "settings": {
