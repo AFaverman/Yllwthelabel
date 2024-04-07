@@ -1691,7 +1691,21 @@
       "fees": {
         "restocking_fee": "رسوم إعادة تخزين",
         "return_shipping_fee": "عودة الشحن"
-      }
+      },
+      "shipment_timeline": {
+        "expand_events_label": "اظهر التفاصيل",
+        "expand_events_accessibility_label": "إظهار تفاصيل شحن الطلب",
+        "hide_events_label": "أخف التفاصيل",
+        "hide_events_accessibility_label": "إخفاء تفاصيل شحنة الطلب"
+      },
+      "addresses_section_title": "الفواتير والشحن",
+      "order_details": "تفاصيل الطلب",
+      "order_details_skeleton_accessibility_label": "قم بتسجيل الدخول لعرض كافة تفاصيل الطلب.",
+      "billing_address": "عنوان وصول الفواتير",
+      "card_ending_with": "تنتهي بـ {{lastDigits}}",
+      "contact": "اتصال",
+      "contact_information": "معلومات الاتصال",
+      "company": "شركة"
     },
     "payment_methods": {
       "payment_delete": {
@@ -2280,6 +2294,132 @@
       "save_accessibility_label": "احفظ العنوان {{address}}",
       "section_title_accessibility_label": "اضف عنوان",
       "update_success_notification": "تم تحديث العنوان"
+    },
+    "orders": {
+      "order_list": {
+        "filter": {
+          "date": {
+            "last_90_days": "آخر 90 يومًا",
+            "last_365_days": "آخر 12 شهرًا",
+            "custom": "مخصص"
+          }
+        },
+        "table_view": "عرض عرض الجدول",
+        "show_order_actions_accessibility_label": "إظهار إجراءات الطلب للطلب {{name}}"
+      },
+      "order_status": {
+        "attempted_delivery_label": "حاول التوصيل",
+        "attempted_delivery_description": "محاولة التسليم لم تنجح.",
+        "attempted_to_deliver_label": "محاولة التوصيل",
+        "confirmed_description": "لقد تلقينا طلبك.",
+        "on_its_way_description": "هذه الشحنة في طريقها.",
+        "out_for_delivery_description": "هذه الشحنة خارج للتسليم.",
+        "preparing_for_shipping_label": "التحضير للشحن",
+        "preparing_for_shipping_description": "يتم الآن إعداد هذه العناصر للشحن.",
+        "ready_for_pickup_label": "جاهز للإستلام",
+        "ready_for_pickup_description": "هذه العناصر جاهزة للاستلام. يرجى إحضار تأكيد طلبك عند استلام طلبك.",
+        "ready_for_pickup_location": "طلبك جاهز للاستلام في الموقع",
+        "picked_up_label": "التقطت",
+        "picked_up_description": "لقد تم التقاط هذه العناصر.",
+        "canceled_description": "تم إلغاء طلبك بتاريخ {{date}} .",
+        "canceled_label": "ألغيت",
+        "canceled_title": "تم إلغاء طلبك",
+        "come_back": "ارجع إلى هذه الصفحة للحصول على تحديثات حول حالة الشحن الخاصة بك.",
+        "company_tracking_number": "رقم التتبع {{company}} :",
+        "confirmed_label": "مؤكد",
+        "confirmed_title": "تم تأكيد طلبك",
+        "confirmed_description_pickup": "ستتلقى بريدًا إلكترونيًا عندما يكون طلبك جاهزًا للاستلام.",
+        "confirmed_description_digital": "ستتلقى بريدًا إلكترونيًا عندما يكون طلبك جاهزًا.",
+        "confirmed_description_gift_card_text": "ستتلقى رسالة نصية عندما يكون طلبك جاهزًا.",
+        "delivered_description": "تم تسليم هذه الشحنة.",
+        "delivered_label": "تم التوصيل",
+        "delivered_title": "لقد تم تسليم الشحنة الخاصة بك",
+        "delivered_description_digital": "تم اكتمال طلبك.",
+        "delivered_description_gift_card": {
+          "one": "تم إرسال بطاقة الهدايا عبر البريد الإلكتروني.",
+          "other": "تم إرسال بطاقات الهدايا عبر البريد الإلكتروني."
+        },
+        "delivered_description_gift_card_text": {
+          "one": "تم إرسال بطاقة الهدايا عن طريق النص.",
+          "other": "تم إرسال بطاقات الهدايا عن طريق الرسائل النصية."
+        },
+        "gift_card_label": {
+          "one": "كرت هدية",
+          "other": "بطاقات الهدايا"
+        },
+        "gift_card_resend": {
+          "one": "إعادة إرسال البريد الإلكتروني",
+          "other": "إعادة إرسال رسائل البريد الإلكتروني"
+        },
+        "gift_card_resend_text": {
+          "one": "إعادة إرسال النص",
+          "other": "إعادة إرسال النصوص"
+        },
+        "gift_resend_success": {
+          "one": "تمت إعادة إرسال بطاقة الهدايا",
+          "other": "بطاقات الهدايا مستاءة"
+        },
+        "gift_resend_failure": {
+          "one": "حدثت مشكلة أثناء إعادة إرسال بطاقة الهدايا. حاول مرة أخرى أو اتصل بنا.",
+          "other": "حدثت مشكلة أثناء إعادة إرسال بطاقات الهدايا. حاول مرة أخرى أو اتصل بنا."
+        },
+        "gift_card_resend_description": {
+          "one": "إذا لم يتم استلامها، قم بإعادة إرسال البريد الإلكتروني أو",
+          "other": "إذا لم يتم استلامها، قم بإعادة إرسال رسائل البريد الإلكتروني أو"
+        },
+        "gift_card_resend_description_text": {
+          "one": "إذا لم يتم استلامها، أعد إرسال الرسالة النصية أو",
+          "other": "إذا لم يتم استلامها، قم بإعادة إرسال الرسائل النصية أو"
+        },
+        "confirmed_gift_card_additional_description": {
+          "one": "سيتم إرسال بطاقة الهدايا في بريد إلكتروني منفصل.",
+          "other": "سيتم إرسال كل بطاقة هدية في بريد إلكتروني منفصل."
+        },
+        "confirmed_gift_card_additional_description_text": {
+          "one": "سيتم إرسال بطاقة الهدايا في نص منفصل.",
+          "other": "سيتم إرسال كل بطاقة هدية في نص منفصل."
+        },
+        "estimated_delivery": "{{date}}",
+        "in_review_description": "سنخبرك إذا كنا بحاجة إلى مزيد من المعلومات أو عندما يتم تأكيد طلبك.",
+        "in_review_label": "في مراجعة",
+        "in_review_title": "طلبك قيد المراجعة",
+        "last_updated": "آخر تحديث {{date}}",
+        "multiple_shipments_label": "شحنات متعددة",
+        "no_tracking_number": "لا يوجد رقم تتبع لهذه الشحنة.",
+        "on_its_way_label": "في طريقه",
+        "on_its_way_title": "شحنتك في الطريق",
+        "out_for_delivery_label": "خارج للتوصيل",
+        "out_for_delivery_title": "الشحنة الخاصة بك خارج للتسليم",
+        "resume_tracking": "استئناف التتبع",
+        "submitted_label": "مُقَدَّم",
+        "submitted_description": "مراجعة الطلب وتفاصيل الدفع.",
+        "there_was_a_problem_label": "كان هناك مشكلة",
+        "track_shipment": "شحنة المسار",
+        "request_return": "طلب العودة",
+        "view_order_for_details": "عرض الطلب للحصول على التفاصيل",
+        "amazon_buy_with_prime": {
+          "order_tracking_link": {
+            "text": "الإدارة مع أمازون",
+            "new_window_disclaimer": "(يفتح نافذة جديدة)"
+          }
+        }
+      },
+      "status_mark_as_delivered": "وضع علامة على أنه تم التسليم",
+      "status_title": "حالة الطلب",
+      "buy_again": "شراء مرة أخرى",
+      "buy_again_accessibility_label": "الشراء مرة أخرى للطلب {{orderId}}",
+      "manage": "يدير",
+      "manage_accessiblity_label": "إدارة الطلب {{orderId}}",
+      "group_title_label": "جزء من: {{groupTitle}}",
+      "havent_received_your_delivery": "لم تتلق التسليم الخاص بك؟",
+      "didnt_pick_up_order": "لم تستلم طلبك؟",
+      "if_you_didnt_receive_this": "إذا لم تتلق هذا،",
+      "if_not_received": {
+        "one": "إذا لم يتم استلامها،",
+        "other": "وإذا لم يتم استلامهم،"
+      },
+      "let_us_know": "دعنا نعرف",
+      "contact_us": "اتصل بنا."
     }
   },
   "cart": {
