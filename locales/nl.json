@@ -168,7 +168,237 @@
       "welcome": "Welkom terug, {{first_name}} !",
       "logout": "Uitloggen",
       "back_to_account": "Terug naar rekening",
-      "no_orders_title": "Mijn bestellingen"
+      "no_orders_title": "Mijn bestellingen",
+      "no_orders_content": "U heeft nog geen bestellingen geplaatst",
+      "no_addresses_title": "Geen adressen",
+      "no_addresses_content": "Er zijn momenteel geen adressen opgeslagen",
+      "default_address": "Hoofdadres",
+      "edit_addresses": "Adressen bewerken",
+      "manage_addresses": "Beheer adressen"
+    },
+    "login": {
+      "title": "Log in",
+      "description": "Voer uw e-mailadres en wachtwoord in:",
+      "email": "E-mail",
+      "password": "Wachtwoord",
+      "forgot": "Wachtwoord vergeten?",
+      "submit": "Log in",
+      "register_label": "Heeft u geen account?",
+      "register_link": "Creëer er een"
+    },
+    "orders": {
+      "order_number": "Volgorde",
+      "date": "Datum",
+      "payment_status": "Betalingsstatus",
+      "fulfillment_status": "Vervullingsstatus",
+      "total": "Totaal"
+    },
+    "order": {
+      "title": "Bestel {{order_number}}",
+      "back_to_account": "Terug naar rekening",
+      "cancelled_at": "Bestelling geannuleerd op {{ date }}",
+      "placed_at": "Bestelling geplaatst op {{ date }}",
+      "fulfillment_html": "Uw bestelling is verzonden. Volg de zending met nummer {{tracking_number}} of door hier te klikken: <a href=\"&lt;span%20class='notranslate'&gt;{{tracking_url}}&lt;\/span&gt;\" class=\"Link Link--underlineNative\" target=\"_blank\">{{tracking_url}}<\/a>",
+      "line_fulfillment_html": "Uw product \" {{product_title}} \" is verzonden. Volg de zending met nummer {{tracking_number}} of door hier te klikken: <a href=\"&lt;span%20class='notranslate'&gt;{{tracking_url}}&lt;\/span&gt;\" class=\"Link Link--underlineNative\" target=\"_blank\">{{tracking_url}}<\/a>",
+      "quantity": "Hoeveelheid",
+      "line_price": "Totaal",
+      "subtotal": "Subtotaal",
+      "discount": "Korting",
+      "shipping": "Verzenden",
+      "tax": "Belasting",
+      "total": "Totaal",
+      "shipping_address": "Afleveradres",
+      "billing_address": "Facturatie adres",
+      "no_shipping_address": "Voor deze bestelling was geen verzendadres vereist."
+    },
+    "activate_account": {
+      "title": "Activeer account",
+      "description": "Voer een wachtwoord in om uw account aan te maken:",
+      "password": "Wachtwoord",
+      "password_confirmation": "Bevestig wachtwoord",
+      "submit": "Activeren",
+      "decline": "Afwijzen"
+    },
+    "recover_password": {
+      "title": "Wachtwoord herstellen",
+      "description": "Vul alstublieft uw e-mailadres in:",
+      "email": "E-mail",
+      "submit": "Herstellen",
+      "success": "We hebben u een e-mail gestuurd met instructies om uw wachtwoord opnieuw in te stellen.",
+      "login_label": "Onthoud uw wachtwoord?",
+      "login_link": "Terug naar Inloggen"
+    },
+    "reset_password": {
+      "title": "Wachtwoord opnieuw instellen",
+      "description": "Voer een nieuw wachtwoord in:",
+      "password": "Wachtwoord",
+      "password_confirmation": "Bevestig wachtwoord",
+      "submit": "Opnieuw instellen"
+    },
+    "addresses": {
+      "title": "Mijn adressen",
+      "empty": "Er zijn nog geen adressen opgeslagen",
+      "edit": "Bewerking",
+      "delete": "Verwijderen",
+      "add_address": "Voeg een nieuw adres toe",
+      "edit_address": "Bewerk een adres",
+      "form_subtitle": "Vul onderstaande gegevens in:",
+      "default_address_label": "Standaard adres",
+      "address_label": "Adres {{position}}",
+      "first_name": "Voornaam",
+      "last_name": "Achternaam",
+      "company": "Bedrijf",
+      "address1": "adres 1",
+      "address2": "Adres 2",
+      "city": "Stad",
+      "country": "Land",
+      "province": "Provincie",
+      "zip": "Postcode",
+      "phone": "Telefoon",
+      "set_default": "Instellen als standaardadres"
+    },
+    "register": {
+      "description": "Vul onderstaande gegevens in:",
+      "first_name": "Voornaam",
+      "last_name": "Achternaam",
+      "email": "E-mail",
+      "password": "Wachtwoord",
+      "submit": "Maak mijn account"
     }
+  },
+  "cart": {
+    "general": {
+      "title": "Winkelwagen",
+      "empty": "Uw winkelwagen is leeg",
+      "empty_button": "Koop onze producten",
+      "add_note": "Bestelnotitie toevoegen",
+      "edit_note": "Bestelnotitie bewerken",
+      "save_note": "Redden",
+      "note_placeholder": "Hoe kunnen we u helpen?",
+      "free_shipping": "Je komt in aanmerking voor gratis verzending!",
+      "free_shipping_remaining_html": "Besteed {{remaining_amount}} meer en ontvang gratis verzending!",
+      "shipping_and_taxes_notice": "Verzending en belastingen berekend bij het afrekenen",
+      "discount": "Korting",
+      "total": "Totaal",
+      "checkout": "Uitchecken"
+    },
+    "items": {
+      "quantity": "Hoeveelheid",
+      "total": "Totaal",
+      "set_quantity": "Aantal instellen op {{new_quantity}}",
+      "remove": "Verwijderen"
+    },
+    "shipping_estimator": {
+      "title": "Schat de verzendkosten",
+      "country": "Land",
+      "province": "Provincie",
+      "zip_code": "Postcode",
+      "estimate": "Schatting",
+      "one_result_title": "1 optie beschikbaar:",
+      "more_results_title": "{{count}} beschikbare opties:",
+      "no_results_title": "Er kon geen verzending gevonden worden"
+    }
+  },
+  "product": {
+    "general": {
+      "view_in_space": "Bekijk in uw ruimte",
+      "include_taxes": "Inclusief belasting.",
+      "shipping_policy_html": "<a href=\"&lt;span%20class='notranslate'&gt;{{%20link%20}}&lt;\/span&gt;\" class=\"link link--accented\">Verzending berekend<\/a> bij het afrekenen."
+    },
+    "labels": {
+      "sold_out": "Uitverkocht",
+      "on_sale": "Te koop"
+    },
+    "slideshow": {
+      "close": "Sluiten (Esc)",
+      "previous": "Vorige (pijl naar links)",
+      "next": "Volgende (pijl naar rechts)",
+      "image_loading_error": "Deze afbeelding kon niet worden geladen. Probeer de pagina opnieuw te laden."
+    },
+    "form": {
+      "share": "Deel",
+      "price": "Prijs",
+      "quantity": "Hoeveelheid",
+      "from_price_html": "Vanaf {{min_price}}",
+      "select_model": "Selecteer dit model",
+      "size_chart": "Maattabel",
+      "inventory_quantity_count": {
+        "one": "{{count}} stuk op voorraad.",
+        "other": "{{count}} stuks op voorraad"
+      },
+      "low_inventory_quantity_count": {
+        "one": "Slechts {{count}} stuk op voorraad!",
+        "other": "Slechts {{count}} stuks op voorraad!"
+      },
+      "add_to_cart": "Aan tas toevoegen",
+      "sold_out": "Uitverkocht",
+      "pre_order": "Voorafgaande bestelling",
+      "unavailable": "Niet beschikbaar",
+      "view_info": "Meer informatie",
+      "view_images": "Bekijk afbeeldingen"
+    },
+    "tabs": {
+      "reviews": "Recensies"
+    },
+    "buy_it_with": {
+      "title": "Koop het mee"
+    }
+  },
+  "gift_card": {
+    "issued": {
+      "subtext": "Hier is je cadeaubon!",
+      "illustration_alt": "Cadeaubon illustratie",
+      "disabled": "Uw cadeaukaart is uitgeschakeld.",
+      "expired": "Uw cadeaukaart is verlopen op {{ expiry }} .",
+      "expires_on": "Uw cadeaubon vervalt op {{ expiry }} .",
+      "redeem_html": "Gebruik deze code bij het afrekenen om je cadeaubon in te wisselen, of {{print_link}} deze pagina.",
+      "shop_link": "Begin met winkelen",
+      "print": "afdrukken",
+      "initial_amount_html": "Bedrag: {{initial_amount}}",
+      "remaining_balance_html": "Resterend saldo: {{balance}}",
+      "add_to_apple_wallet": "Toevoegen aan Apple Wallet"
+    }
+  },
+  "blog": {
+    "general": {
+      "no_articles": "Blog {{blog_title}} is leeg",
+      "empty_button": "terug naar de startpagina",
+      "all_tag": "Alle"
+    },
+    "article": {
+      "read_more": "Lees verder",
+      "written_by": "Geschreven door {{author}}",
+      "now_reading": "Nu lezen:",
+      "share": "Deel",
+      "previous": "Vorige",
+      "next": "Volgende",
+      "comments_count": {
+        "zero": "{{count}} reacties",
+        "one": "{{count}} reactie",
+        "other": "{{count}} reacties"
+      }
+    },
+    "comments": {
+      "form_title": "laat een reactie achter",
+      "name_placeholder": "Naam",
+      "email_placeholder": "E-mail",
+      "comment_placeholder": "Inhoud",
+      "approval_notice": "Alle reacties worden gemodereerd voordat ze worden gepubliceerd",
+      "submit": "Plaats een reactie",
+      "success": "Uw reactie is gepubliceerd.",
+      "success_moderated": "Uw reactie is verzonden. Het zal zichtbaar zijn zodra de winkeleigenaar het heeft geaccepteerd!"
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Uw naam",
+      "email": "Jouw email",
+      "message": "Jouw bericht",
+      "submit": "Bericht versturen",
+      "successfully_sent": "Uw bericht is succesvol verzonden."
+    }
+  },
+  "date_formats": {
+    "month_day_year_time": "%B %d, %Y bij %I:%M%p"
   }
 }
