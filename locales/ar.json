@@ -2199,6 +2199,21 @@
       "one_result_title": "1 خيار متاح:",
       "more_results_title": "{{count}} من الخيارات المتاحة:",
       "no_results_title": "لا يمكن العثور على الشحن"
+    },
+    "general": {
+      "title": "عربة التسوق",
+      "empty": "عربة التسوق فارغة",
+      "empty_button": "تسوق منتجاتنا",
+      "add_note": "إضافة ملاحظة الطلب",
+      "edit_note": "تحرير مذكرة الطلب",
+      "save_note": "يحفظ",
+      "note_placeholder": "كيف يمكننا مساعدتك؟",
+      "free_shipping": "أنت مؤهل للشحن المجاني!",
+      "free_shipping_remaining_html": "أنفق {{remaining_amount}} أكثر واحصل على شحن مجاني!",
+      "shipping_and_taxes_notice": "الشحن والضرائب تحسب عند الخروج",
+      "discount": "تخفيض",
+      "total": "المجموع",
+      "checkout": "الدفع"
     }
   },
   "product": {
@@ -2468,7 +2483,114 @@
       "show_four_per_row": "عرض أربعة منتجات في كل صف"
     },
     "product": {
-      "from_price_html": "من {{min_price}}"
+      "from_price_html": "من {{min_price}}",
+      "view_product": "عرض المنتج"
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "حسابي",
+      "welcome": "مرحبًا بك مرة أخرى، {{first_name}} !",
+      "logout": "تسجيل خروج",
+      "back_to_account": "العودة إلى الحساب",
+      "no_orders_title": "طلباتي",
+      "no_orders_content": "لم تقم بتقديم أي طلبات حتى الآن",
+      "no_addresses_title": "لا عناوين",
+      "no_addresses_content": "لا يتم حفظ أية عناوين حاليًا",
+      "default_address": "العنوان الأساسي",
+      "edit_addresses": "تحرير العناوين",
+      "manage_addresses": "إدارة العناوين"
+    },
+    "login": {
+      "title": "تسجيل الدخول",
+      "description": "يرجى إدخال البريد الإلكتروني وكلمة المرور:",
+      "email": "بريد إلكتروني",
+      "password": "كلمة المرور",
+      "forgot": "هل نسيت كلمة السر؟",
+      "submit": "تسجيل الدخول",
+      "register_label": "ليس لديك حساب؟",
+      "register_link": "اصنع واحدا"
+    },
+    "orders": {
+      "order_number": "طلب",
+      "date": "تاريخ",
+      "payment_status": "حالة السداد",
+      "fulfillment_status": "حالة الاكتمال",
+      "total": "المجموع"
+    },
+    "order": {
+      "title": "الطلب {{order_number}}",
+      "back_to_account": "العودة إلى الحساب",
+      "cancelled_at": "تم إلغاء الطلب بتاريخ {{ date }}",
+      "placed_at": "تم تقديم الطلب بتاريخ {{ date }}",
+      "fulfillment_html": "لقد تم إرسال طلبك. تتبع الشحنة بالرقم {{tracking_number}} أو بالضغط هنا: <a href=\"&lt;span%20class='notranslate'&gt;{{tracking_url}}&lt;\/span&gt;\" class=\"Link Link--underlineNative\" target=\"_blank\">{{tracking_url}}<\/a>",
+      "line_fulfillment_html": "لقد تم إرسال منتجك \" {{product_title}} \". تتبع الشحنة بالرقم {{tracking_number}} أو بالضغط هنا: <a href=\"&lt;span%20class='notranslate'&gt;{{tracking_url}}&lt;\/span&gt;\" class=\"Link Link--underlineNative\" target=\"_blank\">{{tracking_url}}<\/a>",
+      "product": "منتج",
+      "quantity": "كمية",
+      "line_price": "المجموع",
+      "subtotal": "المجموع الفرعي",
+      "discount": "تخفيض",
+      "shipping": "شحن",
+      "tax": "ضريبة",
+      "total": "المجموع",
+      "shipping_address": "عنوان الشحن",
+      "billing_address": "عنوان وصول الفواتير",
+      "no_shipping_address": "لم يكن عنوان الشحن مطلوبًا لهذا الطلب."
+    },
+    "activate_account": {
+      "title": "تفعيل حساب",
+      "description": "الرجاء إدخال كلمة المرور لإنشاء حسابك:",
+      "password": "كلمة المرور",
+      "password_confirmation": "تأكيد كلمة المرور",
+      "submit": "تفعيل",
+      "decline": "انخفاض"
+    },
+    "recover_password": {
+      "title": "إستعادة كلمة المرور",
+      "description": "رجاءا أدخل بريدك الإلكتروني:",
+      "email": "بريد إلكتروني",
+      "submit": "استعادة",
+      "success": "لقد أرسلنا إليك بريدًا إلكترونيًا يتضمن تعليمات لإعادة تعيين كلمة المرور الخاصة بك.",
+      "login_label": "تذكر كلمة المرور الخاصة بك؟",
+      "login_link": "العودة لتسجيل الدخول"
+    },
+    "reset_password": {
+      "title": "إعادة تعيين كلمة المرور",
+      "description": "الرجاء إدخال كلمة المرور الجديدة:",
+      "password": "كلمة المرور",
+      "password_confirmation": "تأكيد كلمة المرور",
+      "submit": "إعادة ضبط"
+    },
+    "addresses": {
+      "title": "عناويني",
+      "empty": "لم يتم حفظ أي عناوين بعد",
+      "edit": "يحرر",
+      "delete": "يمسح",
+      "add_address": "أضف عنوانا جديدا",
+      "edit_address": "تحرير عنوان",
+      "form_subtitle": "يرجى ملء المعلومات أدناه:",
+      "default_address_label": "العنوان الافتراضي",
+      "address_label": "العنوان {{position}}",
+      "first_name": "الاسم الأول",
+      "last_name": "اسم العائلة",
+      "company": "شركة",
+      "address1": "العنوان 1",
+      "address2": "العنوان 2",
+      "city": "مدينة",
+      "country": "دولة",
+      "province": "مقاطعة",
+      "zip": "الرمز البريدي",
+      "phone": "هاتف",
+      "set_default": "تعيين كعنوان افتراضي"
+    },
+    "register": {
+      "title": "يسجل",
+      "description": "يرجى ملء المعلومات أدناه:",
+      "first_name": "الاسم الأول",
+      "last_name": "اسم العائلة",
+      "email": "بريد إلكتروني",
+      "password": "كلمة المرور",
+      "submit": "إنشيء حسابي"
     }
   }
 }
