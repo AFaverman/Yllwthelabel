@@ -1,0 +1,174 @@
+{
+  "sections": {
+    "wonderment-featured-collection": {
+      "sold_out": "Uitverkocht",
+      "sale": "Verkoop"
+    }
+  },
+  "general": {
+    "meta": {
+      "tags": "Getagd \" {{ tags }} \"",
+      "page": "Pagina {{ page }}"
+    },
+    "accessibility": {
+      "scroll_to_content": "Scroll naar inhoud",
+      "previous": "Vorig",
+      "next": "Volgende"
+    },
+    "announcement_bar": {
+      "close": "Dichtbij"
+    },
+    "popup": {
+      "close": "Dichtbij",
+      "email_placeholder": "Voer uw e-mailadres in",
+      "submit": "Abonneren",
+      "success": "U bent geabonneerd op onze nieuwsbrief."
+    },
+    "password": {
+      "enter_password": "Voer wachtwoord in",
+      "password_input": "Je wachtwoord",
+      "password_submit": "Binnenkomen",
+      "newsletter_input": "jouw e-mailadres",
+      "newsletter_submit": "Breng mij op de hoogte",
+      "newsletter_success": "Bedankt voor het aanmelden!",
+      "powered_by_html": "Deze winkel wordt mogelijk gemaakt door {{shopify_link}}",
+      "login_title": "Bent u de winkeleigenaar?",
+      "login_link": "Hier inloggen"
+    },
+    "pagination": {
+      "previous_page": "Vorige bladzijde",
+      "next_page": "Volgende bladzijde",
+      "go_to_page": "Navigeer naar pagina {{page}}"
+    }
+  },
+  "header": {
+    "general": {
+      "locale": "Taal",
+      "currency": "Munteenheid"
+    },
+    "navigation": {
+      "title": "Hoofdnavigatie",
+      "sidebar_title": "Zijbalknavigatie",
+      "open_sidebar": "Navigatie openen",
+      "close_sidebar": "Navigatie sluiten",
+      "account": "Rekening",
+      "search": "Zoekopdracht",
+      "cart": "Winkelwagen",
+      "open_cart": "Winkelwagen openen",
+      "close_cart": "Sluit winkelwagen",
+      "skip_to_content": "Doorgaan naar artikel",
+      "currency_selector": "Valutakiezer"
+    }
+  },
+  "footer": {
+    "general": {
+      "locale": "Taal",
+      "currency": "Munteenheid"
+    },
+    "newsletter": {
+      "success": "U bent geabonneerd op onze nieuwsbrief.",
+      "input": "Vul je e-mailadres in",
+      "submit": "Abonneren"
+    }
+  },
+  "search": {
+    "general": {
+      "title": "Zoekopdracht",
+      "content": "Voer een woord in om onze producten te zoeken:",
+      "input_placeholder": "Zoekopdracht...",
+      "view_all": "Bekijk alles",
+      "no_results": "Er konden geen resultaten gevonden worden",
+      "no_results_with_terms": "Er zijn geen resultaten gevonden voor {{terms}}",
+      "pages": "Pagina's",
+      "articles": "logboek",
+      "pages_and_articles": "Pagina's en dagboek",
+      "results_count": {
+        "zero": "Producten",
+        "one": "1 resultaat",
+        "other": "{{count}} resultaten"
+      },
+      "results_with_terms_count": {
+        "zero": "0 resultaten voor \" {{terms}} \"",
+        "one": "1 resultaat voor \" {{terms}} \"",
+        "other": "{{count}} resultaten voor \" {{terms}} \""
+      }
+    }
+  },
+  "404": {
+    "general": {
+      "content": "De pagina die u zoekt, kan niet worden gevonden.",
+      "button": "terug naar de startpagina"
+    }
+  },
+  "home_page": {
+    "onboarding": {
+      "vendor_title": "Naam van het merk",
+      "product_title": "Naam van het product",
+      "product_description": "Een productbeschrijving kan worden gebruikt om de kenmerken en voordelen van uw product onder de aandacht te brengen. U kunt de e-commerceblog van Shopify raadplegen voor inspiratie en advies om uw producten op de juiste manier op de markt te brengen.",
+      "collection_title": "Naam van de collectie",
+      "article_name": "Naam van bericht",
+      "article_category": "Categorie",
+      "article_excerpt": "Je winkel heeft nog geen blogposts gepubliceerd. Een blog kan worden gebruikt om te praten over nieuwe productlanceringen, tips of ander nieuws dat u met uw klanten wilt delen. U kunt Shopify's e-commerce blog bekijken voor inspiratie en advies voor uw eigen winkel en blog."
+    },
+    "featured_product": {
+      "view_product": "Bekijk productdetails"
+    },
+    "shop_the_look": {
+      "view_product": "Bekijk dit product",
+      "view_products": "Bekijk de producten",
+      "popover_title": "Shop de look"
+    },
+    "featured_video": {
+      "play": "Video afspelen"
+    },
+    "newsletter": {
+      "input": "Voer uw e-mailadres in",
+      "submit": "Abonneren",
+      "success": "U bent geabonneerd op onze nieuwsbrief."
+    }
+  },
+  "collection_list": {
+    "general": {
+      "title": "Alle collecties",
+      "empty_title": "Geen collecties",
+      "empty_button": "terug naar de startpagina"
+    }
+  },
+  "collection": {
+    "general": {
+      "all_products": "Alle producten",
+      "no_products": "Geen producten",
+      "empty": "Collectie {{collection_title}} is leeg",
+      "empty_button": "terug naar de startpagina",
+      "reset": "Filters opnieuw instellen",
+      "view_products": "Bekijk de producten"
+    },
+    "filter": {
+      "show_filter": "Filters weergeven",
+      "reset": "Opnieuw instellen",
+      "apply": "Toepassen"
+    },
+    "sorting": {
+      "title": "Soort",
+      "show_sort": "Toon sorteer op"
+    },
+    "layout": {
+      "show_one_per_row": "Toon één product per rij",
+      "show_two_per_row": "Toon twee producten per rij",
+      "show_four_per_row": "Toon vier producten per rij"
+    },
+    "product": {
+      "from_price_html": "Vanaf {{min_price}}",
+      "view_product": "Bekijk product"
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Mijn rekening",
+      "welcome": "Welkom terug, {{first_name}} !",
+      "logout": "Uitloggen",
+      "back_to_account": "Terug naar rekening",
+      "no_orders_title": "Mijn bestellingen"
+    }
+  }
+}
