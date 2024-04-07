@@ -234,7 +234,13 @@
         "pincode_label": "رمز التعريف الشخصي",
         "pincode_placeholder": "رمز التعريف الشخصي",
         "civic_number_warning": "أضف رقم المنزل إذا كان لديك واحد",
-        "optional_last_name_label": "الاسم الأخير (اختياري)"
+        "optional_last_name_label": "الاسم الأخير (اختياري)",
+        "optional_recipient_label": "تنبيه (اختياري)",
+        "different_shipping_address_label": "الشحن إلى عنوان مختلف",
+        "different_shipping_address_text": "استخدم عنوانًا لمرة واحدة لهذا الطلب",
+        "change_company_location_link_label": "تغيير موقع الشركة",
+        "change_location_link_label": "تغيير الموقع",
+        "ship_to_company": "الشحن إلى {{companyName}}"
       },
       "payment": {
         "billing_address_invalid_phone_no_card": "قم بتحديث رقم الهاتف في عنوان إرسال الفواتير الخاص بك للمتابعة.",
@@ -1180,7 +1186,22 @@
             "other": "%{count} من العناصر"
           }
         },
-        "alternative_payment_currency_total": "تم تحصيلها كـ %{amount_due}"
+        "alternative_payment_currency_total": "تم تحصيلها كـ %{amount_due}",
+        "title": "ملخص الطلب",
+        "group_title_label": "جزء من \"%{group_title}\"",
+        "order_name_label": "الطلب %{name}",
+        "shopping_cart_label": "عربة التسوق",
+        "discount_title": "تخفيض",
+        "discount_title_stacking": {
+          "one": "تخفيض",
+          "other": "خصومات"
+        },
+        "discount_order_stacking": {
+          "one": "اطلب تخفيض",
+          "other": "تخفيضات النظام"
+        },
+        "discount_label": "الرقم التسلسلي للخصم",
+        "discount_not_found": "تعذر العثور على خصم صالح مطابق للكود الذي تم إدخاله"
       },
       "shop_policies": {
         "refund_policy": "سياسة الاسترجاع",
@@ -1555,6 +1576,129 @@
         "your_order_has_been_received_title": "شكرا لطلبك",
         "you_will_receive_confirmation": "نحن نتلقى الكثير من الطلبات في الوقت الحالي. من المفترض أن تتلقى تأكيدًا عبر البريد الإلكتروني أو الرسالة النصية قريبًا. إذا لم تستلمها خلال الساعة التالية، فأخبرنا بذلك.",
         "you_will_not_be_charged": "لن يتم تحصيل الرسوم منك بعد"
+      },
+      "delivery_options": {
+        "free_total_label": "حر",
+        "ship": "سفينة",
+        "ship_to_address": "السفينة إلى عنوان",
+        "shipping_address": "عنوان الشحن",
+        "pick_up": "يلتقط",
+        "pick_up_from_store": "التقط من المتجر",
+        "pick_up_locations": "مواقع الالتقاط",
+        "pick_up_in_one_hour": "عادة ما تكون جاهزة خلال ساعة واحدة",
+        "pick_up_in_two_hours": "عادة ما تكون جاهزة خلال ساعتين",
+        "pick_up_in_four_hours": "عادة ما تكون جاهزة خلال 4 ساعات",
+        "pick_up_in_twenty_four_hours": "عادة ما تكون جاهزة خلال 24 ساعة",
+        "pick_up_in_two_to_four_days": "عادة ما تكون جاهزة خلال 2-4 أيام",
+        "pick_up_in_five_or_more_days": "عادة ما تكون جاهزة خلال 5+ أيام",
+        "pick_up_in_zero_to_two_hours": "جاهز للإستلام خلال ساعتين",
+        "pick_up_in_two_to_four_hours": "جاهز للاستلام خلال 4 ساعات",
+        "pick_up_immediately": "جاهز للاستلام الآن",
+        "pick_up_next_day": "جاهز للاستلام في اليوم التالي",
+        "pickup_point_method_definition": "السفينة إلى نقطة الالتقاط",
+        "retail_method_definition": "شحن التجزئة",
+        "none_method_definition": "لا الشحن",
+        "subscription_pickup_information": "سيتم تطبيق طريقة التسليم هذه على جميع العناصر الموجودة في هذا الطلب وعلى جميع الطلبات المستقبلية لهذا الاشتراك."
+      },
+      "customer_account": {
+        "not_user_label": "ليس %{first_name}؟",
+        "have_an_account_label": "هل لديك حساب؟",
+        "sign_in_link_label": "تسجيل الدخول",
+        "sign_out_link_label": "تسجيل خروج",
+        "save_my_information_label": "احفظ هذه المعلومات للمرة القادمة",
+        "invalid_address": "العنوان المحدد غير صالح. %{update_address_link} أو حدد عنوانًا مختلفًا.",
+        "incomplete_address": "العنوان المحدد غير مكتمل. %{update_address_link} أو حدد عنوانًا مختلفًا.",
+        "rollup_label": "حساب",
+        "invalid_shipping_method_summary": "حدد عنوان شحن صالحًا لعرض طرق الشحن المتاحة"
+      },
+      "stock": {
+        "page_title": "قضايا المخزون",
+        "title": "إنتهى من المخزن",
+        "items_unavailable_notice": "بعض العناصر لم تعد متوفرة.",
+        "product_column_header": "منتجات",
+        "quantity_column_header": "كمية",
+        "price_column_header": "سعر",
+        "status_column_header": "حالة",
+        "removed_from_cart_notice": "تمت إزالتها من سلة التسوق",
+        "sold_out_label": "نفذ",
+        "reduced_label": "مخفض",
+        "reduced_with_quantity_label": "لم يتبق سوى %{quantity_available}.",
+        "remove_from_cart_button_label": "إزالة من العربة",
+        "continue_shopping_button_label": "يكمل",
+        "go_back_to_cart_button_label": "العودة إلى عربة التسوق الخاصة بي",
+        "remove": "يزيل",
+        "return_to_store_label": "العودة إلى المتجر",
+        "continue_cta_label": "متابعة الخروج",
+        "item_label": {
+          "one": "{{count}} عنصر",
+          "other": "{{count}} عنصر"
+        },
+        "empty_cart_label": "عربة التسوق فارغة",
+        "quantity_update": {
+          "page_title": "تحديث الكمية",
+          "title": "تحديث الكمية",
+          "description": "لقد تغيرت الكميات المتاحة لهذه العناصر وتم تحديثها في سلة التسوق الخاصة بك."
+        },
+        "unpurchasable_product": {
+          "title": "منتج غير قابل للشراء",
+          "header": "تمت إزالة بعض العناصر من سلة التسوق الخاصة بك",
+          "message": "هذه العناصر غير متوفرة لطلبات B2B.",
+          "status_column_header": "غير متاح"
+        },
+        "unpurchasable_product_generic": {
+          "title": "منتج غير قابل للشراء",
+          "header": "تمت إزالة بعض العناصر من سلة التسوق الخاصة بك",
+          "message": "هذه العناصر غير متوفرة.",
+          "status_column_header": "غير متاح"
+        },
+        "unshippable_product": {
+          "title": "لا يوجد توصيل متاح",
+          "header": {
+            "one": "لا يوجد تسليم متاح لـ %{count} عنصر",
+            "other": "لا يوجد تسليم متاح لـ %{count} من العناصر"
+          },
+          "message": {
+            "one": "ستتم إزالة هذا العنصر من سلة التسوق الخاصة بك لأنه لا توجد طرق تسليم متاحة لعنوانك.",
+            "other": "ستتم إزالة هذه العناصر من سلة التسوق الخاصة بك لأنه لا توجد طرق تسليم متاحة لعنوانك."
+          },
+          "status_column_header": "لا توصيل"
+        },
+        "price_update": {
+          "title": "تحديث الأسعار",
+          "description": "لقد تغيرت أسعار هذه العناصر وتم تحديثها في سلة التسوق الخاصة بك."
+        },
+        "out_of_stock": {
+          "description": "لم تعد هذه العناصر متوفرة وتمت إزالتها من سلة التسوق الخاصة بك.",
+          "items_unavailable": "بعض العناصر لم تعد متوفرة وتمت إزالتها من سلة التسوق الخاصة بك."
+        }
+      },
+      "contextual_availability": {
+        "title": {
+          "one": "منتج غير متوفر",
+          "other": "منتجات غير متوفرة"
+        },
+        "products_not_available": {
+          "one": "ستتم إزالة هذا المنتج من سلة التسوق الخاصة بك لأنه غير متوفر في بلدك\/منطقتك.",
+          "other": "ستتم إزالة هذه المنتجات من سلة التسوق الخاصة بك لأنها غير متوفرة في بلدك\/منطقتك."
+        },
+        "all_products_in_cart_unavailable": {
+          "one": "هذا المنتج غير متوفر في بلدك\/منطقتك.",
+          "other": "هذه المنتجات غير متوفرة في بلدك\/منطقتك."
+        },
+        "unavailable_label": "غير متوفره"
+      },
+      "deliverability": {
+        "not_deliverable": {
+          "title": {
+            "one": "لا يوجد تسليم متاح لـ %{count} عنصر",
+            "other": "لا يوجد تسليم متاح لـ %{count} من العناصر"
+          },
+          "message": {
+            "one": "ستتم إزالة هذا العنصر من سلة التسوق الخاصة بك لأنه لا توجد طرق تسليم متاحة لعنوانك.",
+            "other": "ستتم إزالة هذه العناصر من سلة التسوق الخاصة بك لأنه لا توجد طرق تسليم متاحة لعنوانك."
+          },
+          "label": "لا توصيل"
+        }
       }
     },
     "notices": {
