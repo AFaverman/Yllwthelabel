@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "current": {
     "heading_color": "#5c5c5c",
@@ -864,17 +873,80 @@
           "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
         }
       },
-      "15216558432548357557": {
-        "type": "shopify:\/\/apps\/deco-product-labels-badges\/blocks\/deco-pl\/fd2caeda-48fd-4076-b5f9-8dfada7253f1",
+      "4372474792694305445": {
+        "type": "shopify:\/\/apps\/also-bought\/blocks\/app-embed-block\/b94b27b4-738d-4d92-9e60-43c22d1da3f2",
         "disabled": false,
         "settings": {
         }
       },
-      "733389323033596483": {
-        "type": "shopify:\/\/apps\/okendo\/blocks\/theme-settings\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
-        "disabled": true,
+      "6263565299450869220": {
+        "type": "shopify:\/\/apps\/loop-returns-exchanges\/blocks\/return-coverage\/e32ccd84-40d6-4b16-98bf-b6b9da010afd",
+        "disabled": false,
         "settings": {
-          "show_preview_data": true
+          "full-cart-selector": "",
+          "full-cart-item-selector": "",
+          "enable-cart-drawer-element": false,
+          "cart-drawer-selector": "",
+          "cart-drawer-item-selector": "",
+          "return-coverage-primary-color": "#ffffff",
+          "return-coverage-secondary-color": "#000000"
+        }
+      },
+      "5888675206956468567": {
+        "type": "shopify:\/\/apps\/loop-returns-exchanges\/blocks\/onstore\/e32ccd84-40d6-4b16-98bf-b6b9da010afd",
+        "disabled": false,
+        "settings": {
+          "show-onstore-bar": false,
+          "api-key": "test-key",
+          "checkout-selector": "#checkout",
+          "replace-checkout-button": false,
+          "script-discounts": false,
+          "preserve-cart": false,
+          "available-credit-bar-label": "in available credit",
+          "bar-value-font-size": "15",
+          "bar-label-font-size": "10",
+          "bar-button-font-size": "10",
+          "bottom-bar-alignment": "full",
+          "bar-color": "rgb(0,0,0)",
+          "bar-text-color": "rgb(255,255,255)",
+          "bump-side-cart": false,
+          "side-cart-selector": ".sidecart"
+        }
+      },
+      "17676059084223943535": {
+        "type": "shopify:\/\/apps\/triplewhale\/blocks\/triple_pixel_snippet\/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "10864971697205422121": {
+        "type": "shopify:\/\/apps\/gorgias-live-chat-helpdesk\/blocks\/gorgias\/a66db725-7b96-4e3f-916e-6c8e6f87aaaa",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "17185901837387986907": {
+        "type": "shopify:\/\/apps\/navidium-shipping-protection\/blocks\/widget_app_embed\/f134d7db-6260-495c-9b27-9c4372bc2cf3",
+        "disabled": false,
+        "settings": {
+          "enablejQuery": false,
+          "scriptType": "javascript",
+          "iosDeviceListener": "touchstart",
+          "auto_install": true,
+          "manual_install": false,
+          "nvdContainer1": "REQUIRED",
+          "nvdContainer2": "OPTIONAL",
+          "nvdContainer3": "OPTIONAL",
+          "waitForParent": 1000,
+          "widgetPosition": "afterbegin",
+          "currencyFormatType": "symbol",
+          "currencyPosition": "begin",
+          "nvdCurrency": "{{ shop.money_format | strip_html }}",
+          "product_handle": "navidium-shipping-protection",
+          "subtotal_element": "navidium",
+          "cart_bubble_count": "navidium",
+          "checkoutBtns": "[name='checkout'], [name='checkout'] *",
+          "customCSS": ""
         }
       }
     }
