@@ -719,7 +719,6 @@
             "type": "image",
             "settings": {
               "image": "shopify://shop_images/IMG_6970.jpg",
-              "mobile_image": "shopify://shop_images/1ddc88640c037c3976cb9b7376fdbf4a_1.jpg",
               "apply_overlay": false,
               "content_position": "bottomLeft",
               "subheading": "",
