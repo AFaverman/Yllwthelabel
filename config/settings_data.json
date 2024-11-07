@@ -780,7 +780,7 @@
       "cart-template": {
         "type": "cart-template",
         "settings": {
-          "show_shipping_estimator": true,
+          "show_shipping_estimator": false,
           "shipping_estimator_default_country": "United States"
         }
       },
