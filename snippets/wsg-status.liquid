@@ -29,7 +29,7 @@ Do not remove the file entirely from the theme, just delete the text and save.
 		{%- endfor -%}
 		{%- unless wsgExclude == true -%}
 			{%- if wsgStatusAction != "ajax-search" -%}
-				{%- include "wsg-col-json" | strip -%}
+				{%- include "wsg-col-json" -%}
 			{%- endif -%}
 		{%- endunless -%}
 	{%- else -%}  
@@ -48,4 +48,13 @@ In test mode force behavior to emulate wholesale customer.
 {%- if wsgTestMode -%}
   {%- assign wsgExclude = false -%}
 	{%- assign wsgActiveCustomer = true -%}
-{%- endif -%}
+{%- endif -%}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{%- include "wsg-col-json" | strip -%}'
+  to: '{%- include "wsg-col-json" -%}'
+  position: 1343..1373
+{%- endcomment -%}
